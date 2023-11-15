@@ -1,6 +1,8 @@
 import './App.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Create from './pages/Create';
+import NotFound from './pages/NotFound';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -10,6 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="*" element={<NotFound />}/>
         </Routes>
       </div>
     </Router>
