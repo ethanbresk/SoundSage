@@ -25,14 +25,6 @@ const TopBar = () => {;
             Profile 
             </Button>
         </Link>
-        <Link to='/create' title='Link to New Blog Page'>
-          <Button
-            style ={{backgroundColor: SiteTheme.palette.dark.four}}
-            variant="contained"
-            size = "medium"> 
-            +
-          </Button>
-        </Link>
       </div>
     </nav>
     </Toolbar>
