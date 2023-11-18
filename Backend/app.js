@@ -1,11 +1,11 @@
-// Require env variables
+// Include env variables
 require("dotenv").config(); 
 
 // Express setup
 const express = require('express');
 const app = express();
 
-// Mongoose setup
+// MongoDB setup
 const mongoose = require("mongoose");
 mongoose.connect(
     process.env.MONGODB_URI, 
