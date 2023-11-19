@@ -25,7 +25,6 @@ const Home = () => {
       <Link to='/create' title='Link to New Blog Page'>
         <Button
           style ={{
-            backgroundColor: lightTheme.palette.primary.light,
             borderRadius: '50%',
             width: '60px',
             height: '60px',
