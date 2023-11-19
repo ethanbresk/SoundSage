@@ -1,30 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button,AppBar,Toolbar } from "@mui/material";
-import SiteTheme from './Palette';
+import { Button, AppBar,Toolbar} from "@mui/material";
+import './styles.css';
 
-const TopBar = () => {;
+const TopBar = () => {
   return (
-    <AppBar position="static" style={{backgroundColor:SiteTheme.palette.dark.one}}>
+    <AppBar position="static">
     <Toolbar variant="dense">
     <nav className='navigation'>
+      <div>SoundSage</div>
       <div className='navigation_links'>
+        <tempright>
         <Link to='/' title='Link to Home Page'>
-        <Button
-            style ={{backgroundColor: SiteTheme.palette.dark.four}}
+          <Button
             variant="contained"
-            size = "medium"> 
+            size = "medium"
+            style= {{ backgroundColor: "tertiary" }}> 
             Home
-            </Button>
+          </Button>
         </Link>
         <Link to='/profile' title='Link to Profile Page'>
             <Button
-            style ={{backgroundColor: SiteTheme.palette.dark.four}}
             variant="contained"
             size = "medium"> 
             Profile 
             </Button>
         </Link>
+        <Button
+            variant="contained"
+            size = "medium"> 
+            NavBar 
+        </Button>
+        </tempright>
       </div>
     </nav>
     </Toolbar>

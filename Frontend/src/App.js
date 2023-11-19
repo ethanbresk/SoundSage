@@ -4,13 +4,16 @@ import Profile from './pages/Profile';
 import Create from './pages/Create';
 import TopBar from './components/TopBar';
 import NotFound from './pages/NotFound';
-import { Button,AppBar,Toolbar } from "@mui/material";
+import { Button, ThemeProvider, createTheme } from "@mui/material";
+import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './components/ThemeSwitch';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {useState} from 'react';
 
 function App() {
   return (
     <Router>
-      <div className='App'>
+      <ThemeSwitch 
+      component = {<div className='App'>
         <TopBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -19,6 +22,7 @@ function App() {
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </div>
+      }></ThemeSwitch>
       <div>
         <Button>
           click me to switch theme!
