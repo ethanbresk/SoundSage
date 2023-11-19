@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, TextField, ThemeProvider, useTheme } from "@mui/material";
-import { useThemeContext, currTheme, darkTheme, lightTheme} from "../components/ThemeSwitch";
+import { useThemeContext, currTheme, darkTheme, lightTheme} from "../components/themeswitch";
 import '../components/styles.css';
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
     <div>
       <Button
       onClick={switchTheme}>
-        Switches Theme
+        Change Theme
       </Button>
     </div>
     <nav>
