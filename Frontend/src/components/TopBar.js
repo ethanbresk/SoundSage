@@ -26,11 +26,13 @@ const TopBar = () => {
             Profile 
             </Button>
         </Link>
-        <Button
-            variant="contained"
-            size = "medium"> 
-            NavBar 
-        </Button>
+        <Link to='/login' title='Log into Account'>
+          <Button
+              variant="contained"
+              size = "medium"> 
+              Login
+          </Button>
+        </Link>
         </tempright>
       </div>
     </nav>

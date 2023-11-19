@@ -2,6 +2,7 @@ import './App.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Create from './pages/Create';
+import Login from './pages/Login';
 import TopBar from './components/TopBar';
 import NotFound from './pages/NotFound';
 import { Button, ThemeProvider, createTheme } from "@mui/material";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/create" element={<Create />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </div>
