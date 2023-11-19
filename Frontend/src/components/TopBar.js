@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, AppBar,Toolbar} from "@mui/material";
 import './styles.css';
+import soundsage from '../assets/soundsage-logo-solid.svg';
 
 const TopBar = () => {
   return (
     <AppBar position="static">
     <Toolbar variant="dense">
     <nav className='navigation'>
-      <div>SoundSage</div>
+      <p>
+        <img src={soundsage} className='logo' />
+      </p>
       <div className='navigation_links'>
         <tempright>
         <Link to='/' title='Link to Home Page'>
