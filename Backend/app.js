@@ -5,6 +5,11 @@ require("dotenv").config();
 const express = require('express');
 const app = express();
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
+
 // Setup:
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -36,8 +41,11 @@ run().catch(console.dir);
 
 // Default request
 app.get('/', (req, res) => { 
-    res.send('SoundSage base page') 
-    res.end() 
+    res.json("Hello World!");
+}) 
+
+app.get('/blogs', (req, res) => {
+    res.json({ data: "hello", isPending: false, error: null });
 }) 
  
 // Port assignment

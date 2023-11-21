@@ -7,7 +7,7 @@ MERN Stack music-inspired blogsite.
 3. Run `npm install` to acquire all of the node module dependencies that were not copied over due to its listing in our `.gitignore` document.
 4. Run `npm start` (and append `-- --port [PORTNUMBER]` to specify a PORTNUMBER if desired).
 5. Open another terminal window.
-6. In the second terminal window, run `npm run server`. Now, you should see all blogposts on the homepage.
+6. In the second terminal window, run `cd ./Backend` and `npm start`. Now, you should see all blogposts on the homepage.
 
 Note: Instructions for setting up backend listener will be added once database retrieval functionality is linked to frontend.
 
