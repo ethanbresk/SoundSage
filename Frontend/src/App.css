@@ -1,11 +1,1 @@
-.logo {
-    width: 3.5rem;
-    height: auto;
-}
-
-.home {
-    padding: 1rem;
-    .home_header {
-        text-align: center;
-    }
-}
+/* Joined all App.css content to index.css */

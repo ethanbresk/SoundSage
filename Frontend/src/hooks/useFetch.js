@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+/* useFetch implementation. This code was written following
+   a template guide by NetNinja on YouTube. */
+
 const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
@@ -8,12 +11,12 @@ const useFetch = (url) => {
     useEffect(() => {
         const abortCont = new AbortController();
 
-        {/*setTimeout(() => {*/}
+        { /*setTimeout(() => {*/ }
 
-            fetch(url, { signal: abortCont.signal })
+        fetch(url, { signal: abortCont.signal })
             .then(res => {
-                if(!res.ok) {
-                    throw Error('Error 404: Broken Link!');
+                if (!res.ok) {
+                    throw Error('Error 404: Broken Link');
                 }
                 return res.json();
             })
@@ -31,7 +34,7 @@ const useFetch = (url) => {
                 }
             })
 
-        {/*}, 10);*/} /* this is used to force wait time */
+        { /*}, 10);*/ } /* this is used to force wait time */
 
         return () => abortCont.abort();
     }, [url]);

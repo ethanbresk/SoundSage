@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, TextField, ThemeProvider, useTheme } from "@mui/material";
-import { useThemeContext, currTheme, darkTheme, lightTheme} from "../components/themeswitch";
+import { useThemeContext, currTheme, darkTheme, lightTheme } from "../components/themeswitch";
 import '../components/styles.css';
 import useFetch from '../hooks/useFetch';
 import BlogCollection from '../components/BlogCollection';
+
+/* Home page (landing page) implementation. The 'blog-home' component of this
+   code were influenced by template guides from a tutorial by NetNinja. */
 
 const Home = () => {
   const { data: blogs, isPending, error } = useFetch('http://localhost:8080/blogs', {
@@ -14,36 +17,35 @@ const Home = () => {
 
   return (
     <main className='home'>
-      <h1 className='home_header'>SoundSage</h1>
-      <TextField 
-      id="outlined-basic"
-      label="Enter Text Here"
-      variant="outlined"
+      <h1 className='page_header'>SoundSage</h1>
+      <TextField
+        id="outlined-basic"
+        label="Enter Text Here"
+        variant="outlined"
       />
       <div>
         <Button
-        onClick={switchTheme}>
+          onClick={switchTheme}>
           Change Theme
         </Button>
       </div>
       <div className="blog_home">
-            { error && <div>{ error }</div>}
-            { isPending && <div>Loading...</div> }
-            { blogs && <BlogCollection blogs={blogs.blogs} title="All Blogs:" />
-            }
-        </div>
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>}
+        {blogs && <BlogCollection blogs={blogs.blogs} title="All Blogs:" />}
+      </div>
       <nav>
         <createbutton>
           <Link to='/create' title='Link to New Blog Page'>
             <Button
-              style ={{
+              style={{
                 borderRadius: '50%',
                 width: '60px',
                 height: '60px',
                 fontSize: '20px',
               }}
               variant="contained"
-              size = "medium"> 
+              size="medium">
               +
             </Button>
           </Link>
