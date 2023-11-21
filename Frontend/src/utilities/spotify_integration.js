@@ -53,6 +53,7 @@ if (code) {
 // If we have a token, we're logged in, so fetch user data and render logged in template
 if (currentToken.access_token) {
     const userData = await getUserData();
+    console.log(userData);
     // renderTemplate("main", "logged-in-template", userData);
     // renderTemplate("oauth", "oauth-template", currentToken);
 }
@@ -134,7 +135,6 @@ async function getUserData() {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
     });
-
     return await response.json();
 }
 
@@ -186,4 +186,4 @@ function renderTemplate(targetId, templateId, data = null) {
     target.appendChild(clone);
 }
 
-export { loginWithSpotifyClick, logoutClick, refreshTokenClick}
+export { loginWithSpotifyClick, logoutClick, refreshTokenClick, getUserData }
