@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 }) 
 
 app.get('/blogs', (req, res) => {
-    res.json({ data: "hello", isPending: false, error: null });
+    res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan" }], isPending: false, error: null });
 }) 
  
 // Port assignment
