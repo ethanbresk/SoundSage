@@ -5,15 +5,26 @@ require("dotenv").config();
 const express = require('express');
 const app = express();
 
-// MongoDB setup
-const mongoose = require("mongoose");
-mongoose.connect(
-    process.env.MONGODB_URI, 
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-);
+// Setup:
+const mongoose = require('mongoose');
+const connectDB = async () => {
+    mongoose.set('strictQuery', false);
+    await mongoose
+        .connect([process.env.MONGODB_URI],
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+            })
+        .then(() => console.log("Connected to DB"))
+        .catch(console.error);
+}
+connectDB().then(() => {
+    // Database connection established, continue setting up the app
+    // ... Define your routers and endpoints here
+    app.listen(8080, () => {
+        console.log('Server listening on port 8080');
+    });
+});
  
 // Default request
 app.get('/', (req, res) => { 
