@@ -21,8 +21,8 @@ const connectDB = async () => {
 connectDB().then(() => {
     // Database connection established, continue setting up the app
     // ... Define your routers and endpoints here
-    app.listen(8080, () => {
-        console.log('Server listening on port 8080');
+    app.listen(process.env.PORT, () => {
+        console.log(`Server listening on port ${process.env.PORT}`);
     });
 });
  
