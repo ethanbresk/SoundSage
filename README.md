@@ -7,7 +7,7 @@ MERN Stack music-inspired blogsite.
 3. Run `npm install` to acquire all of the node module dependencies that were not copied over due to its listing in our `.gitignore` document.
 4. Run `npm start` (and append `-- --port [PORTNUMBER]` to specify a PORTNUMBER if desired).
 5. Open another terminal window.
-6. In the second terminal window, run `cd ../Backend`, `npm install`, and `npm start`. Now, you should see all blogposts on the homepage.
+6. In the second terminal window, enter the `./SoundSage/Backend` subdirectory, `npm install`, and `npm start`. Now, you should see all blogposts on the homepage.
 7. Login using your Spotify (may require whitelisting), check out the music blogs, and create and post your own. Enjoy!
 
 &copy; SoundSage 2023.
