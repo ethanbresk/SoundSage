@@ -36,6 +36,13 @@ const TopBar = () => {
                   Login
                 </Button>
               </Link>
+              <Link to='/settings' title='Link to Settings'>
+                <Button
+                  variant="contained"
+                  size="medium">
+                  Settings
+                </Button>
+              </Link>
             </tempright>
           </div>
         </nav>

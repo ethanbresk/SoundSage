@@ -13,7 +13,6 @@ const Home = () => {
   const { data: blogs, isPending, error } = useFetch('http://localhost:8080/blogs', {
     mode: 'no-cors',
   });
-  const { switchTheme } = useThemeContext();
 
   return (
     <main className='home'>
@@ -23,12 +22,6 @@ const Home = () => {
         label="Enter Text Here"
         variant="outlined"
       />
-      <div>
-        <Button
-          onClick={switchTheme}>
-          Change Theme
-        </Button>
-      </div>
       <div className="blog_home">
         {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>}

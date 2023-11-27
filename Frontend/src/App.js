@@ -4,6 +4,7 @@ import Profile from './pages/Profile';
 import Create from './pages/Create';
 import Login from './pages/Login';
 import BlogPage from './pages/BlogPage';
+import Settings from './pages/Settings';
 import TopBar from './components/TopBar';
 import NotFound from './pages/NotFound';
 import { Button, ThemeProvider, createTheme } from "@mui/material";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/login" element={<Login />} />
           <Route path="/blogs/:id" element={<BlogPage />} />
+          <Route path="/settings" element = {<Settings />} />
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </div>
