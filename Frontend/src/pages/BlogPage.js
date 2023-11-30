@@ -1,10 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { useState } from "react";
+import { useTheme } from '@mui/system';
+import { Box } from '@mui/material';
 
 const BlogPage = () => {
     const { id } = useParams();
     const { data: blog, error, isPending } = useFetch('http://localhost:8080/blogs/' + id);
     const navigate = useNavigate();
+    const theme = useTheme()
 
     const handleClick = () => {
         fetch('http://localhost:8080/blogs/' + blog.id, {
@@ -16,6 +20,13 @@ const BlogPage = () => {
 
     return (
         <div className="blog-details">
+            <Box
+                position = "fixed"
+                bottom = {0}
+                width = "100%"
+                style = {{ backgroundColor: theme.palette.accentTwo.main}}
+                p={3}
+            />
             { isPending && <div>Loading...</div> }
             { error && <div>{ error }</div> }
             { blog && (

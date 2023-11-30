@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const BlogCollection = ({ blogs, title }) => {
   console.log(blogs);

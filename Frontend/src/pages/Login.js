@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { loginWithSpotifyClick, logoutClick, refreshTokenClick, getUserData } from '../utilities/spotify_integration.js';
+import { useTheme } from '@mui/system';
+import { Box } from '@mui/material';
 
 const Login = () => {
   const [data, setData] = useState(null);
+  const theme = useTheme()
   useEffect(() => {
     getUserData()
       .then(data => {
@@ -16,6 +19,13 @@ const Login = () => {
   }, []);
   return (
     <div className='login'>
+      <Box
+        position = "fixed"
+        bottom = {0}
+        width = "100%"
+        style = {{ backgroundColor: theme.palette.accentTwo.main}}
+        p={3}
+      />
       <h1 className='page_header'>Login</h1>
 
       {data && <h1>Hello, {data.display_name}</h1>}

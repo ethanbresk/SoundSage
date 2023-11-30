@@ -1,7 +1,8 @@
 import React, { /*useState*/ } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, TextField, /*ThemeProvider, useTheme*/ } from "@mui/material";
+import { Box, Button, TextField, /*ThemeProvider, useTheme*/ } from "@mui/material";
 import { useThemeContext, /*currTheme, darkTheme, lightTheme*/ } from "../components/themeswitch";
+import { useTheme } from '@mui/system';
 import '../components/styles.css';
 import useFetch from '../hooks/useFetch';
 import BlogCollection from '../components/BlogCollection';
@@ -13,6 +14,8 @@ const Home = () => {
   const { data: blogs, isPending, error } = useFetch('http://localhost:8080/blogs', {
     mode: 'no-cors',
   });
+
+  const theme = useTheme()
 
   return (
     <main className='home'>
@@ -28,6 +31,13 @@ const Home = () => {
         {blogs && <BlogCollection blogs={blogs.blogs} title="SoundSage Blogs:" />}
       </div>
       <nav>
+        <Box
+          position = "fixed"
+          bottom = {0}
+          width = "100%"
+          style = {{ backgroundColor: theme.palette.accentTwo.main}}
+          p={3}
+        />
         <createbutton>
           <Link to='/create' title='Link to New Blog Page'>
             <Button
@@ -36,6 +46,7 @@ const Home = () => {
                 width: '60px',
                 height: '60px',
                 fontSize: '20px',
+                backgroundColor: theme.palette.accentOne.main,
               }}
               variant="contained"
               size="medium">

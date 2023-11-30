@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '@mui/system';
+import { Box } from '@mui/material';
 
 /* Create page implementation. The Create component of this code
    was influenced by template guides from a tutorial by NetNinja. */
@@ -14,6 +16,7 @@ const Create = () => {
     /* const [comments, setComments] = useState(); */ // NOTE: How would we implement a comment being associated with its blog? Maybe a separate object set, pointers to blogs by id?
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
+    const theme = useTheme()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,6 +38,14 @@ const Create = () => {
 
     return (
         <div className='create'>
+            <Box
+                position = "fixed"
+                bottom = {0}
+                left = {0}
+                width = "100%"
+                style = {{ backgroundColor: theme.palette.accentTwo.main}}
+                p={3}
+            />
             <h1 className='page_header'>Create</h1>
             <form onSubmit={handleSubmit}>
                 <label>Blog title:</label>

@@ -7,12 +7,15 @@ import BlogPage from './pages/BlogPage';
 import Settings from './pages/Settings';
 import TopBar from './components/TopBar';
 import NotFound from './pages/NotFound';
-import { Button, ThemeProvider, createTheme } from "@mui/material";
+import { Box, AppBar, Button, ThemeProvider, createTheme } from "@mui/material";
 import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './components/themeswitch';
+import { NotificationTray } from './components/notificationtray';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {useState} from 'react';
+import { useTheme } from '@mui/system';
 
 function App() {
+
   return (
     <Router>
       <ThemeSwitch 

@@ -24,7 +24,7 @@ export const lightTheme = createTheme({
 export const darkTheme = createTheme({
     palette: {
         primary: {
-            main: '#000000',
+        main: '#000000',
         },
         secondary: {
             main: '#141912',
@@ -36,7 +36,7 @@ export const darkTheme = createTheme({
             main: '#809973'
         },
         accentTwo: {
-            main: '#253D20',
+            main: '#251230',
         }
     },
 });
@@ -54,13 +54,13 @@ export const ThemeSwitch = ({ component }) => {
         setDark(!defaultTheme);
     };
 
-    const currTheme = createTheme(defaultTheme ? darkTheme : lightTheme);
+const currTheme = createTheme(defaultTheme ? darkTheme : lightTheme);
 
-    return (
-        <themeContext.Provider value={{ switchTheme, currTheme }}>
-            <ThemeProvider theme={currTheme}>
-                {component}
-            </ThemeProvider>
-        </themeContext.Provider>
-    );
+return (
+    <themeContext.Provider value={{switchTheme,currTheme}}>
+        <ThemeProvider theme ={currTheme}>
+            {component}
+        </ThemeProvider>
+    </themeContext.Provider>
+);
 };
