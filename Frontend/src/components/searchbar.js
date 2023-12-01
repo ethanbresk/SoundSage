@@ -21,9 +21,15 @@ export const SearchBar = () => {
     return(
         <div>
         <TextField
-            variant="outlined"
+            variant="filled"
             label="Search"
             onChange={handleChange}
+            sx=
+            {{
+                width:600,
+                borderRadius: 50,
+                border: 12,
+            }}
         />
         {searchQuery != "" && searchedNames.length > 0 && (
             searchedNames.map((name, index) => (

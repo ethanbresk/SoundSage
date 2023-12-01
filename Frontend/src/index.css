@@ -3,15 +3,22 @@
   height: auto;
 }
 
-.page_header {
+.page_header, .blog {
   text-align: center;
 }
 
-.bloglist {
-  background-color: #cfe;
+/* NOTE: The create styling below is just for functionality for now. It is modeled after a template by NetNinja's YouTube tutorial, which we can keep if we decide it works best. */
+
+.center {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
 }
 
-/* NOTE: The create styling below is just for functionality for now. It is modeled after a template by NetNinja's YouTube tutorial, which we can keep if we decide it works best. */
+.blog_home {
+  margin:0 auto;
+  text-align: center;
+}
 
 .create {
   max-width: 400px;

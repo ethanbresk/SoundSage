@@ -6,14 +6,13 @@ import soundsage from '../assets/soundsage-logo-solid.svg';
 
 const TopBar = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar variant="dense">
         <nav className='navigation'>
           <p>
             <img src={soundsage} className='logo' />
           </p>
           <div className='navigation_links'>
-            <tempright>
               <Link to='/' title='Link to Home Page'>
                 <Button
                   variant="contained"
@@ -43,7 +42,6 @@ const TopBar = () => {
                   Settings
                 </Button>
               </Link>
-            </tempright>
           </div>
         </nav>
       </Toolbar>
