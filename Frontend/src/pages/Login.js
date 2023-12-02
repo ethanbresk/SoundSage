@@ -3,6 +3,7 @@ import { loginWithSpotifyClick, logoutClick, refreshTokenClick, getUserData } fr
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
 
+
 const Login = () => {
   const [data, setData] = useState(null);
   const theme = useTheme()
@@ -11,6 +12,7 @@ const Login = () => {
       .then(data => {
         if (data.display_name) {
           setData(data);
+          //console.log(data);
         }
         else {
           setData(null);

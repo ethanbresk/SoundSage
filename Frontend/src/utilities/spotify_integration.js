@@ -6,6 +6,8 @@
  * For more information, read
  * https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow
  */
+import axios from 'axios';
+
 
 const clientId = '5461474c928648918ff375fd7d51d2c4'; // your clientId
 const redirectUrl = 'http://localhost:3000';        // your redirect URL - must be localhost URL and/or HTTPS
@@ -53,7 +55,7 @@ if (code) {
 // If we have a token, we're logged in, so fetch user data and render logged in template
 if (currentToken.access_token) {
     const userData = await getUserData();
-    console.log(userData);
+    //console.log(userData);
     // renderTemplate("main", "logged-in-template", userData);
     // renderTemplate("oauth", "oauth-template", currentToken);
 }
@@ -135,7 +137,27 @@ async function getUserData() {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
     });
-    return await response.json();
+    const spotify_data = await response.json();
+    // Login:
+    try {
+        //console.log(spotify_data)
+        const res = await axios.get('http://localhost:8080/userdata/', { params: { data: spotify_data } });
+        // return data
+        console.log(res.data)
+        return res.data;
+    }   
+    catch (error) {
+        console.log(error);
+        if (error.response && error.response.status === 400) {
+            // My error:
+            const errorMessage = error.response.data.error;
+            throw errorMessage;
+        } else {
+            // Network error:
+            const errorMessage = "Network error - please try again later.";
+            throw errorMessage;
+        }
+    }
 }
 
 // Click handlers

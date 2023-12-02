@@ -12,31 +12,25 @@ app.use(cors({
 
 // Setup:
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.MONGODB_URI;
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-});
-
-async function run() {
-    try {
-        // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
-        // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 });
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
-    }
+const mongoose = require('mongoose');
+const connectDB = async () => {
+    mongoose.set('strictQuery', false);
+    await mongoose
+        .connect(process.env.MONGODB_URI,
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+            })
+        .then(() => console.log("Connected to DB"))
+        .catch(console.error);
 }
-run().catch(console.dir);
+connectDB().then(() => {
+    // Database connection established, continue setting up the app
+    // ... Define your routers and endpoints here
+    app.listen(8080, () => {
+        console.log('Server listening on port 8080');
+    });
+});
 
 
 // Default request
@@ -44,12 +38,15 @@ app.get('/', (req, res) => {
     res.json("Hello World!");
 }) 
 
+// get blogs
 app.get('/blogs', (req, res) => {
-    res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }], isPending: false, error: null });
+    res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }, { id: 2, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }], isPending: false, error: null });
 }) 
- 
-// Port assignment
-const PORT = process.env.PORT;
- 
-// Server Setup
-app.listen(PORT,console.log(`Server started on port ${PORT}`));
+
+// get or send user data to/from database
+app.get('/userdata', async (req, res) => {
+    const username = req.query.data.display_name
+
+    //if ()
+    res.json(req.query.data)
+}) 
