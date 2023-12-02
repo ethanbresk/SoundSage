@@ -39,10 +39,9 @@ app.get('/blogs', (req, res) => {
     res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }, { id: 2, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }], isPending: false, error: null });
 }) 
 
-// get or send user data to/from database
+// get user data via spotify data object:
 app.get('/login', async (req, res) => {
     const spotify = req.query.data;
-    console.log(spotify);
     // Grab ID:
     const id = spotify.id;
     if (!id) {
@@ -64,8 +63,12 @@ app.get('/login', async (req, res) => {
         res.json(user);
     }
     catch (error) {
-        console.log(error);
         res.status(400).json({ error: "problem accessing user info" });
         return;
     }
 }) 
+
+// get post content
+app.get('/post', (req, res) => {
+    const posts = req.query.data;
+})

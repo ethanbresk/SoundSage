@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { loginWithSpotifyClick, logoutClick, getUserData } from '../utilities/spotify_integration.js';
+import { login, logout, getUserData } from '../utilities/backend_integration.js';
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
 
@@ -43,13 +43,13 @@ const Login = () => {
         p={3}
       />
       {data ? userDisplay(data) : <h1 className='page_header'>Login</h1>}
-      {!data && !error && <button onClick={() => { loginWithSpotifyClick() }}>LOGIN</button>}
+      {!data && !error && <button onClick={() => { login() }}>LOGIN</button>}
       <p/>
-      {data && <button onClick={() => { logoutClick() }}>LOGOUT</button>}
+      {data && <button onClick={() => { logout() }}>LOGOUT</button>}
       {error && <div>
         <p>There was an error logging you in:</p>
         <p>{error}</p>
-        <button onClick={() => { loginWithSpotifyClick() }}>RETRY</button>
+        <button onClick={() => { login() }}>RETRY</button>
       </div>}
       <p/>
 
