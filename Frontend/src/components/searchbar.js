@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const SearchBar = () => {
-    const { data: blogs, isPending, error } = useFetch('http://localhost:8080/blogs', {
+    const { data: blogs, isPending, error } = useFetch('http://localhost:8080/getPosts', {
         mode: 'no-cors',
       });
 
