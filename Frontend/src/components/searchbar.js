@@ -27,8 +27,6 @@ export const SearchBar = () => {
             sx=
             {{
                 width:600,
-                borderRadius: 50,
-                border: 12,
             }}
         />
         {searchQuery != "" && searchedNames.length > 0 && (
