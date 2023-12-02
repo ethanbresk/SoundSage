@@ -12,10 +12,10 @@ export async function login() {
 export async function getUserData() {
     // Function to get user data (profile info, posts, etc).
     // Multiple invocations pull new data from the database.
-    // Returns null if login() has not yet been called.
+    // Returns null if login() has not yet been called, or the current session has expired.
 
     const spotify_data = await getData();
-    if (!spotify_data) {
+    if (!spotify_data || spotify_data.error) {
         return null;
     }
     spotify_id = spotify_data.id;
