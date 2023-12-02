@@ -6,17 +6,17 @@ import { Box } from '@mui/material';
 
 const Login = () => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   const theme = useTheme()
   useEffect(() => {
     getUserData()
       .then(data => {
-        if (data.display_name) {
-          setData(data);
-          //console.log(data);
-        }
-        else {
-          setData(null);
-        }
+        setData(data);
+        setError(null);
+      })
+      .catch(error => {
+        setData(null);
+        setError(error);
       })
   }, []);
   return (
@@ -29,12 +29,15 @@ const Login = () => {
         p={3}
       />
       {data ? <h1 className='page_header'>Hello, {data.display_name}!</h1> : <h1 className='page_header'>Login</h1>}
-
-      {!data && <button onClick={() => { loginWithSpotifyClick() }}>LOGIN</button>}
+      {!data && !error && <button onClick={() => { loginWithSpotifyClick() }}>LOGIN</button>}
       <p/>
       {data && <button onClick={() => { logoutClick() }}>LOGOUT</button>}
+      {error && <div>
+        <p>There was an error logging you in:</p>
+        <p>{error}</p>
+        <button onClick={() => { loginWithSpotifyClick() }}>RETRY</button>
+      </div>}
       <p/>
-      <button onClick={() => { refreshTokenClick() }}>REFRESH</button>
 
     </div>
   ) /* NOTE for later: I'm thinking we could have the "login" page

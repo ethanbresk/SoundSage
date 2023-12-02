@@ -143,7 +143,6 @@ async function getUserData() {
         //console.log(spotify_data)
         const res = await axios.get('http://localhost:8080/userdata/', { params: { data: spotify_data } });
         // return data
-        console.log(res.data)
         return res.data;
     }   
     catch (error) {
