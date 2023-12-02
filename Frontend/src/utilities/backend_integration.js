@@ -4,11 +4,13 @@ import { loginWithSpotifyClick, getData } from './spotify_integration';
 
 // USER DATA:
 let spotify_id = null;
+// login user
 export async function login() {
     // Function to login.
     // Redirects to Spotify login page.
     await loginWithSpotifyClick();
 }
+// get user data
 export async function getUserData() {
     // Function to get user data (profile info, posts, etc).
     // Multiple invocations pull new data from the database.
@@ -36,9 +38,22 @@ export async function getUserData() {
         }
     }
 }
+// logout user and clear cache
 export function logout() {
     // Function to logout.
     localStorage.clear();
     spotify_id = null;
     window.location.reload();
+}
+// create a post
+export async function createPost(post_data) {
+    console.log(post_data)
+    try {
+        const res = await axios.get('http://localhost:8080/createPost', { params: { data: post_data } });
+        console.log(res.data)
+        return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
 }

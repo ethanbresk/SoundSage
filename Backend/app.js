@@ -71,7 +71,14 @@ app.get('/getPosts', async (req, res) => {
 }) 
 
 // create a post
-app.post('/createPost', async (req, res) => {
-    const post = req.query;
-    res.json(post)
+app.get('/createPost', (req, res) => {
+    const post = req.query.data;
+    // try {
+    //     res.json(post);
+    // }
+    // catch (error) {
+    //     res.status(400).json({ error: "problem creating post" });
+    //     return;
+    // }
+    res.send(post)
 })

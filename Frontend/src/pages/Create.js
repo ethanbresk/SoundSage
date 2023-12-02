@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
+import { createPost } from '../utilities/backend_integration.js';
 
 /* Create page implementation. The Create component of this code
    was influenced by template guides from a tutorial by NetNinja. */
@@ -24,12 +25,8 @@ const Create = () => {
 
         setIsPending(true);
         //console.log(JSON.stringify(blog))
-        fetch('http://localhost:8080/createPost', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(blog)
-        }).then((res) => {
-            console.log(res.text())
+        createPost(JSON.stringify(blog))
+        .then(() => {
             console.log('NEW BLOG ADDED');
             setIsPending(false);
             // navigate.go(-1);
