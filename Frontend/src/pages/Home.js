@@ -12,7 +12,7 @@ import { SearchBar } from '../components/searchbar';
    code was influenced by template guides from a tutorial by NetNinja. */
 
 const Home = () => {
-  const { data: blogs, isPending, error } = useFetch('http://localhost:8080/blogs', {
+  const { data: blogs, isPending, error } = useFetch('http://localhost:8080/getPosts', {
     mode: 'no-cors',
   });
 

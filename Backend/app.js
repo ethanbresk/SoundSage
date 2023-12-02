@@ -26,17 +26,14 @@ connectDB().then(() => {
         console.log('Server listening on port 8080');
     });
 });
-const User = require('./models/user.js');
 
+// mongo collections
+const User = require('./models/user.js');
+const Post = require('./models/post.js');
 
 // Default request
 app.get('/', (req, res) => { 
     res.json("Hello World!");
-}) 
-
-// get blogs
-app.get('/blogs', (req, res) => {
-    res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }, { id: 2, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }], isPending: false, error: null });
 }) 
 
 // get user data via spotify data object:
@@ -68,7 +65,13 @@ app.get('/login', async (req, res) => {
     }
 }) 
 
-// get post content
-app.get('/post', (req, res) => {
-    const posts = req.query.data;
+// get blogs
+app.get('/getPosts', async (req, res) => {
+    res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }, { id: 2, title: "example blog 2", author: "aaron & ethan", song: "songTitle 2 by author", likes: 0 }], isPending: false, error: null });
+}) 
+
+// create a post
+app.post('/createPost', async (req, res) => {
+    const post = req.query;
+    res.json(post)
 })

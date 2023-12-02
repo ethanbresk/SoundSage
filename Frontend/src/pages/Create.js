@@ -23,12 +23,13 @@ const Create = () => {
         const blog = { title, body, author, song, likes };
 
         setIsPending(true);
-
-        fetch('http://localhost:8080/blogs', {
+        //console.log(JSON.stringify(blog))
+        fetch('http://localhost:8080/createPost', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(blog)
-        }).then(() => {
+        }).then((res) => {
+            console.log(res.text())
             console.log('NEW BLOG ADDED');
             setIsPending(false);
             // navigate.go(-1);

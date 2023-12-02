@@ -6,12 +6,12 @@ import { Box } from '@mui/material';
 
 const BlogPage = () => {
     const { id } = useParams();
-    const { data: blog, error, isPending } = useFetch('http://localhost:8080/blogs/' + id);
+    const { data: blog, error, isPending } = useFetch('http://localhost:8080/getPosts/' + id);
     const navigate = useNavigate();
     const theme = useTheme()
 
     const handleClick = () => {
-        fetch('http://localhost:8080/blogs/' + blog.id, {
+        fetch('http://localhost:8080/getPosts/' + blog.id, {
             method: 'DELETE'
         }).then(() => {
             navigate('/');
