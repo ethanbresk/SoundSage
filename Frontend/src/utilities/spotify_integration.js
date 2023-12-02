@@ -133,6 +133,9 @@ async function refreshToken() {
 }
 
 async function getUserData() {
+    if (currentToken.access_token === null) {
+        return null;
+    }
     const response = await fetch("https://api.spotify.com/v1/me", {
         method: 'GET',
         headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
@@ -140,13 +143,11 @@ async function getUserData() {
     const spotify_data = await response.json();
     // Login:
     try {
-        //console.log(spotify_data)
-        const res = await axios.get('http://localhost:8080/userdata/', { params: { data: spotify_data } });
+        const res = await axios.get('http://localhost:8080/login', { params: { data: spotify_data } });
         // return data
         return res.data;
     }   
     catch (error) {
-        console.log(error);
         if (error.response && error.response.status === 400) {
             // My error:
             const errorMessage = error.response.data.error;

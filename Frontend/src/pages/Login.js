@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { loginWithSpotifyClick, logoutClick, refreshTokenClick, getUserData } from '../utilities/spotify_integration.js';
+import { loginWithSpotifyClick, logoutClick, getUserData } from '../utilities/spotify_integration.js';
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
 
@@ -11,6 +11,7 @@ const Login = () => {
   useEffect(() => {
     getUserData()
       .then(data => {
+        console.log(data);
         setData(data);
         setError(null);
       })
@@ -19,6 +20,19 @@ const Login = () => {
         setError(error);
       })
   }, []);
+
+  const userDisplay = (data) => {
+    const { username, total_likes, spotify_url, picture_url } = data;
+    return (
+      <div>
+        <h1 className='page_header'>Hello, {username}!</h1>
+        <h2>Your total Likes: {total_likes}</h2>
+        <h2>Link to Spotify: <a href={spotify_url}>{spotify_url}</a></h2>
+        <h2>Your profile pic (may be null)</h2>
+        <img src={picture_url} alt="Profile" width="200" height="200"></img>
+      </div>
+    );
+  }
   return (
     <div className='login'>
       <Box
@@ -28,7 +42,7 @@ const Login = () => {
         style = {{ backgroundColor: theme.palette.accentTwo.main}}
         p={3}
       />
-      {data ? <h1 className='page_header'>Hello, {data.display_name}!</h1> : <h1 className='page_header'>Login</h1>}
+      {data ? userDisplay(data) : <h1 className='page_header'>Login</h1>}
       {!data && !error && <button onClick={() => { loginWithSpotifyClick() }}>LOGIN</button>}
       <p/>
       {data && <button onClick={() => { logoutClick() }}>LOGOUT</button>}
