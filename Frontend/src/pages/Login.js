@@ -28,11 +28,12 @@ const Login = () => {
         style = {{ backgroundColor: theme.palette.accentTwo.main}}
         p={3}
       />
-      <h1 className='page_header'>Login</h1>
+      {data ? <h1 className='page_header'>Hello, {data.display_name}!</h1> : <h1 className='page_header'>Login</h1>}
 
-      {data && <h1>Hello, {data.display_name}</h1>}
-      <button onClick={() => { loginWithSpotifyClick() }}>LOGIN</button>
-      <button onClick={() => { logoutClick() }}>LOGOUT</button>
+      {!data && <button onClick={() => { loginWithSpotifyClick() }}>LOGIN</button>}
+      <p/>
+      {data && <button onClick={() => { logoutClick() }}>LOGOUT</button>}
+      <p/>
       <button onClick={() => { refreshTokenClick() }}>REFRESH</button>
 
     </div>
