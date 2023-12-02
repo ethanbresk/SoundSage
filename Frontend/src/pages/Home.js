@@ -1,11 +1,12 @@
 import React, { /*useState*/ } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Button, TextField, /*ThemeProvider, useTheme*/ } from "@mui/material";
+import { Container, Box, Button, TextField, /*ThemeProvider, useTheme*/ } from "@mui/material";
 import { useThemeContext, /*currTheme, darkTheme, lightTheme*/ } from "../components/themeswitch";
 import { useTheme } from '@mui/system';
 import '../components/styles.css';
 import useFetch from '../hooks/useFetch';
 import BlogCollection from '../components/BlogCollection';
+import { SearchBar } from '../components/searchbar';
 
 /* Home page (landing page) implementation. The 'blog-home' component of this
    code was influenced by template guides from a tutorial by NetNinja. */
@@ -18,17 +19,15 @@ const Home = () => {
   const theme = useTheme()
 
   return (
-    <main className='home'>
+    <main>
       <h1 className='page_header'>SoundSage</h1>
-      <TextField
-        id="outlined-basic"
-        label="Enter Text Here"
-        variant="outlined"
-      />
+      <div className='center'>
+        <SearchBar></SearchBar>
       <div className="blog_home">
         {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>}
         {blogs && <BlogCollection blogs={blogs.blogs} title="SoundSage Blogs:" />}
+      </div>
       </div>
       <nav>
         <Box
