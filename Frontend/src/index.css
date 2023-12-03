@@ -12,7 +12,18 @@
   color: rgb(134, 189, 134);
 }
 
-/* NOTE: The create styling below is just for functionality for now. It is modeled after a template by NetNinja's YouTube tutorial, which we can keep if we decide it works best. */
+.blog-details {
+  h1, h2 {
+    text-align: center;
+  }
+  article {
+    padding: 0 10% 0 10%;
+    display:'flex';
+    justify-content: 'center';
+    align-items:'center';
+    margin: 0 auto;
+  }
+}
 
 .center {
   position: fixed;

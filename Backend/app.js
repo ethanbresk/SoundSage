@@ -120,3 +120,18 @@ app.get('/createPost', async (req, res) => {
         return;
     }
 })
+
+// add like by post id
+app.get('/addLike', async (req, res) => {
+    id = req.query.data;
+    try {
+        const post = await Post.findById(id)
+        post.num_of_likes += 1
+        await post.save();
+        res.json(post)
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem getting post" });
+        return;
+    }
+}) 

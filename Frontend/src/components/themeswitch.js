@@ -24,6 +24,9 @@ export const lightTheme = createTheme({
         },
         text: {
             main: '#000000',
+        },
+        subtext: {
+            main: '#777777',
         }
     },
 });
@@ -50,6 +53,9 @@ export const darkTheme = createTheme({
         },
         text: {
             main: '#FFFFFF',
+        },
+        subtext: {
+            main: '#999999',
         }
     },
 });

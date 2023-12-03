@@ -40,7 +40,7 @@ const BlogPage = () => {
     }
 
     return (
-        <div className="blog-details">
+        <div className="blog-details" style ={{color: theme.palette.text.main }}>
             <Box
                 position = "fixed"
                 bottom = {0}
@@ -52,7 +52,7 @@ const BlogPage = () => {
             { blog && (
                 <article>
                     <h2> {blog.post_title} </h2>
-                    <p>Written by {blog.user_name} </p>
+                    <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
                     <div>{blog.body}</div>
                     <p>{blog.song_url}</p>
                     <button onClick={handleLike}> Likes: {blog.num_of_likes}</button>
