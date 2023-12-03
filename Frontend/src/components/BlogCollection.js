@@ -43,14 +43,16 @@ const BlogCollection = ({ blogs, title }) => {
             justifyContent= "center"
             alignItems= "center"
           >
-              <Link to={`/blogs/${blog._id}`}>
+            {blog.parent ? null :
+              (<Link to={`/blogs/${blog._id}`}>
                 <img src={mapState.get(blog.user_id)} width="100" height="100"></img>
                 <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
                 <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
                 <p>{blog.post_body}</p>
                 <p>{blog.song_url}</p>
                 <p style={{textAlign: 'right', paddingRight: 15, paddingBottom: 5}}>Likes: <b>{blog.num_of_likes}</b></p>
-              </Link>
+              </Link>)
+            }
           </Box>
           </div>
         </div>
