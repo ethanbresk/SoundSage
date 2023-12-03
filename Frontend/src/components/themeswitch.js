@@ -21,6 +21,9 @@ export const lightTheme = createTheme({
         },
         background: {
             default: '#FFFFFF',
+        },
+        text: {
+            main: '#000000',
         }
     },
 });
@@ -44,6 +47,9 @@ export const darkTheme = createTheme({
         },
         background: {
             default: '#000000',
+        },
+        text: {
+            main: '#FFFFFF',
         }
     },
 });
