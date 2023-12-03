@@ -84,6 +84,19 @@ app.get('/getPosts', async (req, res) => {
     }
 }) 
 
+// get post from id
+app.get('/getPost', async (req, res) => {
+    id = req.query.id
+    try {
+        let post = await Post.findOne({_id: id});
+        res.json(post)
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem creating post" });
+        return;
+    }
+}) 
+
 // create a post
 app.get('/createPost', async (req, res) => {
     const blog_post = req.query.data;

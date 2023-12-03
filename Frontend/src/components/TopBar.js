@@ -16,7 +16,7 @@ const TopBar = () => {
   useEffect(() => {
     getUserData()
       .then(data => {
-        console.log(data);
+        //console.log(data);
         setData(data);
         setError(null);
       })

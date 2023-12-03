@@ -24,7 +24,7 @@ const BlogCollection = ({ blogs, title }) => {
           >
               <Link to={`/blogs/${blog._id}`}>
                 <h2>{blog.post_title}</h2>
-                <p>Written by {blog.user_id}</p>
+                <p>Written by {blog.user_name}</p>
                 <p>{blog.song_url}</p>
                 <p>Likes: {blog.num_of_likes}</p>
               </Link>
