@@ -34,7 +34,7 @@ const Home = () => {
     <main>
       <div className='center'>
         <SearchBar></SearchBar>
-      <div className="blog_home">
+      <div className="blog_home" style = {{ height:550,overflowY: 'auto' }}>
         {isPending && <div>Loading...</div>}
         {blogs && <BlogCollection blogs={blogs.blogs} title="SoundSage Blogs:" />}
       </div>
