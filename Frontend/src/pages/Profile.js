@@ -2,16 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '@mui/system';
 import { getUserData } from '../utilities/backend_integration.js';
 import { Box } from '@mui/material';
+import { getPosts } from '../utilities/backend_integration.js';
+import BlogCollection from '../components/BlogCollection';
 
 const Profile = () => {
   const theme = useTheme()
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(true);
+  const [blogs, setBlogs] = useState(0);
   useEffect(() => {
     getUserData()
       .then(data => {
         console.log(data);
         setData(data);
+        console.log(data.spotify_id)
+        getPosts(data.spotify_id)
+        .then((res) => {
+          console.log(res)
+          setBlogs(res);
+          console.log(blogs)
+          setIsPending(false);
+        })
         setError(null);
       })
       .catch(error => {
@@ -46,6 +58,10 @@ const Profile = () => {
         p={3}
       />
       {data ? userDisplay(data) : <h1 style={{textAlign: 'center'}}>Login to Display Your Info!</h1>}
+      <div className="blog_home" style = {{ height:550,overflowY: 'auto' }}>
+        {isPending && <div>Loading...</div>}
+        {blogs && <BlogCollection blogs={blogs.blogs} title="Kirt Blogs:" />}
+    </div>
     </div>
   )
 }

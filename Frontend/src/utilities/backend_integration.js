@@ -63,7 +63,7 @@ export async function createPost(post_data) {
 export async function getPosts(id) {
     try {
         const res = await axios.get('http://localhost:8080/getPosts', { params: { data: id } });
-        //console.log(res.data)
+        console.log(res.data)
         return res.data
     }
     catch (error) {
