@@ -79,7 +79,7 @@ const TopBar = () => {
             notifications={notificationList}
             style={{ marginRight: "10px" }}
           />
-          <Link to="/profile" title="Link to Profile Page">
+          {data && <Link to="/profile" title="Link to Profile Page">
             <Button
               variant="contained"
               size="medium"
@@ -91,7 +91,7 @@ const TopBar = () => {
             >
               Profile
             </Button>
-          </Link>
+          </Link>}
           {!data && !error && (
             <Button
               onClick={() => {
