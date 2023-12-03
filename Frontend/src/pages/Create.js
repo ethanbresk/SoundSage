@@ -41,7 +41,7 @@ const Create = () => {
                 bottom = {0}
                 left = {0}
                 width = "100%"
-                style = {{ backgroundColor: theme.palette.accentTwo.main}}
+                style = {{ backgroundColor: theme.palette.secondary.main}}
                 p={3}
             />
             <h1 className='page_header'>Create</h1>

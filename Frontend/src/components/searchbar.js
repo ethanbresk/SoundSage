@@ -2,6 +2,7 @@ import { TextField, ListItem, ListItemText } from "@mui/material";
 import useFetch from "../hooks/useFetch"
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+<<<<<<< HEAD
 import { getPosts } from '../utilities/backend_integration.js';
 
 export const SearchBar = () => {
@@ -16,6 +17,16 @@ export const SearchBar = () => {
         })
     }, []);
     console.log(blogs)
+=======
+import { useTheme } from '@mui/system';
+
+export const SearchBar = () => {
+    const theme = useTheme()
+
+    const { data: blogs, isPending, error } = useFetch('http://localhost:8080/getPosts', {
+        mode: 'no-cors',
+      });
+>>>>>>> 0d708dc70c94bfd5d61f08ec2d267f5aa6ddf955
 
     const[searchQuery, setSearchQuery] = useState("")
 
@@ -35,7 +46,9 @@ export const SearchBar = () => {
             onChange={handleChange}
             sx=
             {{
+                top: 10,
                 width:600,
+                backgroundColor: "#EAF6FF"
             }}
         />
         {searchQuery != "" && searchedNames.length > 0 && (

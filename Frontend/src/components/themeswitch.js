@@ -1,22 +1,26 @@
 import React, { useState, createContext, useContext } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
+import CssBaseline from "@mui/material/CssBaseline"
 
 export const lightTheme = createTheme({
     palette: {
         primary: {
-            main: '#E4E7E3',
+            main: '#FFFFFF',
         },
         secondary: {
-            main: '#CFD7CB',
+            main: '#E3E3E3',
         },
         tertiary: {
-            main: '#FFFFFF',
+            main: '#C9C9C9',
         },
         accentOne: {
             main: '#DEF1C2'
         },
         accentTwo: {
             main: '#253D20',
+        },
+        background: {
+            default: '#FFFFFF',
         }
     },
 });
@@ -27,16 +31,19 @@ export const darkTheme = createTheme({
         main: '#000000',
         },
         secondary: {
-            main: '#141912',
+            main: '#282828',
         },
         tertiary: {
-            main: '#242D22',
+            main: '#191919',
         },
         accentOne: {
             main: '#809973'
         },
         accentTwo: {
             main: '#251230',
+        },
+        background: {
+            default: '#000000',
         }
     },
 });
@@ -59,6 +66,7 @@ const currTheme = createTheme(defaultTheme ? darkTheme : lightTheme);
 return (
     <themeContext.Provider value={{switchTheme,currTheme}}>
         <ThemeProvider theme ={currTheme}>
+            <CssBaseline/>
             {component}
         </ThemeProvider>
     </themeContext.Provider>

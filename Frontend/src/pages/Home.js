@@ -32,7 +32,6 @@ const Home = () => {
   //{error && <div>{error}</div>}
   return (
     <main>
-      <h1 className='page_header'>SoundSage</h1>
       <div className='center'>
         <SearchBar></SearchBar>
       <div className="blog_home">
@@ -45,7 +44,7 @@ const Home = () => {
           position = "fixed"
           bottom = {0}
           width = "100%"
-          style = {{ backgroundColor: theme.palette.accentTwo.main}}
+          style = {{ backgroundColor: theme.palette.secondary.main}}
           p={3}
         />
         <createbutton>

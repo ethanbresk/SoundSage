@@ -7,6 +7,7 @@ import soundsage from '../assets/soundsage-logo-solid.svg';
 import { useTheme } from '@mui/system';
 import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './themeswitch';
 import SvgIcon from '@mui/material/SvgIcon';
+import NotificationTray from './notificationtray'
 
 const TopBar = () => {
   const [data, setData] = useState(null);
@@ -25,13 +26,19 @@ const TopBar = () => {
       })
   }, []);
 
+  const notificationList = [
+    { message: 'Test Notification' },
+    { message: 'Test 2' },
+  ];
+
   return (
     <Box sx ={{flexGrow:1}}>
     <AppBar position="sticky"
     style= {{backgroundColor: theme.palette.tertiary.main}}>
-      <Toolbar variant="dense">
+      <Toolbar>
         <Link to='/' title='Link to Home Page'>
-          <IconButton>
+          <IconButton
+                 >
             <SvgIcon>
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
             </SvgIcon>
@@ -75,6 +82,7 @@ const TopBar = () => {
         </ButtonGroup>
       </Toolbar>
     </AppBar>
+    <NotificationTray notifications={notificationList}/>
     </Box>
   )
 }

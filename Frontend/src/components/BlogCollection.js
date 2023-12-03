@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Box } from '@mui/material'
+import { useTheme } from '@mui/system';
 
 const BlogCollection = ({ blogs, title }) => {
   console.log(blogs);
+  const theme = useTheme()
 
   return (
     <div>
@@ -12,10 +14,10 @@ const BlogCollection = ({ blogs, title }) => {
         <div className="blog-preview" key={blog.id}>
           <div className='blog'>
           <Box
-            backgroundColor= "#e8e8e8"
             style={{
               width: 600,
               borderRadius: 20,
+              backgroundColor: theme.palette.tertiary.main
             }}
             justifyContent= "center"
             alignItems= "center"

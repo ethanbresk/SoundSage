@@ -20,18 +20,20 @@ const Settings = () => {
         position = "fixed"
         bottom = {0}
         width = "100%"
-        style = {{ backgroundColor: theme.palette.accentTwo.main}}
+        style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
       <h1 className='page_header'>Settings</h1>
-      <div>
+      <div className="center">
         <Button
-          onClick={switchTheme}>
+          onClick={switchTheme}
+          variant="contained"
+          style={{
+            borderRadius:30,
+            backgroundColor: theme.palette.secondary.main
+            }}>
           Change Theme
         </Button>
-      </div>
-      <div>
-        <NotificationTray notifications={notifications} />
       </div>
     </div>
   )

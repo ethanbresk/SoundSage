@@ -38,10 +38,9 @@ const Profile = () => {
         position = "fixed"
         bottom = {0}
         width = "100%"
-        style = {{ backgroundColor: theme.palette.accentTwo.main}}
+        style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      <h1 className='page_header'>Profile</h1>
       {data ? userDisplay(data) : <h1>Login to Display Info</h1>}
     </div>
   )
