@@ -32,7 +32,7 @@ const BlogCollection = ({ blogs, title }) => {
           </Box>
           </div>
         </div>
-      ))}
+      )).reverse()}
     </div>
   )
 }
