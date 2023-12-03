@@ -41,7 +41,7 @@ const OtherProfiles = () => {
     const { username, total_likes, spotify_url, picture_url } = data;
     return (
       <div>
-        <h1 className='page_header'>Hello, {username}!</h1>
+        <h1 className='page_header'>{username}'s Page</h1>
           <img src={picture_url} alt="Profile" width="100" height="100" position="static" class="center"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
         <div style={{color: theme.palette.text.main, textAlign: 'left'}}>
