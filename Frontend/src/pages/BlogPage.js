@@ -50,7 +50,8 @@ const BlogPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setTitle('Replying to ' + blog.user_name)
-        const comment = { title, body, song };
+        const parent = blog._id
+        const comment = { title, body, song, parent };
         console.log('This is my comment' + comment)
 
         setIsPending(true);

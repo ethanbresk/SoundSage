@@ -118,6 +118,10 @@ app.get('/createPost', async (req, res) => {
         const user = await User.findOne({ spotify_id: blog_post.user });
         user.posts.push(post._id)
         await user.save();
+        // add post to parent's children
+        const parent_post = await Post.findById(blog_post.parent)
+        parent_post.children.push(post._id)
+        await parent_post.save();
         res.json(post);
     }
     catch (error) {
