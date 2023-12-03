@@ -45,31 +45,20 @@ const Create = () => {
                 p={3}
             />
             <h1 className='page_header'>Create</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Blog title:</label>
+            <form onSubmit={handleSubmit} style={{ color: theme.palette.text.main }}>
+                <label>Title:</label>
                 <input
                     type="text"
                     required
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
+                <label>Blog:</label>
                 <textarea 
                     required
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                 ></textarea>
-                <label>Blog author:</label>
-                <select
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                >
-                <option value="Default">Default</option>
-                <option value="Ethan">Ethan</option>
-                <option value="James">Kames</option>
-                <option value="Kirt">Kirt</option>
-                <option value="Aaron">Aaron</option>
-                <option value="Erik">Erik</option>
-                </select>
                 <label>Song:</label>
                 <textarea 
                     required

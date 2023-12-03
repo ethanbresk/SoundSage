@@ -45,7 +45,7 @@ const Profile = () => {
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      {data ? userDisplay(data) : <h1>Login to Display Info</h1>}
+      {data ? userDisplay(data) : <h1 style={{textAlign: 'center'}}>Login to Display Your Info!</h1>}
     </div>
   )
 }
