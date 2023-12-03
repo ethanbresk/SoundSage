@@ -44,6 +44,7 @@ const TopBar = () => {
             </SvgIcon>
           </IconButton>
         </Link>
+        <div>SoundSage</div>
         <NotificationTray notifications={notificationList}/>
         <ButtonGroup
           variant="contained"
