@@ -48,11 +48,22 @@ export function logout() {
 // create a post
 export async function createPost(post_data) {
     post_data.user = spotify_id
-    // var string_data = JSON.stringify(post_data)
+    post_data.name = getUserData().username
     console.log(post_data)
     try {
         const res = await axios.get('http://localhost:8080/createPost', { params: { data: post_data } });
         console.log(res.data)
+        return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+// get Posts
+export async function getPosts(id) {
+    try {
+        const res = await axios.get('http://localhost:8080/getPosts', { params: id });
+        //console.log(res.data)
         return res.data
     }
     catch (error) {

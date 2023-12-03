@@ -6,6 +6,10 @@ const PostSchema = new Schema({
         type: String,
         required: true,
     },
+    user_name: {
+        type: String,
+        required: true,
+    },
     song_url: {
         type: String,
         required: true,

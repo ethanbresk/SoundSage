@@ -1,12 +1,21 @@
 import { TextField, ListItem, ListItemText } from "@mui/material";
 import useFetch from "../hooks/useFetch"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { getPosts } from '../utilities/backend_integration.js';
 
 export const SearchBar = () => {
-    const { data: blogs, isPending, error } = useFetch('http://localhost:8080/getPosts', {
-        mode: 'no-cors',
-      });
+    const [isPending, setIsPending] = useState(true);
+    const [blogs, setBlogs] = useState(0);
+
+    useEffect(() => {
+        getPosts(null)
+        .then((res) => {
+        setBlogs(res);
+        setIsPending(false);
+        })
+    }, []);
+    console.log(blogs)
 
     const[searchQuery, setSearchQuery] = useState("")
 
@@ -15,7 +24,7 @@ export const SearchBar = () => {
     };
 
     const searchedNames = blogs?.blogs?.filter((text) => {
-        return text.title.toLowerCase().includes(searchQuery);
+        return text.post_title.toLowerCase().includes(searchQuery);
     });
 
     return(
@@ -30,10 +39,10 @@ export const SearchBar = () => {
             }}
         />
         {searchQuery != "" && searchedNames.length > 0 && (
-            searchedNames.map((name, index) => (
-            <ListItem key={name.id}>
-                <Link to={`/blogs/${name.id}`}>
-                    <ListItemText primary={name.title}/>
+            searchedNames.map((title, index) => (
+            <ListItem key={title.user_id}>
+                <Link to={`/blogs/${title.user_id}`}>
+                    <ListItemText primary={title.post_title}/>
                 </Link>
             </ListItem>
             ))
