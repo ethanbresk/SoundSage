@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Box } from '@mui/material'
 import { useTheme } from '@mui/system';
+import { getUser } from '../utilities/backend_integration.js';
+
 
 const BlogCollection = ({ blogs, title }) => {
-  console.log(blogs);
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    getUser('fault_gd')
+    .then((res) => {
+      setUserData(res);
+    }, [])
+  })
+  console.log('TEST RES --------- ', userData)
   blogs.reverse()
   const theme = useTheme()
 
@@ -24,6 +33,8 @@ const BlogCollection = ({ blogs, title }) => {
             alignItems= "center"
           >
               <Link to={`/blogs/${blog._id}`}>
+                <p>{getUser(userData).user_name}</p>
+                <img src={getUser(userData).picture_url} width="100" height="100"></img>
                 <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
                 <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
                 <p>{blog.song_url}</p>
