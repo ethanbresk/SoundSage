@@ -6,6 +6,7 @@ import { useTheme } from '@mui/system';
 
 const BlogCollection = ({ blogs, title }) => {
   console.log(blogs);
+  blogs.reverse()
   const theme = useTheme()
 
   return (
