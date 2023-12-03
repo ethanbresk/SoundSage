@@ -27,6 +27,15 @@ export const lightTheme = createTheme({
         },
         subtext: {
             main: '#777777',
+        },
+        link: {
+            main: '#378122',
+        },
+        visited: {
+            main: '#374a20',
+        },
+        hover: {
+            main: '#9cca8f',
         }
     },
 });
@@ -56,6 +65,15 @@ export const darkTheme = createTheme({
         },
         subtext: {
             main: '#999999',
+        },
+        link: {
+            main: '#378122',
+        },
+        visited: {
+            main: '#376400',
+        },
+        hover: {
+            main: '#9cca8f',
         }
     },
 });

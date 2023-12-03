@@ -1,3 +1,12 @@
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
 .logo {
   width: 3.5rem;
   height: auto;
@@ -24,6 +33,32 @@
     margin: 0 auto;
   }
 }
+
+ /* unvisited link */
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #378122;
+}
+
+/* visited link */
+a:visited {
+  color: #376400;
+}
+
+/* mouse over link */
+a:hover {
+  font-weight: bolder;
+  color: #6c9a5f;
+}
+
+/* selected link */
+a:active {
+  font-weight: bolder;
+  color: #adff2f;
+} 
 
 .center {
   position: fixed;

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Box, Button, TextField, /*ThemeProvider, useTheme*/ } from "@mui/material";
 import { useThemeContext, /*currTheme, darkTheme, lightTheme*/ } from "../components/themeswitch";
 import { useTheme } from '@mui/system';
+import { getUserData } from '../utilities/backend_integration.js';
 import '../components/styles.css';
 import useFetch from '../hooks/useFetch';
 import BlogCollection from '../components/BlogCollection';
@@ -34,7 +35,7 @@ const Home = () => {
     <main>
       <div className='center'>
         <SearchBar></SearchBar>
-      <div className="blog_home" style = {{ height:550,overflowY: 'auto' }}>
+      <div className="blog_home" style = {{ paddingBottom:100,height:550,overflowY: 'auto' }}>
         {isPending && <div>Loading...</div>}
         {blogs && <BlogCollection blogs={blogs.blogs} title="SoundSage Blogs:" />}
       </div>
