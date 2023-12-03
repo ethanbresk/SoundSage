@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-    owner: {
-        type: mongoose.Types.ObjectId,
+    user_id: {
+        type: String,
         required: true,
     },
     song_url: {
         type: String,
         required: true,
     },
-    likes: {
+    num_of_likes: {
         type: Number,
         default: 0
     },
-    title: {
+    post_title: {
         type: String,
         required: true,
     },
-    content: {
+    post_body: {
         type: String,
         required: true,
     },

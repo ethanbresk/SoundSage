@@ -21,11 +21,11 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const blog = { title, body, author, song, likes };
+        const blog = { title, body, song };
 
         setIsPending(true);
         //console.log(JSON.stringify(blog))
-        createPost(JSON.stringify(blog))
+        createPost(blog)
         .then(() => {
             console.log('NEW BLOG ADDED');
             setIsPending(false);

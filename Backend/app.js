@@ -71,14 +71,20 @@ app.get('/getPosts', async (req, res) => {
 }) 
 
 // create a post
-app.get('/createPost', (req, res) => {
-    const post = req.query.data;
-    // try {
-    //     res.json(post);
-    // }
-    // catch (error) {
-    //     res.status(400).json({ error: "problem creating post" });
-    //     return;
-    // }
-    res.send(post)
+app.get('/createPost', async (req, res) => {
+    const blog_post = req.query.data;
+    try {
+        post = new Post({
+            post_title: blog_post.title,
+            post_body: blog_post.body,
+            user_id: blog_post.user,
+            song_url: blog_post.song
+        });
+        await post.save();
+        res.json(post);
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem creating post" });
+        return;
+    }
 })

@@ -47,6 +47,8 @@ export function logout() {
 }
 // create a post
 export async function createPost(post_data) {
+    post_data.user = spotify_id
+    // var string_data = JSON.stringify(post_data)
     console.log(post_data)
     try {
         const res = await axios.get('http://localhost:8080/createPost', { params: { data: post_data } });
