@@ -24,7 +24,7 @@ const Create = () => {
         const blog = { title, body, song };
 
         setIsPending(true);
-        //console.log(JSON.stringify(blog))
+        console.log('this sg'+blog)
         createPost(blog)
         .then(() => {
             console.log('NEW BLOG ADDED');

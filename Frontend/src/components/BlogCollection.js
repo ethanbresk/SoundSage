@@ -12,8 +12,8 @@ const BlogCollection = ({ blogs, title }) => {
     getUser('fault_gd')
     .then((res) => {
       setUserData(res);
-    }, [])
-  })
+    })
+  }, [])
   console.log('TEST RES --------- ', userData)
   blogs.reverse()
   const theme = useTheme()

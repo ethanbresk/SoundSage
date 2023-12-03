@@ -3,16 +3,21 @@ import useFetch from "../hooks/useFetch";
 import { useState, useEffect } from "react";
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
-import { getPost, addLike } from '../utilities/backend_integration.js';
+import { getPost, addLike, createPost } from '../utilities/backend_integration.js';
 
 const BlogPage = () => {
     const { id } = useParams();
     
-    const [isPending, setIsPending] = useState(true);
+    const [isPending, setIsPending] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [blog, setBlog] = useState(0);
     const navigate = useNavigate();
     const theme = useTheme()
     const [likes,setLikes] = useState(0);
+    const [title, setTitle] = useState(' ');
+    const [body, setBody] = useState('');
+    const [author, setAuthor] = useState('Default');
+    const [song, setSong] = useState(' ');
 
     //console.log(id)
     useEffect(() => {
@@ -22,7 +27,7 @@ const BlogPage = () => {
             //console.log(res)
             setBlog(res)
             setLikes(res.num_of_likes)
-            setIsPending(false)
+            setIsLoading(false)
             console.log('blogLikes' + blog)
         })
     }, []);
@@ -42,6 +47,23 @@ const BlogPage = () => {
         //})
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setTitle('Replying to ' + blog.user_name)
+        const comment = { title, body, song };
+        console.log('This is my comment' + comment)
+
+        setIsPending(true);
+        console.log('this too' + comment)
+        createPost(comment)
+        .then(() => {
+            console.log('NEW COMMENT ADDED');
+            setIsPending(false);
+            // navigate.go(-1);
+            navigate('/');
+        })
+    }
+
     return (
         <div className="blog-details" style ={{color: theme.palette.text.main }}>
             <Box
@@ -51,7 +73,7 @@ const BlogPage = () => {
                 style = {{ backgroundColor: theme.palette.secondary.main}}
                 p={3}
             />
-            { isPending && <div>Loading...</div> }
+            { isLoading && <div>Loading...</div> }
             { blog && (
                 <article>
                     <h2> {blog.post_title} </h2>
@@ -63,6 +85,22 @@ const BlogPage = () => {
                     <button onClick={handleLike}> Likes: {likes}</button>
                 </article>
             )}
+            <div className='create'>
+            <h1 className='page_header'>Comment</h1>
+            <form onSubmit={handleSubmit} style={{ color: theme.palette.text.main }}>
+                <label>Comment:</label>
+                <textarea 
+                    required
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                ></textarea>
+                { !isPending && <button>Add Comment</button>}
+                { isPending && <button disabled>Posting...</button>}
+                {/*<p>{ title }</p>
+                <p>{body}</p>
+                <p>{author}</p>*/}
+            </form>
+        </div>
         </div>
     );
 }
