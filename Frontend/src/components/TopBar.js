@@ -80,9 +80,9 @@ const TopBar = () => {
                 </Button>
               </Link>
         </ButtonGroup>
+        <NotificationTray notifications={notificationList}/>
       </Toolbar>
     </AppBar>
-    <NotificationTray notifications={notificationList}/>
     </Box>
   )
 }

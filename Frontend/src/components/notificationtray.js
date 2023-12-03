@@ -5,6 +5,7 @@ import { useTheme } from "@mui/system";
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 
 const Notification = ({ message }) => {
   return <div>{message}</div>;
@@ -20,7 +21,9 @@ const NotificationTray = ({ notifications }) => {
   return (
     <div>
       <IconButton>
-        <Badge color="secondary" variant="dot"></Badge>
+        <Badge color="secondary" variant="dot">
+          <NotificationsIcon />
+        </Badge>
       </IconButton>
       <Menu></Menu>
     </div>
