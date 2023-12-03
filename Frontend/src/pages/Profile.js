@@ -26,10 +26,10 @@ const Profile = () => {
       <div>
         <h1 className='page_header'>Hello, {username}!</h1>
         <div className='center'>
-          <img src={picture_url} alt="Profile" width="150" height="150"
-            style={{borderRadius: 20, alignItems: 'center'}}></img>
+          <img src={picture_url} alt="Profile" width="115" height="115"
+            style={{borderRadius: 1000, alignItems: 'center'}}></img>
         </div>
-        <div style={{padding: 165, color: theme.palette.text.main, textAlign: 'center'}}>
+        <div style={{padding: 110, color: theme.palette.text.main, textAlign: 'center'}}>
           <h2>Total Likes: {total_likes}</h2>
           <h2><a href={spotify_url}>Your Spotify Page</a></h2>
         </div>
