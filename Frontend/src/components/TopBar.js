@@ -25,6 +25,7 @@ import {
 import SvgIcon from "@mui/material/SvgIcon";
 import NotificationTray from "./notificationtray";
 import SoundSageIcon from "./soundSageIcon.js";
+import Typography from "@mui/material/Typography";
 
 const TopBar = () => {
   const [data, setData] = useState(null);
@@ -56,13 +57,31 @@ const TopBar = () => {
       >
         <Toolbar>
           <SoundSageIcon />
-          <div>SoundSage</div>
-          <NotificationTray notifications={notificationList} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              flexGrow: 1,
+              marginLeft: '10px',
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            SOUNDSAGE
+          </Typography>
+          <NotificationTray notifications={notificationList} style={{ marginRight: '10px' }}/>
           <Link to="/profile" title="Link to Profile Page">
             <Button
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main }}
+              style={{ backgroundColor: theme.palette.accentOne.main, marginRight: '10px', marginLeft: '10px' }}
             >
               Profile
             </Button>
@@ -74,7 +93,7 @@ const TopBar = () => {
               }}
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main }}
+              style={{ backgroundColor: theme.palette.accentOne.main, marginRight: '10px'}}
             >
               LOGIN
             </Button>
