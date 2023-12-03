@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { BroswerRouter as Router, Routes, Route} from 'react-router-dom';
 import { Box, ListItem, ListItemText } from "@mui/material";
 import { useTheme } from '@mui/system';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const Notification = ({ message }) => {
     return (
@@ -15,21 +20,18 @@ const NotificationTray = ({ /*notifications*/ }) => {
     const theme = useTheme()
 
     return (
-        /*
         <div>
-            {notifications.map((notification, index) => (
-                <ListItem key={index}>
-                    <Notification key={index} message={notification.message} />
-                </ListItem>
-            ))}
-        </div>*/
-        <Box
-        position = "sticky"
-        width = "100%"
-        style = {{ backgroundColor: theme.palette.secondary.main}}
-        p={1.5}
-        />
-    )
+            <IconButton>
+                <Badge color="secondary" variant="dot">
+                    <NotificationsIcon />
+                </Badge>
+            </IconButton>
+            <Menu>
+               <MenuItem></MenuItem>
+            </Menu>
+        </div>
+        
+    );
 }
 
 export default NotificationTray
