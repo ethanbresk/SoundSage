@@ -6,16 +6,28 @@ import { Box } from '@mui/material';
 
 const BlogPage = () => {
     const { id } = useParams();
-    const { data: blog, error, isPending } = useFetch('http://localhost:8080/getPosts/' + id);
+    const { data: blog, error, isPending } = useFetch('http://localhost:8080/getPosts');
     const navigate = useNavigate();
     const theme = useTheme()
+    const [likes,setLikes] = useState(blog?.blogs[0].likes);
 
     const handleClick = () => {
-        fetch('http://localhost:8080/getPosts/' + blog.id, {
+        fetch('http://localhost:8080/getPosts', {
             method: 'DELETE'
         }).then(() => {
             navigate('/');
         })
+    }
+
+    const handleLike = () => {
+        //const blog = blog?.blogs[0].id
+        setLikes(likes + 1)
+
+        //fetch('http://localhost:8080/getPosts', {
+        //    method: 'LIKE'
+        //}).then(() => {
+        //    
+        //})
     }
 
     return (
@@ -31,11 +43,11 @@ const BlogPage = () => {
             { error && <div>{ error }</div> }
             { blog && (
                 <article>
-                    <h2> {blog.title} </h2>
-                    <p>Written by {blog.author} </p>
-                    <div>{blog.body}</div>
-                    <p>{blog.song}</p>
-                    <p>Likes: {blog.likes}</p>
+                    <h2> {blog.blogs[0].title} </h2>
+                    <p>Written by {blog.blogs[0].author} </p>
+                    <div>{blog.blogs[0].body}</div>
+                    <p>{blog.blogs[0].song}</p>
+                    <button onClick={handleLike}> Likes: {blog.blogs[0].likes}</button>
                     <button onClick={handleClick}>Delete</button>
                 </article>
             )}
