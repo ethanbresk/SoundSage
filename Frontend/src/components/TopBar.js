@@ -61,7 +61,6 @@ const TopBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               flexGrow: 1,
               marginLeft: "10px",
@@ -74,7 +73,7 @@ const TopBar = () => {
               textDecoration: "none",
             }}
           >
-            SOUNDSAGE
+            <Link to="/">SOUNDSAGE</Link>
           </Typography>
           <NotificationTray
             notifications={notificationList}

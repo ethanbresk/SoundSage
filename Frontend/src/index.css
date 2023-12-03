@@ -50,14 +50,12 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  font-weight: bolder;
   color: #6c9a5f;
 }
 
 /* selected link */
 a:active {
-  font-weight: bolder;
-  color: #adff2f;
+  color: #9dcf2f;
 } 
 
 .center {

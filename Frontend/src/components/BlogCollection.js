@@ -24,10 +24,10 @@ const BlogCollection = ({ blogs, title }) => {
             alignItems= "center"
           >
               <Link to={`/blogs/${blog._id}`}>
-                <p>Written by {blog.user_name}</p>
+                <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
                 <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
-                <p>{blog.song_url}
-                  <br />Likes: <b>{blog.num_of_likes}</b></p>
+                <p>{blog.song_url}</p>
+                <p style={{textAlign: 'right', paddingRight: 15, paddingBottom: 5}}>Likes: <b>{blog.num_of_likes}</b></p>
               </Link>
           </Box>
           </div>
