@@ -8,6 +8,7 @@ import { getPosts } from '../utilities/backend_integration.js';
 export const SearchBar = () => {
   const [isPending, setIsPending] = useState(true);
   const [blogs, setBlogs] = useState(0);
+  const theme = useTheme();
 
     useEffect(() => {
         getPosts(null)
@@ -37,7 +38,7 @@ export const SearchBar = () => {
         sx={{
           top: 10,
           width: 600,
-          backgroundColor: "#EAF6FF",
+          backgroundColor: theme.palette.accentOne.main,
         }}
       />
       {searchQuery != "" &&
