@@ -18,6 +18,7 @@ const BlogPage = () => {
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('Default');
     const [song, setSong] = useState(' ');
+    const [children, setChildren] = useState([]);
 
     //console.log(id)
     useEffect(() => {
@@ -27,6 +28,13 @@ const BlogPage = () => {
             //console.log(res)
             setBlog(res)
             setLikes(res.num_of_likes)
+            console.log(res.children.length)
+            for(var i = 0; i < res.children.length; i++) {
+                getPost(res.children[i])
+                .then((res) => {
+                    setChildren((oldChildren) => {return oldChildren.concat(res)})
+                })
+            }
             setIsLoading(false)
             console.log('blogLikes' + blog)
         })
@@ -48,6 +56,7 @@ const BlogPage = () => {
     }
 
     const handleSubmit = (e) => {
+        console.log(blog)
         e.preventDefault();
         setTitle('Replying to ' + blog.user_name)
         const parent = blog._id
@@ -63,6 +72,10 @@ const BlogPage = () => {
             // navigate.go(-1);
             navigate('/');
         })
+
+    const handleChildren = () => {
+
+    }
     }
 
     return (
@@ -101,6 +114,16 @@ const BlogPage = () => {
                 <p>{body}</p>
                 <p>{author}</p>*/}
             </form>
+        {children?.length > 0 && (
+            <div>
+                {children?.map((child) => (
+                    <>
+                    <h1>{child.post_body}</h1>
+                    <p>{child.user_name}</p>
+                    </>
+                ))}
+            </div>
+        )}
         </div>
         </div>
     );
