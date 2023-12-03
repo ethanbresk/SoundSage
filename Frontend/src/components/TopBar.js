@@ -33,7 +33,7 @@ const TopBar = () => {
   const theme = useTheme();
   useEffect(() => {
     getUserData()
-      .then(data => {
+      .then((data) => {
         //console.log(data);
         setData(data);
         setError(null);
@@ -64,24 +64,31 @@ const TopBar = () => {
             href="/"
             sx={{
               flexGrow: 1,
-              marginLeft: '10px',
+              marginLeft: "10px",
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             SOUNDSAGE
           </Typography>
-          <NotificationTray notifications={notificationList} style={{ marginRight: '10px' }}/>
+          <NotificationTray
+            notifications={notificationList}
+            style={{ marginRight: "10px" }}
+          />
           <Link to="/profile" title="Link to Profile Page">
             <Button
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main, marginRight: '10px', marginLeft: '10px' }}
+              style={{
+                backgroundColor: theme.palette.accentOne.main,
+                marginRight: "10px",
+                marginLeft: "10px",
+              }}
             >
               Profile
             </Button>
@@ -93,7 +100,10 @@ const TopBar = () => {
               }}
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main, marginRight: '10px'}}
+              style={{
+                backgroundColor: theme.palette.accentOne.main,
+                marginRight: "10px",
+              }}
             >
               LOGIN
             </Button>
@@ -105,7 +115,10 @@ const TopBar = () => {
               }}
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main }}
+              style={{
+                backgroundColor: theme.palette.accentOne.main,
+                marginRight: "10px",
+              }}
             >
               LOGOUT
             </Button>
