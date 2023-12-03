@@ -3,8 +3,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
+const CLIENT_ID = "81279c82a1744b7584c27fa9441bfb7e";
+const CLIENT_SECRET = "226c09e7fd0a4d6385fca3bb168f8bff";
+
 const SongDatabase = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    // API ACCESS TOKEN
+    var authParameters = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'grant_type=client_credendials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+    }
+    
+    fetch('https://accounts.spotify.co/api/token', authParameters)
+        .then(result => result.json())
+        .then(data => console.log(data))
+  }, [])
 
   return (
     <div className="SongDatabase">
@@ -20,7 +38,7 @@ const SongDatabase = () => {
                     }}
                     onChange={e => setSearch(e.target.value)}
                 />
-                <Button onClick={console.log("Button Database")}>
+                <Button onClick={console.log("Button Clicked")}>
                     Search
                 </Button>
             </InputGroup>
