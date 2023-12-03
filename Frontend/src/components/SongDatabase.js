@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
-const CLIENT_ID = "81279c82a1744b7584c27fa9441bfb7e";
-const CLIENT_SECRET = "226c09e7fd0a4d6385fca3bb168f8bff";
+const CLIENT_ID = "c747fc9f9dfe4db1a1bae8e91ae77d06";
+const CLIENT_SECRET = "c1cc8ef3e01040a5814bdcd3bd335d99";
 
 const SongDatabase = () => {
   const [search, setSearch] = useState("");
@@ -19,7 +19,7 @@ const SongDatabase = () => {
         body: 'grant_type=client_credendials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
     }
     
-    fetch('https://accounts.spotify.co/api/token', authParameters)
+    fetch('https://accounts.spotify.com/api/token', authParameters)
         .then(result => result.json())
         .then(data => console.log(data))
   }, [])
