@@ -7,14 +7,23 @@ import { getUser } from '../utilities/backend_integration.js';
 
 
 const BlogCollection = ({ blogs, title }) => {
-  const [userData, setUserData] = useState(null);
+  const [mapState, setMapState] = useState(new Map());
+  const updateMap = (key, value) => {
+    setMapState(map => new Map(map.set(key, value)));
+  }
+
   useEffect(() => {
-    getUser('fault_gd')
-    .then((res) => {
-      setUserData(res);
-    }, [])
-  })
-  console.log('TEST RES --------- ', userData)
+    for (var i = 0; i < blogs.length-1; i++) {
+      getUser(blogs[i].user_id)
+      .then((res) => {
+        console.log(blogs[i].user_id)
+        updateMap(blogs[i].user_id, res.picture_url)
+      })
+    }
+    
+  }, [])
+
+  console.log('TEST RES --------- ', mapState)
   blogs.reverse()
   const theme = useTheme()
 
@@ -35,7 +44,7 @@ const BlogCollection = ({ blogs, title }) => {
             alignItems= "center"
           >
               <Link to={`/blogs/${blog._id}`}>
-                <img src={getUser(userData).picture_url} width="100" height="100"></img>
+                <img src={mapState.get(blog.user_id)} width="100" height="100"></img>
                 <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
                 <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
                 <p>{blog.song_url}</p>
