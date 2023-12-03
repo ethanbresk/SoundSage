@@ -70,7 +70,7 @@ app.get('/login', async (req, res) => {
 
 // get posts of a given user (or all posts if id is null)
 app.get('/getPosts', async (req, res) => {
-    id = req.query.id
+    id = req.query.data
     try {
         if (id == null) {
             const posts = await Post.find({});

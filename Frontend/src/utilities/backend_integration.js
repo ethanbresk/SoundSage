@@ -62,7 +62,7 @@ export async function createPost(post_data) {
 // get posts
 export async function getPosts(id) {
     try {
-        const res = await axios.get('http://localhost:8080/getPosts', { params: id });
+        const res = await axios.get('http://localhost:8080/getPosts', { params: { data: id } });
         //console.log(res.data)
         return res.data
     }
@@ -82,3 +82,4 @@ export async function getPost(id) {
         console.log(error)
     }
 }
+// add Like to a post by id
