@@ -113,6 +113,10 @@ app.get('/createPost', async (req, res) => {
             song_url: blog_post.song
         });
         await post.save();
+        // add post to user
+        const user = await User.findOne({ spotify_id: blog_post.user });
+        user.posts.push(post._id)
+        await user.save();
         res.json(post);
     }
     catch (error) {
