@@ -7,6 +7,7 @@ import soundsage from '../assets/soundsage-logo-solid.svg';
 import { useTheme } from '@mui/system';
 import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './themeswitch';
 import SvgIcon from '@mui/material/SvgIcon';
+import NotificationTray from './notificationtray'
 
 const TopBar = () => {
   const [data, setData] = useState(null);
@@ -75,6 +76,7 @@ const TopBar = () => {
         </ButtonGroup>
       </Toolbar>
     </AppBar>
+    <NotificationTray></NotificationTray>
     </Box>
   )
 }

@@ -5,10 +5,10 @@ import Create from './pages/Create';
 import BlogPage from './pages/BlogPage';
 import Settings from './pages/Settings';
 import TopBar from './components/TopBar';
+import NotificationTray from './components/notificationtray'
 import NotFound from './pages/NotFound';
-import { Box, AppBar, Button, ThemeProvider, createTheme } from "@mui/material";
+import { Box, Container, AppBar, Button, ThemeProvider, createTheme } from "@mui/material";
 import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './components/themeswitch';
-import { NotificationTray } from './components/notificationtray';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {useState} from 'react';
 import { useTheme } from '@mui/system';
@@ -20,6 +20,7 @@ function App() {
       <ThemeSwitch 
       component = {<div className='App'>
         <TopBar />
+        <NotificationTray></NotificationTray>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />

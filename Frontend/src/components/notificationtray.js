@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BroswerRouter as Router, Routes, Route} from 'react-router-dom';
-import { ListItem, ListItemText } from "@mui/material";
+import { Box, ListItem, ListItemText } from "@mui/material";
+import { useTheme } from '@mui/system';
 
 const Notification = ({ message }) => {
     return (
@@ -10,15 +11,23 @@ const Notification = ({ message }) => {
     )
 }
 
-const NotificationTray = ({ notifications }) => {
+const NotificationTray = (/*{ notifications }*/) => {
+    const theme = useTheme()
+
     return (
-        <div>
+        /*<div>
             {notifications.map((notification, index) => (
                 <ListItem key={index}>
                     <Notification key={index} message={notification.message} />
                 </ListItem>
             ))}
-        </div>
+        </div>*/
+        <Box
+        position = "sticky"
+        width = "100%"
+        style = {{ backgroundColor: theme.palette.secondary.main}}
+        p={1.5}
+        />
     )
 }
 

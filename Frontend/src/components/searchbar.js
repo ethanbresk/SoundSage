@@ -2,8 +2,11 @@ import { TextField, ListItem, ListItemText } from "@mui/material";
 import useFetch from "../hooks/useFetch"
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTheme } from '@mui/system';
 
 export const SearchBar = () => {
+    const theme = useTheme()
+
     const { data: blogs, isPending, error } = useFetch('http://localhost:8080/getPosts', {
         mode: 'no-cors',
       });
@@ -27,6 +30,7 @@ export const SearchBar = () => {
             sx=
             {{
                 width:600,
+                backgroundColor: theme.palette.accentOne.main
             }}
         />
         {searchQuery != "" && searchedNames.length > 0 && (
