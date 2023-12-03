@@ -102,6 +102,7 @@ const TopBar = () => {
               style={{
                 backgroundColor: theme.palette.accentOne.main,
                 marginRight: "10px",
+                marginLeft: "10px",
               }}
             >
               LOGIN
