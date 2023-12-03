@@ -79,8 +79,8 @@ const TopBar = () => {
                   Settings
                 </Button>
               </Link>
+              <NotificationTray notifications={notificationList}/>
         </ButtonGroup>
-        <NotificationTray notifications={notificationList}/>
       </Toolbar>
     </AppBar>
     </Box>
