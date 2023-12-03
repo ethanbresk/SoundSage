@@ -22,11 +22,11 @@ const BlogCollection = ({ blogs, title }) => {
             justifyContent= "center"
             alignItems= "center"
           >
-              <Link to={`/blogs/${blog.id}`}>
-                <h2>{blog.title}</h2>
-                <p>Written by {blog.author}</p>
-                <p>{blog.song}</p>
-                <p>Likes: {blog.likes}</p>
+              <Link to={`/blogs/${blog._id}`}>
+                <h2>{blog.post_title}</h2>
+                <p>Written by {blog.user_id}</p>
+                <p>{blog.song_url}</p>
+                <p>Likes: {blog.num_of_likes}</p>
               </Link>
           </Box>
           </div>

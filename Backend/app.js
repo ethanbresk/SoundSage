@@ -65,9 +65,23 @@ app.get('/login', async (req, res) => {
     }
 }) 
 
-// get blogs
+// get posts of a given user (or all posts if id is null)
 app.get('/getPosts', async (req, res) => {
-    res.json({ blogs: [{ id: 1, title: "example blog", author: "aaron & ethan", song: "songTitle by author", likes: 0 }, { id: 2, title: "example blog 2", author: "aaron & ethan", song: "songTitle 2 by author", likes: 0 }], isPending: false, error: null });
+    id = req.query.id
+    try {
+        if (id == null) {
+            let posts = await Post.find({});
+            res.json({ blogs: posts, isPending: false, error: null })
+        }
+        else {
+            let posts = await Post.find({ user_id: id });
+            res.json({ blogs: posts, isPending: false, error: null })
+        }
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem creating post" });
+        return;
+    }
 }) 
 
 // create a post
@@ -78,6 +92,7 @@ app.get('/createPost', async (req, res) => {
             post_title: blog_post.title,
             post_body: blog_post.body,
             user_id: blog_post.user,
+            user_name: blog_post.name,
             song_url: blog_post.song
         });
         await post.save();

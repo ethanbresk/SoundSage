@@ -29,7 +29,7 @@ const TopBar = () => {
   const notificationList = [
     { message: 'Test Notification' },
     { message: 'Test 2' },
-]
+  ];
 
   return (
     <Box sx ={{flexGrow:1}}>
@@ -82,7 +82,7 @@ const TopBar = () => {
         </ButtonGroup>
       </Toolbar>
     </AppBar>
-    <NotificationTray /*notifications={notificationList}*/></NotificationTray>
+    <NotificationTray notifications={notificationList}/>
     </Box>
   )
 }

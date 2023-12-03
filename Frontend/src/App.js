@@ -20,7 +20,6 @@ function App() {
       <ThemeSwitch 
       component = {<div className='App'>
         <TopBar />
-        <NotificationTray></NotificationTray>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
