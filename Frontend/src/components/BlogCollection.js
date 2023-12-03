@@ -18,6 +18,8 @@ const BlogCollection = ({ blogs, title }) => {
   blogs.reverse()
   const theme = useTheme()
 
+  
+
   return (
     <div>
       {blogs.map((blog) => (
@@ -33,7 +35,6 @@ const BlogCollection = ({ blogs, title }) => {
             alignItems= "center"
           >
               <Link to={`/blogs/${blog._id}`}>
-                <p>{getUser(userData).user_name}</p>
                 <img src={getUser(userData).picture_url} width="100" height="100"></img>
                 <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
                 <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
