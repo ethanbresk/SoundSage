@@ -91,7 +91,7 @@ export const ThemeSwitch = ({ component }) => {
         setDark(!defaultTheme);
     };
 
-const currTheme = createTheme(defaultTheme ? darkTheme : lightTheme);
+const currTheme = createTheme(defaultTheme ? lightTheme : darkTheme);
 
 return (
     <themeContext.Provider value={{switchTheme,currTheme}}>
