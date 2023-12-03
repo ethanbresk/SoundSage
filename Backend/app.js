@@ -139,3 +139,16 @@ app.get('/addLike', async (req, res) => {
         return;
     }
 }) 
+
+// get user data for other profiles
+app.get('/getUser', async (req, res) => {
+    id = req.query.data;
+    try {
+        const user = await Post.findOne({ spotify_id: id })
+        res.json(user)
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem getting post" });
+        return;
+    }
+}) 

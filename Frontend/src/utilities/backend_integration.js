@@ -94,3 +94,15 @@ export async function addLike(id) {
         console.log(error)
     }
 }
+// get user data
+export async function getUser(id) {
+    try {
+        console.log(id)
+        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        //console.log(res.data)
+        return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
