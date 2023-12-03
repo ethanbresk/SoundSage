@@ -17,8 +17,13 @@ const Home = () => {
 
   const [isPending, setIsPending] = useState(true);
   const [blogs, setBlogs] = useState(0);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
+    getUserData()
+    .then(data => {
+      setData(data);
+    })
     getPosts(null)
     .then((res) => {
       setBlogs(res);
@@ -48,7 +53,7 @@ const Home = () => {
           style = {{ backgroundColor: theme.palette.secondary.main}}
           p={3}
         />
-        <createbutton>
+        {data && <createbutton>
           <Link to='/create' title='Link to New Blog Page'>
             <Button
               style={{
@@ -63,7 +68,7 @@ const Home = () => {
               +
             </Button>
           </Link>
-        </createbutton>
+        </createbutton>}
       </nav>
     </main>
   )
