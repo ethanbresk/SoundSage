@@ -45,7 +45,7 @@ export const SearchBar = () => {
         searchedNames.length > 0 &&
         searchedNames.map((title, index) => (
           <ListItem key={title.user_id}>
-            <Link to={`/blogs/${title.user_id}`}>
+            <Link to={`/blogs/${title._id}`}>
               <ListItemText primary={title.post_title} />
             </Link>
           </ListItem>
