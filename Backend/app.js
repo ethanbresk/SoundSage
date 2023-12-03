@@ -110,7 +110,8 @@ app.get('/createPost', async (req, res) => {
             post_body: blog_post.body,
             user_id: blog_post.user,
             user_name: blog_post.name,
-            song_url: blog_post.song
+            song_url: blog_post.song,
+            parent: blog_post.parent ? blog_post.parent : null
         });
         await post.save();
         // add post to user
@@ -144,7 +145,8 @@ app.get('/addLike', async (req, res) => {
 app.get('/getUser', async (req, res) => {
     id = req.query.data;
     try {
-        const user = await Post.findOne({ spotify_id: id })
+        const user = await User.findOne({ spotify_id: id })
+        console.log(user)
         res.json(user)
     }
     catch (error) {
