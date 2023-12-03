@@ -80,7 +80,7 @@ const BlogPage = () => {
                     <Link to={`/profile/${blog.user_id}`}>
                     <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
                     </Link>
-                    <div>{blog.body}</div>
+                    <p>{blog.post_body}</p>
                     <p>{blog.song_url}</p>
                     <button onClick={handleLike}> Likes: {likes}</button>
                 </article>
