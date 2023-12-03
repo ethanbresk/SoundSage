@@ -11,11 +11,12 @@ const Notification = ({ message }) => {
     )
 }
 
-const NotificationTray = (/*{ notifications }*/) => {
+const NotificationTray = ({ /*notifications*/ }) => {
     const theme = useTheme()
 
     return (
-        /*<div>
+        /*
+        <div>
             {notifications.map((notification, index) => (
                 <ListItem key={index}>
                     <Notification key={index} message={notification.message} />

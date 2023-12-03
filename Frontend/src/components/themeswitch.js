@@ -5,13 +5,13 @@ import CssBaseline from "@mui/material/CssBaseline"
 export const lightTheme = createTheme({
     palette: {
         primary: {
-            main: '#E4E7E3',
+            main: '#FFFFFF',
         },
         secondary: {
-            main: '#CFD7CB',
+            main: '#E3E3E3',
         },
         tertiary: {
-            main: '#FFFFFF',
+            main: '#C9C9C9',
         },
         accentOne: {
             main: '#DEF1C2'

@@ -17,7 +17,7 @@ const BlogCollection = ({ blogs, title }) => {
             style={{
               width: 600,
               borderRadius: 20,
-              backgroundColor: theme.palette.secondary.main
+              backgroundColor: theme.palette.tertiary.main
             }}
             justifyContent= "center"
             alignItems= "center"

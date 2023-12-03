@@ -41,7 +41,6 @@ const Profile = () => {
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      <h1 className='page_header'>Profile</h1>
       {data ? userDisplay(data) : <h1>Login to Display Info</h1>}
     </div>
   )

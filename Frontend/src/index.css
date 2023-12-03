@@ -5,23 +5,7 @@
 
 .page_header, .blog {
   text-align: center;
-}
-
-.login button {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  display: inline-block;
-  outline: 0;
-  cursor: pointer;
-  text-align: center;
-  border: 0;
-  padding: 8px 16px;
-  color: #ffffff;
-  background: #008060;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 14px;
+  color: rgb(134, 189, 134);
 }
 
 /* NOTE: The create styling below is just for functionality for now. It is modeled after a template by NetNinja's YouTube tutorial, which we can keep if we decide it works best. */

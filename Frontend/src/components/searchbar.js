@@ -29,8 +29,9 @@ export const SearchBar = () => {
             onChange={handleChange}
             sx=
             {{
+                top: 10,
                 width:600,
-                backgroundColor: theme.palette.accentOne.main
+                backgroundColor: "#EAF6FF"
             }}
         />
         {searchQuery != "" && searchedNames.length > 0 && (
