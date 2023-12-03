@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <ThemeSwitch 
-      component = {<div className='App' style = {{ height:400, overflowY: 'scroll' }}>
+      component = {<div className='App' style = {{ overflowY: 'scroll' }}>
         <TopBar />
         <Routes>
           <Route path="/" element={<Home />} />
