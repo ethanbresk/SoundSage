@@ -44,6 +44,7 @@ const TopBar = () => {
             </SvgIcon>
           </IconButton>
         </Link>
+        <NotificationTray notifications={notificationList}/>
         <ButtonGroup
           variant="contained"
         >
@@ -79,7 +80,6 @@ const TopBar = () => {
                   Settings
                 </Button>
               </Link>
-              <NotificationTray notifications={notificationList}/>
         </ButtonGroup>
       </Toolbar>
     </AppBar>

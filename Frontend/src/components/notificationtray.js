@@ -20,8 +20,9 @@ const NotificationTray = ({ notifications }) => {
 
   return (
     <div>
-      <IconButton>
-        <Badge color="secondary" variant="dot">
+      <IconButton
+      style={{ backgroundColor: theme.palette.accentOne.main}}>
+        <Badge variant="dot">
           <NotificationsIcon />
         </Badge>
       </IconButton>
