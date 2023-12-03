@@ -110,6 +110,7 @@ app.get('/createPost', async (req, res) => {
             post_body: blog_post.body,
             user_id: blog_post.user,
             user_name: blog_post.name,
+            user_picture: blog_post.picture,
             song_url: blog_post.song,
             parent: blog_post.parent ? blog_post.parent : null
         });

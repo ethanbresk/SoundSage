@@ -50,6 +50,7 @@ export async function createPost(post_data) {
     post_data.user = spotify_id
     const user_data = await getUserData()
     post_data.name = user_data.username
+    post_data.picture = user_data.picture_url
     try {
         const res = await axios.get('http://localhost:8080/createPost', { params: { data: post_data } });
         console.log(res.data)
