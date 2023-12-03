@@ -46,9 +46,6 @@ const TopBar = () => {
         </Link>
         <div>SoundSage</div>
         <NotificationTray notifications={notificationList}/>
-        <ButtonGroup
-          variant="contained"
-        >
               <Link to='/profile' title='Link to Profile Page'>
                 <Button
                   variant="contained"
@@ -81,7 +78,6 @@ const TopBar = () => {
                   Settings
                 </Button>
               </Link>
-        </ButtonGroup>
       </Toolbar>
     </AppBar>
     </Box>
