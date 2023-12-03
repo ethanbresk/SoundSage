@@ -1,23 +1,32 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
+import { getPost } from '../utilities/backend_integration.js';
 
 const BlogPage = () => {
     const { id } = useParams();
-    const { data: blog, error, isPending } = useFetch('http://localhost:8080/getPosts');
+    
+    const [isPending, setIsPending] = useState(true);
+    const [blog, setBlog] = useState(0);
+
+    //console.log(id)
+    useEffect(() => {
+        console.log('id:' + id)
+        getPost(id)
+        .then((res) => {
+            //console.log(res)
+            setBlog(res);
+            setIsPending(false);
+        })
+    }, []);
+
+    console.log('blog:' + blog)
+
     const navigate = useNavigate();
     const theme = useTheme()
-    const [likes,setLikes] = useState(blog?.blogs[0].likes);
-
-    const handleClick = () => {
-        fetch('http://localhost:8080/getPosts', {
-            method: 'DELETE'
-        }).then(() => {
-            navigate('/');
-        })
-    }
+    const [likes,setLikes] = useState(0);
 
     const handleLike = () => {
         //const blog = blog?.blogs[0].id
@@ -40,15 +49,13 @@ const BlogPage = () => {
                 p={3}
             />
             { isPending && <div>Loading...</div> }
-            { error && <div>{ error }</div> }
             { blog && (
                 <article>
-                    <h2> {blog.blogs[0].title} </h2>
-                    <p>Written by {blog.blogs[0].author} </p>
-                    <div>{blog.blogs[0].body}</div>
-                    <p>{blog.blogs[0].song}</p>
-                    <button onClick={handleLike}> Likes: {blog.blogs[0].likes}</button>
-                    <button onClick={handleClick}>Delete</button>
+                    <h2> {blog.post_title} </h2>
+                    <p>Written by {blog.user_name} </p>
+                    <div>{blog.body}</div>
+                    <p>{blog.song_url}</p>
+                    <button onClick={handleLike}> Likes: {blog.num_of_likes}</button>
                 </article>
             )}
         </div>

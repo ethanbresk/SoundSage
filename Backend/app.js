@@ -27,6 +27,9 @@ connectDB().then(() => {
     });
 });
 
+mongoose.set('debug', true);
+
+
 // mongo collections
 const User = require('./models/user.js');
 const Post = require('./models/post.js');
@@ -70,29 +73,29 @@ app.get('/getPosts', async (req, res) => {
     id = req.query.id
     try {
         if (id == null) {
-            let posts = await Post.find({});
+            const posts = await Post.find({});
             res.json({ blogs: posts, isPending: false, error: null })
         }
         else {
-            let posts = await Post.find({ user_id: id });
+            const posts = await Post.find({ user_id: id });
             res.json({ blogs: posts, isPending: false, error: null })
         }
     }
     catch (error) {
-        res.status(400).json({ error: "problem creating post" });
+        res.status(400).json({ error: "problem getting posts" });
         return;
     }
 }) 
 
 // get post from id
 app.get('/getPost', async (req, res) => {
-    id = req.query.id
+    id = req.query.data;
     try {
-        let post = await Post.findOne({_id: id});
+        const post = await Post.findById(id)
         res.json(post)
     }
     catch (error) {
-        res.status(400).json({ error: "problem creating post" });
+        res.status(400).json({ error: "problem getting post" });
         return;
     }
 }) 

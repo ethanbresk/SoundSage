@@ -59,7 +59,7 @@ export async function createPost(post_data) {
         console.log(error)
     }
 }
-// get Posts
+// get posts
 export async function getPosts(id) {
     try {
         const res = await axios.get('http://localhost:8080/getPosts', { params: id });
@@ -71,9 +71,10 @@ export async function getPosts(id) {
     }
 }
 // get single post by id
-export async function getPost(post_id) {
+export async function getPost(id) {
     try {
-        const res = await axios.get('http://localhost:8080/getPost', { params: post_id });
+        console.log(id)
+        const res = await axios.get('http://localhost:8080/getPost', { params: { data: id } });
         //console.log(res.data)
         return res.data
     }
