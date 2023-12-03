@@ -23,7 +23,7 @@ const Profile = () => {
   const userDisplay = (data) => {
     const { username, total_likes, spotify_url, picture_url } = data;
     return (
-      <div>
+      <div style={{overflowX: 'hidden', overflowY: 'hidden'}}>
         <h1 className='page_header'>Hello, {username}!</h1>
         <div className='center'>
           <img src={picture_url} alt="Profile" width="115" height="115"
