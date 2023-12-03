@@ -83,3 +83,14 @@ export async function getPost(id) {
     }
 }
 // add Like to a post by id
+export async function addLike(id) {
+    try {
+        console.log(id)
+        const res = await axios.get('http://localhost:8080/addLike', { params: { data: id } });
+        //console.log(res.data)
+        return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
