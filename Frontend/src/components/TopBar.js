@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { login, logout, getUserData } from '../utilities/backend_integration.js';
 import { Link } from 'react-router-dom';
 import { Box, Button, ButtonGroup, IconButton, AppBar, Toolbar } from "@mui/material";
 import './styles.css';
@@ -8,7 +9,21 @@ import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './themeswit
 import SvgIcon from '@mui/material/SvgIcon';
 
 const TopBar = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   const theme = useTheme()
+  useEffect(() => {
+    getUserData()
+      .then(data => {
+        console.log(data);
+        setData(data);
+        setError(null);
+      })
+      .catch(error => {
+        setData(null);
+        setError(error);
+      })
+  }, []);
 
   return (
     <Box sx ={{flexGrow:1}}>
@@ -33,15 +48,22 @@ const TopBar = () => {
                   Profile
                 </Button>
               </Link>
-              <Link to='/login' title='Log into Account'>
-                <Button
-                  variant="contained"
-                  size="medium"
-                  style={{ backgroundColor: theme.palette.accentOne.main }}
-                  >
-                  Login
-                </Button>
-              </Link>
+                  {!data && !error && 
+                  <Button
+                   onClick={() => { login() }}
+                   variant="contained"
+                   size="medium"
+                   style={{ backgroundColor: theme.palette.accentOne.main }}>
+                    LOGIN
+                  </Button>}
+                  {data && 
+                  <Button
+                   onClick={() => { logout() }}
+                   variant="contained"
+                   size="medium"
+                   style={{ backgroundColor: theme.palette.accentOne.main }}>
+                    LOGOUT
+                  </Button>}
               <Link to='/settings' title='Link to Settings'>
                 <Button
                   variant="contained"
