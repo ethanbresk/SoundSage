@@ -23,13 +23,17 @@ const Profile = () => {
   const userDisplay = (data) => {
     const { username, total_likes, spotify_url, picture_url } = data;
     return (
-      <div>
+      <div style={{overflowX: 'hidden', overflowY: 'hidden'}}>
         <h1 className='page_header'>Hello, {username}!</h1>
-        <h2>Your total Likes: {total_likes}</h2>
-        <h2>Link to Spotify: <a href={spotify_url}>{spotify_url}</a></h2>
-        <h2>Your profile pic (may be null)</h2>
-        <img src={picture_url} alt="Profile" width="200" height="200"></img>
-      </div>
+        <div className='center'>
+          <img src={picture_url} alt="Profile" width="115" height="115"
+            style={{borderRadius: 1000, alignItems: 'center'}}></img>
+        </div>
+        <div style={{padding: 110, color: theme.palette.text.main, textAlign: 'center'}}>
+          <h2>Total Likes: {total_likes}</h2>
+          <h2><a href={spotify_url}>Your Spotify Page</a></h2>
+        </div>
+        </div>
     );
   }
   return (
@@ -41,7 +45,7 @@ const Profile = () => {
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      {data ? userDisplay(data) : <h1>Login to Display Info</h1>}
+      {data ? userDisplay(data) : <h1 style={{textAlign: 'center'}}>Login to Display Your Info!</h1>}
     </div>
   )
 }

@@ -3,6 +3,10 @@
   height: auto;
 }
 
+.App {
+  height: 10;
+}
+
 .page_header, .blog {
   text-align: center;
   color: rgb(134, 189, 134);
