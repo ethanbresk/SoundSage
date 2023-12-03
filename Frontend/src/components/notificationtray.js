@@ -11,24 +11,27 @@ const Notification = ({ message }) => {
     )
 }
 
-const NotificationTray = ({ /*notifications*/ }) => {
+const NotificationTray = ({ notifications }) => {
     const theme = useTheme()
 
+    if (!notifications || notifications.length === 0) {
+        return <div>No notifications available</div>;
+    }
+
     return (
-        /*
         <div>
             {notifications.map((notification, index) => (
                 <ListItem key={index}>
                     <Notification key={index} message={notification.message} />
                 </ListItem>
             ))}
-        </div>*/
         <Box
         position = "sticky"
         width = "100%"
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={1.5}
         />
+        </div>
     )
 }
 
