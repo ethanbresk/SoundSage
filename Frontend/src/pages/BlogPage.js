@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useState, useEffect } from "react";
 import { useTheme } from '@mui/system';
@@ -55,7 +55,9 @@ const BlogPage = () => {
             { blog && (
                 <article>
                     <h2> {blog.post_title} </h2>
+                    <Link to={`/profile/${blog.user_id}`}>
                     <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
+                    </Link>
                     <div>{blog.body}</div>
                     <p>{blog.song_url}</p>
                     <button onClick={handleLike}> Likes: {likes}</button>

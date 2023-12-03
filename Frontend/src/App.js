@@ -4,6 +4,7 @@ import Profile from './pages/Profile';
 import Create from './pages/Create';
 import BlogPage from './pages/BlogPage';
 import Settings from './pages/Settings';
+import OtherProfiles from './pages/OtherProfiles'
 import TopBar from './components/TopBar';
 import NotificationTray from './components/notificationtray'
 import NotFound from './pages/NotFound';
@@ -18,11 +19,12 @@ function App() {
   return (
     <Router>
       <ThemeSwitch 
-      component = {<div className='App' style = {{ overflowY: 'scroll' }}>
+      component = {<div className='App'>
         <TopBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:user" element={<OtherProfiles />} />
           <Route path="/create" element={<Create />} />
           <Route path="/blogs/:id" element={<BlogPage />} />
           <Route path="/settings" element = {<Settings />} />
