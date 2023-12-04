@@ -10,6 +10,8 @@ const SongDatabase = () => {
   const [searchVal, setSearchVal] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const [selectedAlbumIndex, setSelectedAlbumIndex] = useState(null);
 
   useEffect(() => {
     // API ACCESS TOKEN
@@ -28,6 +30,9 @@ const SongDatabase = () => {
 
 // SEARCH FUNCTION
   async function search() {
+    // clear selected:
+    setSelectedAlbum(null);
+    setSelectedAlbumIndex(null);
     console.log(searchVal ? "SEARCH FOR " + searchVal : "NO SEARCH") // searchVal is the query
     if (!searchVal) return;
     // get Artist ID
@@ -41,10 +46,15 @@ const SongDatabase = () => {
 
     var artist_id = await fetch('https://api.spotify.com/v1/search?q=' + searchVal + '&type=artist', search_parameters)
                             .then(res => res.json())
-                            .then(data => { return data.artists.items[0].id })
+                            .then(data => { return data.artists.items[0]?.id })
 
 
     console.log("Artist ID = " + artist_id)
+    if (!artist_id) {
+        // no results:
+        setAlbums([null]);
+        return;
+    }
 
     var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artist_id + '/albums' + '?include_groups=album&market=US&limit=50', search_parameters)
         .then(res => res.json())
@@ -78,13 +88,28 @@ const SongDatabase = () => {
         <Container>
             <Row className="mx-2 row row-cols-4">
                 {albums.map((album, i) => {
+                    if (!album) {
+                        return(
+                            <Card>
+                                <Card.Body>
+                                    <Card.Title>No Results</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        );
+                    }
                     return(
-                    <Card>
-                    <Card.Img src={album.images[0].url} />
-                    <Card.Body>
-                        <Card.Title>{album.name}</Card.Title>
-                    </Card.Body>
-                </Card>
+                        <Card
+                            onClick={() => {
+                                setSelectedAlbum(album);
+                                setSelectedAlbumIndex(i);
+                            }} 
+                            style={{ border: selectedAlbumIndex === i ? "4px solid blue" : "1px solid black" }}
+                        >
+                            <Card.Img src={album.images[0].url} />
+                            <Card.Body>
+                                <Card.Title>{album.name}</Card.Title>
+                            </Card.Body>
+                        </Card>
                     )
                 })}
             </Row>
