@@ -26,6 +26,8 @@ const UserSchema = new Schema ({
         default: 0
     },
     posts: [mongoose.Types.ObjectId],
+    comment_notification_ids: [mongoose.Types.ObjectId],
+    like_notification_ids: [mongoose.Types.ObjectId]
     
 })
 const User = mongoose.model("User", UserSchema);
