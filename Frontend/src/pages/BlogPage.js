@@ -5,6 +5,8 @@ import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
 import { getPost, addLike, createPost } from '../utilities/backend_integration.js';
 import { getUserData } from '../utilities/backend_integration.js';
+import { Card } from 'react-bootstrap';
+
 
 const BlogPage = () => {
     const { id } = useParams();
@@ -112,7 +114,14 @@ const BlogPage = () => {
                     <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
                     </Link>
                     <p>{blog.post_body}</p>
-                    <p>{blog.song_url}</p>
+                    <Link to={blog.song_url}>
+                        <Card>
+                            <Card.Img src={blog.song_pic} />
+                            <Card.Body>
+                                <Card.Title>{blog.song_name}</Card.Title>
+                            </Card.Body>
+                        </Card>
+                    </Link>
                     <button onClick={handleLike}> Likes: {likes}</button>
                 </article>
             )}

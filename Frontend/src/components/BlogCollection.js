@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Box } from '@mui/material'
 import { useTheme } from '@mui/system';
 import { getUser } from '../utilities/backend_integration.js';
+import { Card } from 'react-bootstrap';
+
 
 
 const BlogCollection = ({ blogs, title }) => {
@@ -28,7 +30,14 @@ const BlogCollection = ({ blogs, title }) => {
                 <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
                 <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
                 <p>{blog.post_body}</p>
-                <p>{blog.song_url}</p>
+                  <Link to={blog.song_url}>
+                    <Card>
+                      <Card.Img src={blog.song_pic}/>
+                      <Card.Body>
+                        <Card.Title>{blog.song_name}</Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 <p style={{textAlign: 'right', paddingRight: 15, paddingBottom: 5}}>Likes: <b>{blog.num_of_likes}</b></p>
               </Link>)
             }
