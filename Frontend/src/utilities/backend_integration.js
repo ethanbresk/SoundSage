@@ -3,7 +3,8 @@ import { loginWithSpotifyClick, getData } from './spotify_integration';
 
 
 // USER DATA:
-let spotify_id = null;
+let spotify_data = JSON.parse(localStorage.getItem('spotify_data')) || null;
+let spotify_id = spotify_data ? spotify_data.id : null;
 // login user
 export async function login() {
     // Function to login.
@@ -14,13 +15,16 @@ export async function login() {
 export async function getUserData() {
     // Function to get user data (profile info, posts, etc).
     // Multiple invocations pull new data from the database.
-    // Returns null if login() has not yet been called, or the current session has expired.
+    // Returns null if login() has never been called, or the localstorage has been cleared.
 
-    const spotify_data = await getData();
-    if (!spotify_data || spotify_data.error) {
-        return null;
+    if (!spotify_data) {
+        spotify_data = await getData();
+        if (!spotify_data || spotify_data.error) {
+            return null;
+        }
+        spotify_id = spotify_data.id;
+        localStorage.setItem('spotify_data', JSON.stringify(spotify_data));
     }
-    spotify_id = spotify_data.id;
     // Login:
     try {
         const res = await axios.get('http://localhost:8080/login', { params: { data: spotify_data } });
