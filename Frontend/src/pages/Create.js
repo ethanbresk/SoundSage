@@ -35,8 +35,8 @@ const Create = () => {
             alert("Please select an album.")
             return;
         }
-        // const blog = { title, body, song };
-        const blog = { title, body, selectedAlbum };
+        console.log(selectedAlbum);
+        const blog = { title, body, selectedAlbum: selectedAlbum };
 
         setIsPending(true);
         console.log('this sg'+blog)

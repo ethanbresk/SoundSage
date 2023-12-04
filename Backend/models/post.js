@@ -12,9 +12,17 @@ const PostSchema = new Schema({
     },
     user_picture: {
         type: String,
-        required: true,
+        required: false,
     },
     song_url: {
+        type: String,
+        required: true,
+    },
+    song_pic: {
+        type: String,
+        required: true,
+    },
+    song_name: {
         type: String,
         required: true,
     },

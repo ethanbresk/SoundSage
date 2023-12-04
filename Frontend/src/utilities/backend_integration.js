@@ -51,12 +51,21 @@ export function logout() {
 }
 // create a post
 export async function createPost(post_data) {
-    post_data.user = spotify_id
     const user_data = await getUserData()
-    post_data.name = user_data.username
-    post_data.picture = user_data.picture_url
+    const data = {
+        user: spotify_id,
+        name: user_data.username,
+        picture: user_data.picture_url,
+        song_url: post_data.selectedAlbum.external_urls.spotify,
+        song_pic: post_data.selectedAlbum.images[0].url,
+        song_name: post_data.selectedAlbum.name,
+        title: post_data.title,
+        body: post_data.body
+    }
+    console.log(post_data);
+    console.log(data);
     try {
-        const res = await axios.get('http://localhost:8080/createPost', { params: { data: post_data } });
+        const res = await axios.get('http://localhost:8080/createPost', { params: { data: data } });
         console.log(res.data)
         return res.data
     }

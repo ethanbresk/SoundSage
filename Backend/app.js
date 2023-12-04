@@ -111,7 +111,9 @@ app.get('/createPost', async (req, res) => {
             user_id: blog_post.user,
             user_name: blog_post.name,
             user_picture: blog_post.picture,
-            song_url: blog_post.song,
+            song_url: blog_post.song_url,
+            song_pic: blog_post.song_pic,
+            song_name: blog_post.song_name,
             parent: blog_post.parent ? blog_post.parent : null
         });
         await post.save();
@@ -131,6 +133,7 @@ app.get('/createPost', async (req, res) => {
         res.json(post);
     }
     catch (error) {
+        console.log(error);
         res.status(400).json({ error: "problem creating post" });
         return;
     }
