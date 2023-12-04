@@ -87,7 +87,7 @@ export async function getPost(id) {
 export async function addLike(id) {
     try {
         console.log(id)
-        const res = await axios.get('http://localhost:8080/addLike', { params: { data: id } });
+        const res = await axios.get('http://localhost:8080/addLike', { params: { data: id, user: spotify_id } });
         //console.log(res.data)
         return res.data
     }

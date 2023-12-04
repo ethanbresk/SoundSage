@@ -22,6 +22,7 @@ const PostSchema = new Schema({
         type: Number,
         default: 0
     },
+    liked_users: [String],
     post_title: {
         type: String,
         required: true,
