@@ -14,9 +14,9 @@ const SongDatabase = () => {
     var authParameters = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: 'grant_type=client_credendials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+        body: 'grant_type=client_credendials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + 'qe'
     }
     
     fetch('https://accounts.spotify.com/api/token', authParameters)
