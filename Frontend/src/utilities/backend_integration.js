@@ -98,10 +98,22 @@ export async function addLike(id) {
 // get user data
 export async function getUser(id) {
     try {
-        console.log(id)
+        //console.log(id)
         const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
         //console.log(res.data)
         return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+// get notifications
+export async function getNotifications(id) {
+    try {
+        //console.log(id)
+        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        //console.log(res.data)
+        return res.data.comment_notification_ids + res.data.like_notification_ids
     }
     catch (error) {
         console.log(error)
