@@ -1,4 +1,4 @@
-import { TextField, ListItem, ListItemText } from "@mui/material";
+import { TextField, ListItem, ListItemText, ListItemButton } from "@mui/material";
 import useFetch from "../hooks/useFetch"
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -44,11 +44,11 @@ export const SearchBar = () => {
       {searchQuery != "" &&
         searchedNames.length > 0 &&
         searchedNames.map((title, index) => (
-          <ListItem key={title.user_id}>
-            <Link to={`/blogs/${title._id}`}>
+          <Link to={`/blogs/${title._id}`}>
+          <ListItemButton key={title.user_id}>
               <ListItemText primary={title.post_title} />
-            </Link>
-          </ListItem>
+          </ListItemButton>
+          </Link>
         ))}
     </div>
   );
