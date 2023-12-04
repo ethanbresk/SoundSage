@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
 import { getPost, addLike, createPost } from '../utilities/backend_integration.js';
+import { getUserData } from '../utilities/backend_integration.js';
 
 const BlogPage = () => {
     const { id } = useParams();
@@ -19,10 +20,22 @@ const BlogPage = () => {
     const [author, setAuthor] = useState('Default');
     const [song, setSong] = useState(' ');
     const [children, setChildren] = useState([]);
+    const [data, setData] = useState(null)
+    const [error, setError] = useState(null);
+    const [liked, setLiked] = useState(false);
 
     //console.log(id)
     useEffect(() => {
         console.log('id:' + id)
+        getUserData()
+        .then(data => {
+            setData(data);
+            setError(null);
+          })
+          .catch(error => {
+            setData(null);
+            setError(error);
+          })
         getPost(id)
         .then((res) => {
             //console.log(res)
@@ -44,10 +57,14 @@ const BlogPage = () => {
 
     const handleLike = () => {
         //const blog = blog?.blogs[0].id
-        addLike(blog._id)
-        .then(() => {
-            setLikes(likes+1)
-        })
+        if (!liked && !blog.liked_users.includes(data.spotify_id)) {
+            addLike(blog._id)
+            .then(() => {
+                setLikes(likes+1)
+            })
+        }
+        setLiked(true)
+        console.log("liked" + liked)
         //fetch('http://localhost:8080/getPosts', {
         //    method: 'LIKE'
         //}).then(() => {
@@ -76,7 +93,7 @@ const BlogPage = () => {
     const handleChildren = () => {
 
     }
-    }
+}
 
     return (
         <div className="blog-details" style ={{color: theme.palette.text.main }}>
