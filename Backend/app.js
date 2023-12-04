@@ -71,7 +71,7 @@ app.get('/login', async (req, res) => {
 // get posts of a given user (or all posts if id is null)
 app.get('/getPosts', async (req, res) => {
     id = req.query.data
-    console.log(id)
+    //console.log(id)
     try {
         if (id == null) {
             const posts = await Post.find({});
@@ -123,6 +123,11 @@ app.get('/createPost', async (req, res) => {
         const parent_post = await Post.findById(blog_post.parent)
         parent_post.children.push(post._id)
         await parent_post.save();
+        // if this is a comment, add to the user's comment notification list
+        if (blog_post.parent) {
+            user.comment_notification_ids.push(blog_post.parent)
+            await user.save();
+        }
         res.json(post);
     }
     catch (error) {
@@ -134,12 +139,17 @@ app.get('/createPost', async (req, res) => {
 // add like by post id
 app.get('/addLike', async (req, res) => {
     id = req.query.data;
-    user = req.query.user;
+    user_id = req.query.user;
     try {
         const post = await Post.findById(id)
         post.num_of_likes += 1
-        post.liked_users.push(user)
+        // add user to list of liked users for the post
+        post.liked_users.push(user_id)
         await post.save();
+        // add psot as a like notification for user
+        const user = await User.findOne({ spotify_id: user_id })
+        user.like_notification_ids.push(post._id)
+        await user.save();
         res.json(post)
     }
     catch (error) {
@@ -153,7 +163,7 @@ app.get('/getUser', async (req, res) => {
     id = req.query.data;
     try {
         const user = await User.findOne({ spotify_id: id })
-        console.log(user)
+        //console.log(user)
         res.json(user)
     }
     catch (error) {
