@@ -6,12 +6,12 @@ import { useState, useEffect } from 'react';
 const CLIENT_ID = "5461474c928648918ff375fd7d51d2c4";
 const CLIENT_SECRET = "d681ca8e621744f1b3f5e627e15041a3";
 
-const SongDatabase = () => {
+const SongDatabase = ({ setSelectedAlbum }) => {
   const [searchVal, setSearchVal] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
-  const [selectedAlbumIndex, setSelectedAlbumIndex] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     // API ACCESS TOKEN
@@ -31,8 +31,8 @@ const SongDatabase = () => {
 // SEARCH FUNCTION
   async function search() {
     // clear selected:
-    setSelectedAlbum(null);
-    setSelectedAlbumIndex(null);
+    setSelected(null);
+    setSelectedIndex(null);
     console.log(searchVal ? "SEARCH FOR " + searchVal : "NO SEARCH") // searchVal is the query
     if (!searchVal) return;
     // get Artist ID
@@ -100,10 +100,13 @@ const SongDatabase = () => {
                     return(
                         <Card
                             onClick={() => {
-                                setSelectedAlbum(album);
-                                setSelectedAlbumIndex(i);
+                                setSelected(album);
+                                setSelectedIndex(i);
+                                if (setSelectedAlbum) {
+                                    setSelectedAlbum(album);
+                                }
                             }} 
-                            style={{ border: selectedAlbumIndex === i ? "4px solid blue" : "1px solid black" }}
+                            style={{ border: selectedIndex === i ? "4px solid blue" : "1px solid black" }}
                         >
                             <Card.Img src={album.images[0].url} />
                             <Card.Body>
