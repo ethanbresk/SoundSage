@@ -107,13 +107,33 @@ export async function getUser(id) {
         console.log(error)
     }
 }
-// get notifications
-export async function getNotifications(id) {
+// get comment notifications
+export async function getCommentNotifications(id) {
     try {
         //console.log(id)
         const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
         //console.log(res.data)
-        return res.data.comment_notification_ids + res.data.like_notification_ids
+        const output = []
+        for (var i = 0; i < res.data.comment_notification_ids.length; i++) {
+            output.push(getPost(res.data.comment_notification_ids[i]))
+        }
+        return output
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+// get like notifications
+export async function getLikeNotifications(id) {
+    try {
+        //console.log(id)
+        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        //console.log(res.data)
+        const output = []
+        for (var i = 0; i < res.data.like_notification_ids.length; i++) {
+            output.push(getPost(res.data.like_notification_ids[i]))
+        }
+        return output
     }
     catch (error) {
         console.log(error)
