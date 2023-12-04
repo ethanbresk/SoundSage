@@ -3,11 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
-const CLIENT_ID = "c747fc9f9dfe4db1a1bae8e91ae77d06";
-const CLIENT_SECRET = "c1cc8ef3e01040a5814bdcd3bd335d99";
+const CLIENT_ID = "5461474c928648918ff375fd7d51d2c4";
+const CLIENT_SECRET = "d681ca8e621744f1b3f5e627e15041a3";
 
 const SongDatabase = () => {
-  const [search, setSearch] = useState("");
+  const [searchVal, setSearchVal] = useState("");
+  const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
     // API ACCESS TOKEN
@@ -16,13 +17,22 @@ const SongDatabase = () => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: 'grant_type=client_credendials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + 'qe'
+        body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
     }
     
     fetch('https://accounts.spotify.com/api/token', authParameters)
         .then(result => result.json())
-        .then(data => console.log(data))
+        .then(data => setAccessToken(data.access_token))
   }, [])
+
+// SEARCH FUNCTION
+  async function search() {
+    console.log("SEARCH " + searchVal) // searchVal is the query
+
+    // get Artist ID
+
+    // get req given artist ID to get ALL albums from the artist
+  }
 
   return (
     <div className="SongDatabase">
@@ -33,12 +43,12 @@ const SongDatabase = () => {
                     type='input'
                     onKeyPress={event => {
                         if (event.key == "Enter") {
-                            console.log("Search query: Enter.");
+                            search();
                         }
                     }}
-                    onChange={e => setSearch(e.target.value)}
+                    onChange={e => setSearchVal(e.target.value)}
                 />
-                <Button onClick={console.log("Button Clicked")}>
+                <Button onClick={() => {search()}}>
                     Search
                 </Button>
             </InputGroup>
