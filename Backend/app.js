@@ -178,8 +178,9 @@ app.get('/getUser', async (req, res) => {
 // delete notification
 app.get('/deleteNotification', async (req, res) => {
     id = req.query.data;
+    user_id = req.query.user;
     try {
-        const user = await User.findOne({ spotify_id: id })
+        const user = await User.findOne({ spotify_id: user_id })
         //console.log(user)
         const index = user.like_notification_ids.indexOf(id)
         user.like_notification_ids.splice(index, 1)

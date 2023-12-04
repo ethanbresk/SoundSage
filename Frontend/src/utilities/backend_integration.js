@@ -157,7 +157,7 @@ export async function getLikeNotifications(id) {
 export async function deleteNotification(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/deleteNotification', { params: { data: id } });
+        const res = await axios.get('http://localhost:8080/deleteNotification', { params: { data: id, user: spotify_id } });
         //console.log(res.data)
         return res.data
     }
