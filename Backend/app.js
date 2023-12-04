@@ -171,3 +171,20 @@ app.get('/getUser', async (req, res) => {
         return;
     }
 }) 
+
+// delete notification
+app.get('/deleteNotification', async (req, res) => {
+    id = req.query.data;
+    try {
+        const user = await User.findOne({ spotify_id: id })
+        //console.log(user)
+        const index = user.like_notification_ids.indexOf(id)
+        user.like_notification_ids.splice(index, 1)
+        await user.save()
+        res.json(user)
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem getting post" });
+        return;
+    }
+}) 

@@ -115,7 +115,7 @@ export async function getCommentNotifications(id) {
         //console.log(res.data)
         const output = []
         for (var i = 0; i < res.data.comment_notification_ids.length; i++) {
-            output.push(getPost(res.data.comment_notification_ids[i]))
+            output.push(await getPost(res.data.comment_notification_ids[i]))
         }
         return output
     }
@@ -131,9 +131,21 @@ export async function getLikeNotifications(id) {
         //console.log(res.data)
         const output = []
         for (var i = 0; i < res.data.like_notification_ids.length; i++) {
-            output.push(getPost(res.data.like_notification_ids[i]))
+            output.push(await getPost(res.data.like_notification_ids[i]))
         }
         return output
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+// remove a notification
+export async function deleteNotification(id) {
+    try {
+        //console.log(id)
+        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        //console.log(res.data)
+        return res.data
     }
     catch (error) {
         console.log(error)
