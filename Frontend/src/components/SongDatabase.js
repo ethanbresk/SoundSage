@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 const CLIENT_ID = "5461474c928648918ff375fd7d51d2c4";
 const CLIENT_SECRET = "d681ca8e621744f1b3f5e627e15041a3";
 
-const SongDatabase = ({ setSelectedAlbum }) => {
+const SongDatabase = ({ chooseAlbum }) => {
   const [searchVal, setSearchVal] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
@@ -76,6 +76,7 @@ const SongDatabase = ({ setSelectedAlbum }) => {
                     onKeyPress={event => {
                         if (event.key == "Enter") {
                             search();
+                            event.preventDefault();
                         }
                     }}
                     onChange={e => setSearchVal(e.target.value)}
@@ -102,8 +103,8 @@ const SongDatabase = ({ setSelectedAlbum }) => {
                             onClick={() => {
                                 setSelected(album);
                                 setSelectedIndex(i);
-                                if (setSelectedAlbum) {
-                                    setSelectedAlbum(album);
+                                if (chooseAlbum) {
+                                    chooseAlbum(album);
                                 }
                             }} 
                             style={{ border: selectedIndex === i ? "4px solid blue" : "1px solid black" }}

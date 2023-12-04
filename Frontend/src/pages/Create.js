@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/system';
 import { Box } from '@mui/material';
 import { createPost } from '../utilities/backend_integration.js';
+import SongDatabase from "../components/SongDatabase.js";
+import { Card } from 'react-bootstrap';
+
 
 /* Create page implementation. The Create component of this code
    was influenced by template guides from a tutorial by NetNinja. */
@@ -12,16 +15,28 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('Default');
-    const [song, setSong] = useState('');
     const [likes, setLikes] = useState(0);
     /* const [comments, setComments] = useState(); */ // NOTE: How would we implement a comment being associated with its blog? Maybe a separate object set, pointers to blogs by id?
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
     const theme = useTheme()
 
+    // ALBUM CHOOSING:
+    const [showSongDatabase, setShowSongDatabase] = useState(false);
+    const [selectedAlbum, setSelectedAlbum] = useState(null);
+    const chooseAlbum = (album) => {
+        setSelectedAlbum(album);
+        setShowSongDatabase(false);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const blog = { title, body, song };
+        if (!selectedAlbum) {
+            alert("Please select an album.")
+            return;
+        }
+        // const blog = { title, body, song };
+        const blog = { title, body, selectedAlbum };
 
         setIsPending(true);
         console.log('this sg'+blog)
@@ -59,12 +74,23 @@ const Create = () => {
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                 ></textarea>
-                <label>Song:</label>
-                <textarea 
-                    required
-                    value={song}
-                    onChange={(e) => setSong(e.target.value)}
-                ></textarea>
+                <label>Album:</label>
+                <div style={{"border" : "4px solid grey"}}>
+                    {selectedAlbum && 
+                        <Card
+                            onClick={() => {
+                                setSelectedAlbum(null);
+                            }}>
+                            <Card.Body>
+                                <Card.Title>{selectedAlbum.name}</Card.Title>
+                            </Card.Body>
+                        </Card>}
+                    <button type="button" onClick={(e) => {
+                        e.stopPropagation();
+                        setShowSongDatabase(!showSongDatabase)}}>{showSongDatabase ? "-" : "+"}</button>
+                    {showSongDatabase && <SongDatabase chooseAlbum={chooseAlbum} />}
+                </div>
+                <br></br>
                 { !isPending && <button>Add Blog</button>}
                 { isPending && <button disabled>Posting...</button>}
                 {/*<p>{ title }</p>
