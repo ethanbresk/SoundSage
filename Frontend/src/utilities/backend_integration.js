@@ -98,10 +98,42 @@ export async function addLike(id) {
 // get user data
 export async function getUser(id) {
     try {
-        console.log(id)
+        //console.log(id)
         const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
         //console.log(res.data)
         return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+// get comment notifications
+export async function getCommentNotifications(id) {
+    try {
+        //console.log(id)
+        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        //console.log(res.data)
+        const output = []
+        for (var i = 0; i < res.data.comment_notification_ids.length; i++) {
+            output.push(getPost(res.data.comment_notification_ids[i]))
+        }
+        return output
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+// get like notifications
+export async function getLikeNotifications(id) {
+    try {
+        //console.log(id)
+        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        //console.log(res.data)
+        const output = []
+        for (var i = 0; i < res.data.like_notification_ids.length; i++) {
+            output.push(getPost(res.data.like_notification_ids[i]))
+        }
+        return output
     }
     catch (error) {
         console.log(error)
