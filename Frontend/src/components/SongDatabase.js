@@ -28,8 +28,8 @@ const SongDatabase = () => {
 
 // SEARCH FUNCTION
   async function search() {
-    console.log("SEARCH FOR " + searchVal) // searchVal is the query
-
+    console.log(searchVal ? "SEARCH FOR " + searchVal : "NO SEARCH") // searchVal is the query
+    if (!searchVal) return;
     // get Artist ID
     var search_parameters = {
         method: 'GET',
