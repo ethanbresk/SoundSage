@@ -34,6 +34,22 @@ const Settings = () => {
             }}>
           Change Theme
         </Button>
+      <div/>
+      <p/>
+      <div className="center">
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href='/songdatabase';
+          }}
+            variant="contained"
+            style={{
+              borderRadius:30,
+              backgroundColor: theme.palette.secondary.main
+              }}>
+            Albums
+          </Button>
+        </div>
       </div>
     </div>
   )
