@@ -11,7 +11,7 @@ export const lightTheme = createTheme({
             main: '#E3E3E3',
         },
         tertiary: {
-            main: '#C9C9C9',
+            main: '#E8E8E8',
         },
         accentOne: {
             main: '#DEF1C2'

@@ -133,6 +133,7 @@ export async function getLikeNotifications(id) {
         for (var i = 0; i < res.data.like_notification_ids.length; i++) {
             output.push(await getPost(res.data.like_notification_ids[i]))
         }
+        console.log("like output" + JSON.stringify(output))
         return output
     }
     catch (error) {

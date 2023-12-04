@@ -21,6 +21,11 @@
   color: rgb(134, 189, 134);
 }
 
+.page_header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .blog-details {
   h1, h2 {
     text-align: center;
