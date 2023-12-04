@@ -10,7 +10,7 @@ import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { getLikeNotifications, getCommentNotifications, getUserData } from '../utilities/backend_integration.js';
+import { getLikeNotifications, getCommentNotifications, getUserData, deleteNotification } from '../utilities/backend_integration.js';
 //Copied part of MUI library example for display and refactored to our own use, adding our own unqiue parts
 function NotificationTray() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -48,6 +48,15 @@ function NotificationTray() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleDelete = (id) => {
+    deleteNotification(id)
+    .then(() => {
+      setNotifications((prevNotifications) =>
+        prevNotifications.filter((notification) => notification._id !== id)
+      );
+    })
+    handleClose();
+  };
 
   return (
     <div>
@@ -72,14 +81,14 @@ function NotificationTray() {
       >
         
 {notifications && notifications.length > 0 && notifications.map((option) => (
-  <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={handleClose}>
+  <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`}>
       {option.user_name + " liked your post"}
     </Link>
   </MenuItem>
 ))}
 {othernotifications && othernotifications.length > 0 && othernotifications.map((option) => (
-  <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={handleClose}>
+  <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`}>
     {option.user_name + " commented on your post"}
     </Link>
