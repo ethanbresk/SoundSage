@@ -21,7 +21,7 @@ const BlogPage = () => {
     const [title, setTitle] = useState(' ');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('Default');
-    const [song, setSong] = useState(' ');
+    const [song, setSong] = useState(null);
     const [children, setChildren] = useState([]);
     const [data, setData] = useState(null)
     const [error, setError] = useState(null);

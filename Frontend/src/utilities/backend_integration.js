@@ -56,11 +56,12 @@ export async function createPost(post_data) {
         user: spotify_id,
         name: user_data.username,
         picture: user_data.picture_url,
-        song_url: post_data.selectedAlbum.external_urls.spotify,
-        song_pic: post_data.selectedAlbum.images[0].url,
-        song_name: post_data.selectedAlbum.name,
+        song_url: post_data.selectedAlbum ? post_data.selectedAlbum.external_urls.spotify : "https://open.spotify.com/album/5CnpZV3q5BcESefcB3WJmz",
+        song_pic: post_data.selectedAlbum ? post_data.selectedAlbum.images[0].url : "https://i.scdn.co/image/ab67616d0000b273cad190f1a73c024e5a40dddd",
+        song_name: post_data.selectedAlbum ? post_data.selectedAlbum.name : "Donda",
         title: post_data.title,
-        body: post_data.body
+        body: post_data.body,
+        parent: post_data.parent ? post_data.parent : null
     }
     console.log(post_data);
     console.log(data);
