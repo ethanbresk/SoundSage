@@ -150,8 +150,8 @@ app.get('/addLike', async (req, res) => {
         post.liked_users.push(user_id)
         await post.save();
         // add psot as a like notification for user
-        const user = await User.findOne({ spotify_id: user_id })
-        user.like_notification_ids.push(post._id)
+        const user = await User.findOne({ spotify_id: post.user_id })
+        user.like_notification_ids.push(id)
         await user.save();
         res.json(post)
     }
@@ -196,7 +196,7 @@ app.get('/deleteLikeNotification', async (req, res) => {
 // delete comment notification
 app.get('/deleteCommentNotification', async (req, res) => {
     id = req.query.data;
-    user_id = req.query.user;
+    user_id = req.query.user;``
     try {
         const user = await User.findOne({ spotify_id: user_id })
         //console.log(user)
