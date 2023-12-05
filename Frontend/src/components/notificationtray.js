@@ -92,14 +92,14 @@ function NotificationTray() {
 {notifications && notifications.length > 0 && notifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleLikeDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`}>
-      {option.user_name + " liked your post"}
+      {option.user_name + " liked your post."}
     </Link>
   </MenuItem>
 ))}
 {othernotifications && othernotifications.length > 0 && othernotifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleCommentDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`}>
-    {option.user_name + " commented on your post"}
+    {option.user_name + " commented on your post."}
     </Link>
   </MenuItem>
 ))}

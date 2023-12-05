@@ -40,7 +40,7 @@ const Home = () => {
     <main>
       <div className='center'>
         <SearchBar></SearchBar>
-      <div className="blog_home" style = {{ paddingTop:9,paddingBottom:100,height:550,overflowY: 'auto' }}>
+      <div className="blog_home" style = {{ marginTop:20,paddingTop:9,paddingBottom:100,height:700,overflowY: 'auto' }}>
         {isPending && <div>Loading...</div>}
         {blogs && <BlogCollection blogs={blogs.blogs} title="SoundSage Blogs:" />}
       </div>

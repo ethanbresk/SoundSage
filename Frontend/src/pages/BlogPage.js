@@ -2,10 +2,10 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useState, useEffect } from "react";
 import { useTheme } from '@mui/system';
-import { Box } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Button, IconButton } from '@mui/material';
 import { getPost, addLike, createPost } from '../utilities/backend_integration.js';
 import { getUserData } from '../utilities/backend_integration.js';
-import { Card } from 'react-bootstrap';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 
 
 const BlogPage = () => {
@@ -108,23 +108,36 @@ const BlogPage = () => {
             />
             { isLoading && <div>Loading...</div> }
             { blog && (
-                <article>
-                    <h2> {blog.post_title} </h2>
+                <article style={{ textAlign: 'center', fontFamily: 'monospace' }}>
+                    <h2 style={{ marginTop: '30px' }}> {blog.post_title} </h2>
                     <Link to={`/profile/${blog.user_id}`}>
                     <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
                     </Link>
                     <p>{blog.post_body}</p>
-                    <Link to={blog.song_url}>
-                        <Card>
-                            <Card.Img src={blog.song_pic} />
-                            <Card.Body>
-                                <Card.Title>{blog.song_name}</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                    <button onClick={handleLike}> Likes: {likes}</button>
+                    <Card style={{ maxWidth: '400px', margin: 'auto' }}>
+                        <CardMedia
+                            component="img"
+                            maxWidth='400px'
+                            image={blog.song_pic}
+                            alt="album image"
+                        />
+                        <CardContent>
+                            <Typography variant="h6">{blog.song_name}</Typography>
+                        </CardContent>
+                    </Card>
+                    <Button
+                        onClick={handleLike}
+                        variant="contained"
+                        startIcon={<ThumbUpAltIcon />}
+                        style={{ marginTop: '20px' }}
+                    >
+                        {`Likes: ${likes}`}
+                    </Button>
                 </article>
             )}
+
+
+            
             <div className='create'>
             <h1 className='page_header'>Comment</h1>
             <form onSubmit={handleSubmit} style={{ color: theme.palette.text.main }}>
