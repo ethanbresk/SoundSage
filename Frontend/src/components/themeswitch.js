@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
 import CssBaseline from "@mui/material/CssBaseline"
 
@@ -85,20 +85,30 @@ export const useThemeContext = () => {
 };
 
 export const ThemeSwitch = ({ component }) => {
-    const [defaultTheme, setDark] = useState(false);
+
+    // load theme from local storage and set initial theme
+    const locallyStoredTheme = localStorage.getItem("theme");
+    const initialTheme = locallyStoredTheme ? JSON.parse(locallyStoredTheme) : false;
+
+    const [defaultTheme, setDefaultTheme] = useState(initialTheme);
+
+    const currTheme = createTheme(defaultTheme ? lightTheme : darkTheme);
+
+    // save theme to local storage when it changes
+    useEffect(() => {
+        localStorage.setItem("theme", JSON.stringify(defaultTheme));
+    }, [defaultTheme]);
 
     const switchTheme = () => {
-        setDark(!defaultTheme);
-    };
-
-const currTheme = createTheme(defaultTheme ? lightTheme : darkTheme);
-
-return (
-    <themeContext.Provider value={{switchTheme,currTheme}}>
-        <ThemeProvider theme ={currTheme}>
-            <CssBaseline/>
-            {component}
-        </ThemeProvider>
-    </themeContext.Provider>
-);
+        setDefaultTheme(!defaultTheme);
+      };
+      
+    return (
+        <themeContext.Provider value={{switchTheme,currTheme}}>
+            <ThemeProvider theme={currTheme}>
+                <CssBaseline/>
+                {component}
+            </ThemeProvider>
+        </themeContext.Provider>
+    );
 };

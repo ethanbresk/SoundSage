@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './App.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -11,7 +12,7 @@ import NotFound from './pages/NotFound';
 import { Box, Container, AppBar, Button, ThemeProvider, createTheme } from "@mui/material";
 import { ThemeSwitch, useThemeContext, lightTheme, darkTheme } from './components/themeswitch';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useEffect } from 'react';
 import { useTheme } from '@mui/system';
 import SongDatabase from './components/SongDatabase';
 
