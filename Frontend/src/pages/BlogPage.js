@@ -8,6 +8,8 @@ import { getUserData } from '../utilities/backend_integration.js';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import SendIcon from '@mui/icons-material/Send';
 
+/* BlogPage implementation. This code structure was derived following
+   a template guide by NetNinja on YouTube. */
 
 const BlogPage = () => {
     const { id } = useParams();

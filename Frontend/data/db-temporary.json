@@ -1,5 +1,6 @@
 {
-    "blogs": [
+  "__comment__": "This local file database is depreciated and was used in lieu of our current Mongo Database.",  
+  "blogs": [
       {
         "title": "Test Blog #1",
         "body": "This is the body of blog id 1.",
