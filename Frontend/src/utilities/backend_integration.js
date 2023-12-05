@@ -153,11 +153,25 @@ export async function getLikeNotifications(id) {
         console.log(error)
     }
 }
-// remove a notification
-export async function deleteNotification(id) {
+
+// remove a like notification
+export async function deleteLikeNotification(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/deleteNotification', { params: { data: id, user: spotify_id } });
+        const res = await axios.get('http://localhost:8080/deleteLikeNotification', { params: { data: id, user: spotify_id } });
+        //console.log(res.data)
+        return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+// remove a comment notification
+export async function deleteCommentNotification(id) {
+    try {
+        //console.log(id)
+        const res = await axios.get('http://localhost:8080/deleteCommentNotification', { params: { data: id, user: spotify_id } });
         //console.log(res.data)
         return res.data
     }

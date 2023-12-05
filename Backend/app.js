@@ -156,7 +156,7 @@ app.get('/addLike', async (req, res) => {
         res.json(post)
     }
     catch (error) {
-        res.status(400).json({ error: "problem getting post" });
+        res.status(400).json({ error: "problem adding like" });
         return;
     }
 }) 
@@ -170,13 +170,13 @@ app.get('/getUser', async (req, res) => {
         res.json(user)
     }
     catch (error) {
-        res.status(400).json({ error: "problem getting post" });
+        res.status(400).json({ error: "problem getting user" });
         return;
     }
 }) 
 
-// delete notification
-app.get('/deleteNotification', async (req, res) => {
+// delete like notification
+app.get('/deleteLikeNotification', async (req, res) => {
     id = req.query.data;
     user_id = req.query.user;
     try {
@@ -188,7 +188,25 @@ app.get('/deleteNotification', async (req, res) => {
         res.json(user)
     }
     catch (error) {
-        res.status(400).json({ error: "problem getting post" });
+        res.status(400).json({ error: "problem deleting like notification" });
+        return;
+    }
+}) 
+
+// delete comment notification
+app.get('/deleteCommentNotification', async (req, res) => {
+    id = req.query.data;
+    user_id = req.query.user;
+    try {
+        const user = await User.findOne({ spotify_id: user_id })
+        //console.log(user)
+        const index = user.comment_notification_ids.indexOf(id)
+        user.comment_notification_ids.splice(index, 1)
+        await user.save()
+        res.json(user)
+    }
+    catch (error) {
+        res.status(400).json({ error: "problem deleting like notification" });
         return;
     }
 }) 
