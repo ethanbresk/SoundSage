@@ -7,6 +7,8 @@ import { getPost, addLike, createPost } from '../utilities/backend_integration.j
 import { getUserData } from '../utilities/backend_integration.js';
 import { Card } from 'react-bootstrap';
 
+/* BlogPage implementation. This code structure was derived following
+   a template guide by NetNinja on YouTube. */
 
 const BlogPage = () => {
     const { id } = useParams();

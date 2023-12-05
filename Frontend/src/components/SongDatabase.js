@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
+// Spotify API Song Database Handler, code is modified from Cooper Code's tutorial on YouTube: https://www.youtube.com/watch?v=1PWDxgqLmDA
+
 const CLIENT_ID = "5461474c928648918ff375fd7d51d2c4";
 const CLIENT_SECRET = "d681ca8e621744f1b3f5e627e15041a3";
 
