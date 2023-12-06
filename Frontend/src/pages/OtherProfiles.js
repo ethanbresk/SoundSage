@@ -42,10 +42,9 @@ const OtherProfiles = () => {
     return (
       <div>
         <h1 className='page_header'>{username}'s Page</h1>
-          <img src={picture_url} alt="Profile" width="100" height="100" position="static" class="center"
+        <div style={{color: theme.palette.text.main, textAlign: 'center'}}>
+          <img src={picture_url} alt="Profile" width="100" height="100" position="static"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
-        <div style={{color: theme.palette.text.main, textAlign: 'left'}}>
-          <h2>Total Likes: {total_likes}</h2>
           <h2><a href={spotify_url}>Your Spotify Page</a></h2>
         </div>
       </div>

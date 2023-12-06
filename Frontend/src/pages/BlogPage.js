@@ -2,7 +2,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useState, useEffect } from "react";
 import { useTheme } from '@mui/system';
-import { Box, Card, CardContent, CardMedia, Typography, Button, IconButton, Paper, TextField } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Button, IconButton, Paper, TextField, Avatar } from '@mui/material';
 import { getPost, addLike, createPost } from '../utilities/backend_integration.js';
 import { getUserData } from '../utilities/backend_integration.js';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
@@ -132,7 +132,10 @@ const BlogPage = () => {
                         onClick={handleLike}
                         variant="contained"
                         startIcon={<ThumbUpAltIcon />}
-                        style={{ marginTop: '20px' }}
+                        style={{ 
+                            marginTop: '20px', 
+                            backgroundColor: theme.palette.accentOne.main
+                        }}
                     >
                         {`Likes: ${likes}`}
                     </Button>
@@ -164,37 +167,30 @@ const BlogPage = () => {
                     Add Comment
                 </Button>
                 </form>
+
+                {/*Comment Section*/}
+                {children.length > 0 && (
+                    <div style={{ marginTop: '50px' }}>
+                        <Typography variant="h5" gutterBottom style={{ textAlign: 'center', marginTop: '30px', marginBottom: '20px', fontFamily: 'monospace'}}>
+                        Comments
+                        </Typography>
+                        <div className="comment-body">
+                            {children.map((comment) => (
+                                <Card key={comment._id} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', fontFamily: 'monospace' }}>
+                                    <Avatar src={comment.user_picture} style={{ marginRight: '10px', marginLeft: '15px' }} />
+                                    <CardContent>
+                                        <Typography variant="body1" fontFamily="monospace">{comment.post_body}</Typography>
+                                        <Typography variant="subtitle2" color="textSecondary" fontFamily="monospace">
+                                            {comment.user_name}
+                                        </Typography>
+                                    </CardContent>
+
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </Paper>
-
-
-            
-            {/*<div className='create'>
-            <h1 className='page_header'>Comment</h1>
-            <form onSubmit={handleSubmit} style={{ color: theme.palette.text.main }}>
-                <label>Comment:</label>
-                <textarea 
-                    required
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                ></textarea>
-                { !isPending && <button>Add Comment</button>}
-                { isPending && <button disabled>Posting...</button>}
-                {/*<p>{ title }</p>
-                <p>{body}</p>
-                <p>{author}</p>*/}
-            
-
-
-        {children?.length > 0 && (
-            <div>
-                {children?.map((child) => (
-                    <>
-                    <h1>{child.post_body}</h1>
-                    <p>{child.user_name}</p>
-                    </>
-                ))}
-            </div>
-        )}
         </div>
     );
 }
