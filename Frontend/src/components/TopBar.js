@@ -84,7 +84,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.accentOne.main,
+                backgroundColor: theme.palette.secondary.main,
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
@@ -100,7 +100,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.accentOne.main,
+                backgroundColor: theme.palette.secondary.main,
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
@@ -116,7 +116,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.accentOne.main,
+                backgroundColor: theme.palette.secondary.main,
                 marginRight: "10px",
               }}
             >
@@ -127,7 +127,7 @@ const TopBar = () => {
             <Button
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main }}
+              style={{ backgroundColor: theme.palette.secondary.main }}
             >
               Settings
             </Button>

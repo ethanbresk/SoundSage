@@ -8,16 +8,16 @@ export const lightTheme = createTheme({
             main: '#FFFFFF',
         },
         secondary: {
-            main: '#E3E3E3',
+            main: '#EFEFEF',
         },
         tertiary: {
-            main: '#E8E8E8',
+            main: '#D8D8D8',
         },
         accentOne: {
-            main: '#DEF1C2'
+            main: '#1ED760'
         },
         accentTwo: {
-            main: '#253D20',
+            main: '#1ED760'
         },
         background: {
             default: '#FFFFFF',
@@ -46,16 +46,16 @@ export const darkTheme = createTheme({
         main: '#000000',
         },
         secondary: {
-            main: '#282828',
+            main: '#212121',
         },
         tertiary: {
-            main: '#191919',
+            main: '#313131',
         },
         accentOne: {
-            main: '#809973'
+            main: '#1DB954'
         },
         accentTwo: {
-            main: '#251230',
+            main: '#1DB954',
         },
         background: {
             default: '#000000',
