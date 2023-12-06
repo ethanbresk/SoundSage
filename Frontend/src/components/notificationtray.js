@@ -99,7 +99,7 @@ function NotificationTray() {
 {othernotifications && othernotifications.length > 0 && othernotifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleCommentDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`}>
-    {"Someone commented \"" + option.post_title + "\""}
+    {"Someone commented on \"" + option.post_title + "\""}
     </Link>
   </MenuItem>
 ))}

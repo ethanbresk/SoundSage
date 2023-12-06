@@ -129,13 +129,14 @@ const BlogPage = () => {
                             </CardContent>
                         </Card>
                     </Link>
-                    <p style={{paddingTop: '30px'}}>{blog.post_body}</p>
+                    <p style={{paddingTop: '35px'}}>"{blog.post_body}"</p>
                     <Button
                         onClick={handleLike}
                         variant="contained"
                         startIcon={<ThumbUpAltIcon />}
                         style={{ 
                             marginTop: '10px', 
+                            marginBottom: '10px', 
                             backgroundColor: theme.palette.accentOne.main
                         }}
                     >
