@@ -8,7 +8,7 @@ const SoundSageIcon = () => {
       <img
         src={logo}
         alt="Home"
-        style={{ width: "40px", height: "40px", cursor: "pointer" }}
+        style={{ width: "40px", height: "40px", cursor: "pointer", borderRadius: "20px" }}
       />
     </Link>
   );

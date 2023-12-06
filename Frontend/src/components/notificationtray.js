@@ -103,6 +103,7 @@ function NotificationTray() {
     </Link>
   </MenuItem>
 ))}
+{!notifications && !othernotifications && <MenuItem>No new notifications.</MenuItem>}
 
       </Menu>
     </div>

@@ -33,7 +33,7 @@ export const SearchBar = () => {
     <div>
       <TextField
         variant="filled"
-        label="Search"
+        label="Search Posts"
         onChange={handleChange}
         sx={{
           top: 10,
@@ -42,6 +42,7 @@ export const SearchBar = () => {
         style={{
           backgroundColor: "white"
         }}
+        style={{borderRadius: 10}}
       />
       {searchQuery != "" &&
         searchedNames.length > 0 &&
