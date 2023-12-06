@@ -85,7 +85,7 @@ const SongDatabase = ({ chooseAlbum }) => {
                     }}
                     onChange={e => setSearchVal(e.target.value)}
                 />
-                <Button style={{borderRadius: 10}} onClick={() => {search()}}>
+                <Button style={{borderRadius: 10, backgroundColor: '#1db954', borderColor: '#1db954'}} onClick={() => {search()}}>
                     Search
                 </Button>
             </InputGroup>
