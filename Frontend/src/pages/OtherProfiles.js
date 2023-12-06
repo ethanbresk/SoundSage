@@ -45,7 +45,7 @@ const OtherProfiles = () => {
         <div style={{color: theme.palette.text.main, textAlign: 'center'}}>
           <img src={picture_url} alt="Profile" width="100" height="100" position="static"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
-          <h2><a href={spotify_url}>Your Spotify Page</a></h2>
+          <h2><a href={spotify_url} style={{textDecoration:'none'}}>Your Spotify Page</a></h2>
         </div>
       </div>
     );
@@ -56,7 +56,7 @@ const OtherProfiles = () => {
         position = "fixed"
         bottom = {0}
         width = "100%"
-        style = {{ backgroundColor: theme.palette.secondary.main}}
+        style = {{ backgroundColor: theme.palette.tertiary.main}}
         p={3}
         zIndex={2}
       />
