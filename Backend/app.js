@@ -121,14 +121,15 @@ app.get('/createPost', async (req, res) => {
         const user = await User.findOne({ spotify_id: blog_post.user });
         user.posts.push(post._id)
         await user.save();
-        // add post to parent's children
-        const parent_post = await Post.findById(blog_post.parent)
-        parent_post.children.push(post._id)
-        await parent_post.save();
-        // if this is a comment, add to the user's comment notification list
+        // if this is a comment
         if (blog_post.parent) {
-            user.comment_notification_ids.push(blog_post.parent)
-            await user.save();
+            // add as parent's child
+            const parent_post = await Post.findById(blog_post.parent)
+            parent_post.children.push(post._id)
+            // add to the user's comment notification list
+            const parent_user = await User.findOne({ spotify_id: parent_post.user_id });
+            parent_user.comment_notification_ids.push(blog_post.parent)
+            await parent_user.save();
         }
         res.json(post);
     }
