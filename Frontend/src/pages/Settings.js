@@ -23,7 +23,7 @@ const Settings = () => {
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      <h1 className='page_header' style={{ fontFamily: 'monospace', color: theme.palette.accentOne.main}}>Settings</h1>
+      <h1 className='page_header' style={{ fontFamily: 'monospace', color: theme.palette.text.main}}>Settings</h1>
       <div className="center">
         <Button
           onClick={switchTheme}
