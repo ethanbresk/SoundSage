@@ -56,7 +56,7 @@ const Profile = () => {
         position = "fixed"
         bottom = {0}
         width = "100%"
-        style = {{ backgroundColor: theme.palette.tertiary.main}}
+        style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
         zIndex={2}
       />

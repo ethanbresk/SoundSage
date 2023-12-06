@@ -53,7 +53,7 @@ const TopBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="sticky"
-        style={{ backgroundColor: theme.palette.tertiary.main }}
+        style={{ backgroundColor: theme.palette.secondary.main }}
       >
         <Toolbar>
           <SoundSageIcon/>

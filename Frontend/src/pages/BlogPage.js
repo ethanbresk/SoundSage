@@ -108,7 +108,7 @@ const BlogPage = () => {
                 position = "fixed"
                 bottom = {0}
                 width = "100%"
-                style = {{ backgroundColor: theme.palette.tertiary.main, zIndex: 999}}
+                style = {{ backgroundColor: theme.palette.secondary.main, zIndex: 999}}
                 p={3}
             />
             { isLoading && <div>Loading...</div> }

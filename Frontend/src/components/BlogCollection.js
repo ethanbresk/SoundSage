@@ -23,15 +23,18 @@ const BlogCollection = ({ blogs, title }) => {
                 (
                   <Box style={{ width: 600, borderRadius: 20, backgroundColor: theme.palette.tertiary.main, padding: '15px', marginBottom: '20px' }} justifyContent= "center" alignItems= "center">
                   <Link to={`/blogs/${blog._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <Avatar src={blog.user_picture} style={{ width: '80px', height: '80px', marginBottom: '5px' }}/>
-                    <div style={{ marginLeft: '15px', textAlign: 'left', fontFamily: 'monospace' }}> {/*experiment with textalign center or left*/}
-                      <Typography component="div" variant="h6" fontFamily={'monospace'} style={{ color: theme.palette.text.main}}>
-                        {blog.post_title}
-                      </Typography>
-                      <Typography component="div" fontFamily={'monospace'} style={{ color: theme.palette.text.main}}>
+                    <div style={{display:'flex'}}>
+                    <Avatar src={blog.user_picture} style={{ width: '80px', height: '80px', marginBottom: '5px' }}>
+                    </Avatar>
+                    <Typography component="div" fontFamily={'monospace'} style={{ marginTop: 30, marginLeft:15,color: theme.palette.text.main}}>
                         By {blog.user_name}
                       </Typography>
-                      <Typography component="div" variant="body1" fontFamily={'monospace'} style={{ color: theme.palette.text.main}}>
+                    </div>
+                    <div style={{  marginLeft: '15px', textAlign: 'left', fontFamily: 'monospace' }}> {/*experiment with textalign center or left*/}
+                      <Typography component="div" variant="h4" fontWeight='bold' fontFamily={'monospace'} style={{marginRight: 15, textAlign: 'center', color: theme.palette.text.main}}>
+                        {blog.post_title}
+                      </Typography>
+                      <Typography component="div" variant="body1" fontFamily={'monospace'} style={{ marginTop: 20,color: theme.palette.text.main}}>
                         {blog.post_body}
                       </Typography>
                       <Link to={blog.song_url} style={{ width: '100%', textDecoration: 'none', textAlign: 'center' }}>
