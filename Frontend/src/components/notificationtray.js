@@ -101,14 +101,14 @@ function NotificationTray() {
 {notifications && notifications.length > 0 && notifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleLikeDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`} style={{ textDecoration: 'none', fontSize: "12pt", color: "black"}}>
-      <ThumbUpAltIcon size="small" style={{ paddingBottom: "2px" }}/> {"  Someone liked \"" + option.post_title + "\""}
+      <ThumbUpAltIcon size="small" style={{ color: '#1ED760', paddingBottom: "2px" }}/> {"  Someone liked \"" + option.post_title + "\""}
     </Link>
   </MenuItem>
 ))}
 {othernotifications && othernotifications.length > 0 && othernotifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleCommentDelete(option._id)}>
     <Link reloadDocument to={`/blogs/${option._id}`} style={{ textDecoration: 'none', fontSize: "12pt", color: "black" }}>
-      <MessageIcon size="small" style={{ paddingBottom: "2px" }}/> {"  Someone commented on \"" + option.post_title + "\""}
+      <MessageIcon size="small" style={{ color: '#1ED760', paddingBottom: "2px" }}/> {"  Someone commented on \"" + option.post_title + "\""}
     </Link>
   </MenuItem>
 ))}
