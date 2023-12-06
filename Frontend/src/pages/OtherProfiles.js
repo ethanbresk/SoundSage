@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useTheme } from '@mui/system';
 import { getUserData, getUser } from '../utilities/backend_integration.js';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { getPosts } from '../utilities/backend_integration.js';
 import BlogCollection from '../components/BlogCollection';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -46,7 +46,7 @@ const OtherProfiles = () => {
         <div style={{color: "theme.palette.text.main", textAlign: 'center'}}>
           <img src={picture_url} alt="Profile" width="100" height="100" position="static"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
-          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none', fontSize: "20pt", fontFamily:'monospace', color: theme.palette.text.main}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a></h2>
+          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none', fontSize: "20pt", fontFamily:'monospace', color: theme.palette.text.main}}><Button style={{ backgroundColor: theme.palette.accentOne.main, color: theme.palette.text.main}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></Button></a></h2>
         </div>
       </div>
     );
