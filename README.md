@@ -13,7 +13,6 @@ This project involves connecting your Spotify account to our website for login a
 
 2.  **Whitelist your IP address in SoundSage's Database:** Please contact the SoundSage database manager, Ethan Bresk, and provide him the IP address from which you would like to use SoundSage. Your IP address will be whitelisted access on our Mongo Database.
 
-  
 
 ### II. Local Installation and Server Setup:
 
@@ -59,10 +58,10 @@ This project involves connecting your Spotify account to our website for login a
 	* Comment on the post using the comment input section at the bottom of the blog post.
 
 7. While on your profile page of the form `/profile`, you may:
-	* View your total likes, your profile page, and your blogs in a scrollable collection.
+	* View your Spotify page and your blogs in a scrollable collection.
 
 8. While on another user's profile page of the form `/profile/{id}`, you may:
-	* View their total likes, their profile page, and their blogs in a scrollable collection.
+	* View their Spotify page and their blogs in a scrollable collection.
 
 9. While on the create page of the form `/create`, you may fill out the blog post forum and post it directly into our Database.
 

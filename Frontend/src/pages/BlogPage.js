@@ -113,27 +113,29 @@ const BlogPage = () => {
             { blog && (
                 <article style={{ textAlign: 'center', fontFamily: 'monospace' }}>
                     <h2 style={{ marginTop: '30px' }}> {blog.post_title} </h2>
-                    <Link to={`/profile/${blog.user_id}`}>
+                    <Link to={`/profile/${blog.user_id}`} style={{ textDecoration: 'none' }}>
                     <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
                     </Link>
-                    <p>{blog.post_body}</p>
-                    <Card style={{ maxWidth: '400px', margin: 'auto' }}>
-                        <CardMedia
-                            component="img"
-                            maxWidth='400px'
-                            image={blog.song_pic}
-                            alt="album image"
-                        />
-                        <CardContent>
-                            <Typography variant="h6">{blog.song_name}</Typography>
-                        </CardContent>
-                    </Card>
+                    <Link target= "_blank" to={blog.song_url} style={{ textDecoration: 'none' }}>
+                        <Card style={{ maxWidth: '400px', margin: 'auto' }}>
+                            <CardMedia
+                                component="img"
+                                maxWidth='400px'
+                                image={blog.song_pic}
+                                alt="album image"
+                            />
+                            <CardContent>
+                                <Typography variant="h6">{blog.song_name}</Typography>
+                            </CardContent>
+                        </Card>
+                    </Link>
+                    <p style={{paddingTop: '30px'}}>{blog.post_body}</p>
                     <Button
                         onClick={handleLike}
                         variant="contained"
                         startIcon={<ThumbUpAltIcon />}
                         style={{ 
-                            marginTop: '20px', 
+                            marginTop: '10px', 
                             backgroundColor: theme.palette.accentOne.main
                         }}
                     >

@@ -56,7 +56,7 @@ const TopBar = () => {
         style={{ backgroundColor: theme.palette.tertiary.main }}
       >
         <Toolbar>
-          <SoundSageIcon />
+          <SoundSageIcon/>
           <Typography
             variant="h6"
             noWrap
@@ -73,7 +73,7 @@ const TopBar = () => {
               textDecoration: "none",
             }}
           >
-            <Link to="/">SOUNDSAGE</Link>
+            <Link to="/" style={{ textDecoration: 'none', color: "white" }}>SOUNDSAGE</Link>
           </Typography>
           <NotificationTray
             notifications={notificationList}
@@ -84,7 +84,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.accentOne.main,
+                backgroundColor: theme.palette.secondary.main,
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
@@ -100,7 +100,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.accentOne.main,
+                backgroundColor: theme.palette.secondary.main,
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
@@ -116,7 +116,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.accentOne.main,
+                backgroundColor: theme.palette.secondary.main,
                 marginRight: "10px",
               }}
             >
@@ -127,7 +127,7 @@ const TopBar = () => {
             <Button
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.accentOne.main }}
+              style={{ backgroundColor: theme.palette.secondary.main }}
             >
               Settings
             </Button>
