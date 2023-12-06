@@ -43,7 +43,7 @@ const Profile = () => {
         <div style={{color: theme.palette.text.main, textAlign: 'center'}}>
         <img src={picture_url} alt="Profile" width="100" height="100"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
-          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none'}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a>
+          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none', fontSize: "20pt"}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a>
           </h2>
         </div>
       </div>
