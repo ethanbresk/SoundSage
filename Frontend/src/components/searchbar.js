@@ -46,7 +46,7 @@ export const SearchBar = () => {
         autoComplete="off" 
       />
       {searchQuery != "" &&
-        searchedNames.length > 0 &&
+        searchedNames?.length > 0 &&
         searchedNames.map((title, index) => (
           <Link to={`/blogs/${title._id}`}>
           <ListItemButton key={title.user_id}>
