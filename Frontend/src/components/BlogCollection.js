@@ -30,12 +30,12 @@ const BlogCollection = ({ blogs, title }) => {
                         By {blog.user_name}
                       </Typography>
                     </div>
-                    <div style={{  marginLeft: '15px', textAlign: 'left', fontFamily: 'monospace' }}> {/*experiment with textalign center or left*/}
-                      <Typography component="div" variant="h4" fontWeight='bold' fontFamily={'monospace'} style={{marginRight: 15, textAlign: 'center', color: theme.palette.text.main}}>
+                    <div style={{  marginLeft: '15px', textAlign: 'center', fontFamily: 'monospace' }}> {/*experiment with textalign center or left*/}
+                      <Typography component="div" variant="h4" fontWeight='bold' fontFamily={'monospace'} style={{marginRight: 0, textAlign: 'center', color: theme.palette.text.main}}>
                         {blog.post_title}
                       </Typography>
                       <Typography component="div" variant="body1" fontFamily={'monospace'} style={{ marginTop: 20,color: theme.palette.text.main}}>
-                        {blog.post_body}
+                        "{blog.post_body}"
                       </Typography>
                       <Link to={blog.song_url} style={{ width: '100%', textDecoration: 'none', textAlign: 'center' }}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>
