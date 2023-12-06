@@ -53,7 +53,14 @@ export const SearchBar = () => {
               <ListItemText primary={title.post_title} />
           </ListItemButton>
           </Link>
-        ))}
+        ))
+        }
+      {searchQuery != "" &&
+        searchedNames?.length === 0 &&
+        <ListItemButton key={0}>
+          <ListItemText primary={<div style={{ "color": "lightGray" }}>No posts found.</div>} />
+        </ListItemButton>
+      }
     </div>
   );
 };
