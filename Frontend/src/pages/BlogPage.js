@@ -132,6 +132,7 @@ const BlogPage = () => {
                         </Card>
                     </Link>
                     <p style={{paddingTop: '35px'}}>"{blog.post_body}"</p>
+                    {data &&
                     <Button
                         onClick={handleLike}
                         variant="contained"
@@ -144,9 +145,10 @@ const BlogPage = () => {
                     >
                         {`Likes: ${likes}`}
                     </Button>
+                    }
                 </article>
             )}
-
+            {data &&
             <Paper elevation={3} style={{ backgroundColor: "E2E2E2", padding: '20px', marginTop: '20px', marginBottom: '50px' }}>
                 <Typography variant="h5" gutterBottom style={{ textAlign: 'center', fontFamily: 'monospace'}}>
                     Leave a Comment
@@ -196,6 +198,7 @@ const BlogPage = () => {
                     </div>
                 )}
             </Paper>
+            }
         </div>
     );
 }

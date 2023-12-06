@@ -76,6 +76,7 @@ function NotificationTray() {
 
   return (
     <div>
+      {data &&
       <IconButton
         aria-label="more"
         id="long-button"
@@ -89,6 +90,7 @@ function NotificationTray() {
           <NotificationsIcon />
         </Badge>
       </IconButton>
+     }
       <Menu
         id="long-menu"
         anchorEl={anchorEl}
