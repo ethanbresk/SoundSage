@@ -38,7 +38,9 @@ export const SearchBar = () => {
         sx={{
           top: 10,
           width: 600,
-          backgroundColor: theme.palette.accentOne.main,
+        }}
+        style={{
+          backgroundColor: "white"
         }}
         style={{borderRadius: 10}}
       />

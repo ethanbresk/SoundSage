@@ -72,7 +72,7 @@ function NotificationTray() {
       <IconButton
         aria-label="more"
         id="long-button"
-        style={{ backgroundColor: theme.palette.accentOne.main}}
+        style={{ backgroundColor: theme.palette.accentTwo.main}}
         aria-controls={open ? 'long-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
