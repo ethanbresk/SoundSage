@@ -106,9 +106,10 @@ function NotificationTray() {
     </Link>
   </MenuItem>
 ))}
-{!notifications && !othernotifications &&
+        {(!notifications || (notifications && notifications.length === 0)) && 
+          (!othernotifications || (othernotifications && othernotifications.length === 0)) &&
   <MenuItem>
-    
+    No new notifications.
   </MenuItem>}
 
       </Menu>
