@@ -8,6 +8,7 @@ const app = express();
 const cors = require('cors');
 app.use(cors({
     origin: 'http://localhost:3000'
+    // origin: 'https://vigilant-invention-56pv6557jwjc4rr-3000.app.github.dev/'
 }));
 
 // Mongoose Setup:

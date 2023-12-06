@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { loginWithSpotifyClick, getData } from './spotify_integration';
+import CONST from './CONST' ;
 
 
 // USER DATA:
@@ -27,7 +28,7 @@ export async function getUserData() {
     }
     // Login:
     try {
-        const res = await axios.get('http://localhost:8080/login', { params: { data: spotify_data } });
+        const res = await axios.get(CONST.ENDPOINT + 'login', { params: { data: spotify_data } });
         return res.data;
     }
     catch (error) {
@@ -65,7 +66,7 @@ export async function createPost(post_data) {
     console.log(post_data);
     console.log(data);
     try {
-        const res = await axios.get('http://localhost:8080/createPost', { params: { data: data } });
+        const res = await axios.get(CONST.ENDPOINT + 'createPost', { params: { data: data } });
         console.log(res.data)
         return res.data
     }
@@ -76,7 +77,7 @@ export async function createPost(post_data) {
 // get posts
 export async function getPosts(id) {
     try {
-        const res = await axios.get('http://localhost:8080/getPosts', { params: { data: id } });
+        const res = await axios.get(CONST.ENDPOINT + 'getPosts', { params: { data: id } });
         console.log(res.data)
         return res.data
     }
@@ -88,7 +89,7 @@ export async function getPosts(id) {
 export async function getPost(id) {
     try {
         console.log(id)
-        const res = await axios.get('http://localhost:8080/getPost', { params: { data: id } });
+        const res = await axios.get(CONST.ENDPOINT + 'getPost', { params: { data: id } });
         //console.log(res.data)
         return res.data
     }
@@ -100,7 +101,7 @@ export async function getPost(id) {
 export async function addLike(id) {
     try {
         console.log(id)
-        const res = await axios.get('http://localhost:8080/addLike', { params: { data: id, user: spotify_id } });
+        const res = await axios.get(CONST.ENDPOINT + 'addLike', { params: { data: id, user: spotify_id } });
         //console.log(res.data)
         return res.data
     }
@@ -112,7 +113,7 @@ export async function addLike(id) {
 export async function getUser(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        const res = await axios.get(CONST.ENDPOINT + 'getUser', { params: { data: id } });
         //console.log(res.data)
         return res.data
     }
@@ -124,7 +125,7 @@ export async function getUser(id) {
 export async function getCommentNotifications(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        const res = await axios.get(CONST.ENDPOINT + 'getUser', { params: { data: id } });
         //console.log(res.data)
         const output = []
         for (var i = 0; i < res.data.comment_notification_ids.length; i++) {
@@ -140,7 +141,7 @@ export async function getCommentNotifications(id) {
 export async function getLikeNotifications(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/getUser', { params: { data: id } });
+        const res = await axios.get(CONST.ENDPOINT + 'getUser', { params: { data: id } });
         //console.log(res.data)
         const output = []
         for (var i = 0; i < res.data.like_notification_ids.length; i++) {
@@ -158,7 +159,7 @@ export async function getLikeNotifications(id) {
 export async function deleteLikeNotification(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/deleteLikeNotification', { params: { data: id, user: spotify_id } });
+        const res = await axios.get(CONST.ENDPOINT + 'deleteLikeNotification', { params: { data: id, user: spotify_id } });
         //console.log(res.data)
         return res.data
     }
@@ -171,7 +172,7 @@ export async function deleteLikeNotification(id) {
 export async function deleteCommentNotification(id) {
     try {
         //console.log(id)
-        const res = await axios.get('http://localhost:8080/deleteCommentNotification', { params: { data: id, user: spotify_id } });
+        const res = await axios.get(CONST.ENDPOINT + 'deleteCommentNotification', { params: { data: id, user: spotify_id } });
         //console.log(res.data)
         return res.data
     }
