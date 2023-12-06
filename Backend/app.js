@@ -126,6 +126,7 @@ app.get('/createPost', async (req, res) => {
             // add as parent's child
             const parent_post = await Post.findById(blog_post.parent)
             parent_post.children.push(post._id)
+            await parent_post.save();
             // add to the user's comment notification list
             const parent_user = await User.findOne({ spotify_id: parent_post.user_id });
             parent_user.comment_notification_ids.push(blog_post.parent)
