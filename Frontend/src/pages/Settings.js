@@ -23,14 +23,15 @@ const Settings = () => {
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      <h1 className='page_header'>Settings</h1>
+      <h1 className='page_header' style={{ fontFamily: 'monospace', color: theme.palette.accentOne.main}}>Settings</h1>
       <div className="center">
         <Button
           onClick={switchTheme}
           variant="contained"
           style={{
             borderRadius:30,
-            backgroundColor: theme.palette.secondary.main
+            backgroundColor: theme.palette.accentOne.main,
+            fontFamily: 'monospace'
             }}>
           Change Theme
         </Button>
@@ -45,7 +46,8 @@ const Settings = () => {
             variant="contained"
             style={{
               borderRadius:30,
-              backgroundColor: theme.palette.secondary.main
+              backgroundColor: theme.palette.accentOne.main,
+              fontFamily: 'monospace'
               }}>
             Albums
           </Button>
