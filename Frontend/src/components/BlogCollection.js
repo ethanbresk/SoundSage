@@ -8,6 +8,7 @@ import { Card } from 'react-bootstrap';
 import Button from '@mui/material/Button';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 
 
 
@@ -18,47 +19,42 @@ const BlogCollection = ({ blogs, title }) => {
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
           <div className='blog'>
-          <Box
-            style={{
-              width: 600,
-              borderRadius: 20,
-              backgroundColor: theme.palette.tertiary.main
-            }}
-            justifyContent= "center"
-            alignItems= "center"
-          >
-            {blog.parent ? null :
-              (
-                <Link to={`/blogs/${blog._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Avatar src={blog.user_picture} style={{ margin: 'auto', marginTop: '15px' }} />
-
-                  <div style={{ marginLeft: '15px' }}>
-                    <Typography component="div" variant="body2" color="textSecondary">
-                      <em>{blog.user_name}</em>
-                    </Typography>
-                    <Typography component="div" variant="h6" color="textPrimary">
-                      {blog.post_title}
-                    </Typography>
-                    <Typography component="div" variant="body1" color="textPrimary">
-                      {blog.post_body}
-                    </Typography>
-                    <Link to={blog.song_url} style={{ width: '100%' }}>
-                      <Card>
-                        <Card.Img src={blog.song_pic} />
-                        <Card.Body>
-                          <Card.Title>{blog.song_name}</Card.Title>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                    <div style={{ marginTop: '20px' }}>
-                      <ThumbUpAltIcon fontSize="small" />
-                      <span style={{ marginLeft: '5px' }}>{blog.num_of_likes}</span>
+              {blog.parent ? null :
+                (
+                  <Box style={{ width: 600, borderRadius: 20, backgroundColor: theme.palette.tertiary.main, padding: '15px', marginBottom: '20px' }} justifyContent= "center" alignItems= "center">
+                  <Link to={`/blogs/${blog._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Avatar src={blog.user_picture} style={{ width: '80px', height: '80px', marginBottom: '5px' }}/>
+                    <div style={{ marginLeft: '15px', textAlign: 'left', fontFamily: 'monospace' }}> {/*experiment with textalign center or left*/}
+                      <Typography component="div" variant="h6" color="textPrimary" fontFamily={'monospace'}>
+                        {blog.post_title}
+                      </Typography>
+                      <Typography component="div" variant="body2" color="textSecondary" fontFamily={'monospace'}>
+                        By {blog.user_name}
+                      </Typography>
+                      <Typography component="div" variant="body1" color="textPrimary" fontFamily={'monospace'}>
+                        {blog.post_body}
+                      </Typography>
+                      <Link to={blog.song_url} style={{ width: '100%', textDecoration: 'none', textAlign: 'center' }}>
+                        <div style={{display: 'flex', justifyContent: 'center'}}>
+                          <Card style={{ borderRadius: '10px', marginRight: '15px', marginTop: '20px', width: '90%', maxWidth: '500px', fontFamily: 'monospace' }}>
+                            <Card.Img src={blog.song_pic} style={{ width: '100%', height: 'auto', borderRadius: '10px' }}/>
+                            <Card.Body>
+                              <Card.Title style={{fontFamily:'monospace'}}>{blog.song_name}</Card.Title>
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Link>
+                      <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center' }}>
+                        <IconButton size="small" disabled><ThumbUpAltIcon fontSize="small" /></IconButton>
+                        <Typography variant="body2" color="textSecondary">
+                          {blog.num_of_likes}
+                        </Typography>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              )
-            }
-          </Box>
+                  </Link>
+                  </Box>
+                )
+              }
           </div>
         </div>
       )).reverse()}
