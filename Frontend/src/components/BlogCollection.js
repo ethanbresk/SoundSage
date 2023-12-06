@@ -31,10 +31,10 @@ const BlogCollection = ({ blogs, title }) => {
                       </Typography>
                     </div>
                     <div style={{  marginLeft: '15px', textAlign: 'center', fontFamily: 'monospace' }}> {/*experiment with textalign center or left*/}
-                      <Typography component="div" variant="h4" fontWeight='bold' fontFamily={'monospace'} style={{marginRight: 0, textAlign: 'center', color: theme.palette.text.main}}>
+                      <Typography component="div" variant="h4" fontWeight='bold' fontFamily={'monospace'} style={{marginRight: 15, textAlign: 'center', color: theme.palette.text.main}}>
                         {blog.post_title}
                       </Typography>
-                      <Typography component="div" variant="body1" fontFamily={'monospace'} style={{ marginTop: 20,color: theme.palette.text.main}}>
+                      <Typography component="div" variant="body1" fontFamily={'monospace'} style={{marginRight: 15, marginTop: 20,color: theme.palette.text.main}}>
                         "{blog.post_body}"
                       </Typography>
                       <Link to={blog.song_url} style={{ width: '100%', textDecoration: 'none', textAlign: 'center' }}>
