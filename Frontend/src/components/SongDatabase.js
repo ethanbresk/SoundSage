@@ -73,6 +73,7 @@ const SongDatabase = ({ chooseAlbum }) => {
         <Container>
             <InputGroup className="mb-3" size="lg">
                 <FormControl
+                    style={{borderRadius: 10, paddingRight: 5}}
                     placeholder='Search Artist Name'
                     type='input'
                     onKeyPress={event => {
@@ -83,7 +84,7 @@ const SongDatabase = ({ chooseAlbum }) => {
                     }}
                     onChange={e => setSearchVal(e.target.value)}
                 />
-                <Button onClick={() => {search()}}>
+                <Button style={{borderRadius: 10}} onClick={() => {search()}}>
                     Search
                 </Button>
             </InputGroup>

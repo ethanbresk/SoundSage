@@ -75,7 +75,7 @@ a:active {
 }
 
 .create {
-  max-width: 400px;
+  max-width: 80vw;
   margin: 0 auto;
   text-align: center;
 }

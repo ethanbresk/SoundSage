@@ -72,7 +72,7 @@ const Create = () => {
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
         <label>Album:</label>
-        <div style={{ border: "4px solid grey" }}>
+        <div style={{ padding: 8, borderRadius: 15, backgroundColor: theme.palette.secondary.main, border: "2px solid", borderColor: theme.palette.accentTwo.main }}>
           {selectedAlbum && (
             <Card
               onClick={() => {
@@ -90,13 +90,14 @@ const Create = () => {
               e.stopPropagation();
               setShowSongDatabase(!showSongDatabase);
             }}
+            style={{minWidth: 75, maxHeight: 40, fontWeight: 'bold'}}
           >
             {showSongDatabase ? "-" : "+"}
           </button>
           {showSongDatabase && <SongDatabase chooseAlbum={chooseAlbum} />}
         </div>
         <br></br>
-        {!isPending && <button>Add Blog</button>}
+        {!isPending && <button style={{minWidth: 100}}>Add Blog</button>}
         {isPending && <button disabled>Posting...</button>}
         {/*<p>{ title }</p>
                 <p>{body}</p>
