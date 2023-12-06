@@ -93,7 +93,8 @@ const BlogPage = () => {
             console.log('NEW COMMENT ADDED');
             setIsPending(false);
             // navigate.go(-1);
-            navigate('/');
+            // navigate('/');
+            window.location.reload();
         })
 
     const handleChildren = () => {
