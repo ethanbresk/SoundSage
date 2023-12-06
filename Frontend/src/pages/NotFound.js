@@ -14,8 +14,8 @@ const NotFound = () => {
         style = {{ backgroundColor: theme.palette.secondary.main}}
         p={3}
       />
-      <h1>404</h1>
-      <p>Page Not Found!</p>
+      <h1 style={{color: "white", fontSize: "10em"}}>404</h1>
+      <p style={{ color: "white" }}>Page Not Found!</p>
       <Link to='/'>
         <button>Go to Homepage</button>
       </Link>
