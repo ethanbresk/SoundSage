@@ -46,7 +46,6 @@ export async function getUserData() {
 export function logout() {
     // Function to logout.
     localStorage.clear();
-    spotify_id = null;
     window.location.reload();
 }
 // create a post
