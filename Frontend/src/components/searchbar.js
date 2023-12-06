@@ -1,4 +1,4 @@
-import { TextField, ListItem, ListItemText, ListItemButton } from "@mui/material";
+import { TextField, ListItem, ListItemText, ListItemButton, Box } from "@mui/material";
 import useFetch from "../hooks/useFetch"
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -35,30 +35,32 @@ export const SearchBar = () => {
         variant="filled"
         label="Search Posts"
         onChange={handleChange}
+        color="accentOne"
         sx={{
           top: 10,
           width: 600,
         }}
         style={{
           borderRadius: 10,
-          backgroundColor: "white"
+          backgroundColor: "white",
+          marginBottom:10,
         }}
         autoComplete="off" 
       />
       {searchQuery != "" &&
         searchedNames?.length > 0 &&
         searchedNames.map((title, index) => (
-          <Link to={`/blogs/${title._id}`}>
-          <ListItemButton key={title.user_id}>
-              <ListItemText primary={title.post_title} />
+          <Link style={{fontFamily: 'monospace', textAlign:'center', textDecoration:'none'}} to={`/blogs/${title._id}`}>
+          <ListItemButton key={title.user_id} style={{ borderRadius: 15, marginTop: 3, fontFamily: 'monospace', backgroundColor: theme.palette.tertiary.main, color: theme.palette.text.main}}>
+              <ListItemText style={{ fontFamily: 'monospace', textAlign:'center'}} primary={title.post_title} />
           </ListItemButton>
           </Link>
         ))
         }
       {searchQuery != "" &&
         searchedNames?.length === 0 &&
-        <ListItemButton key={0}>
-          <ListItemText primary={<div style={{ "color": "lightGray" }}>No posts found.</div>} />
+        <ListItemButton key={0} style={{fontFamily: 'monospace'}}>
+          <ListItemText style={{fontFamily:'monospace', textAlign:'center'}}primary={<div style={{textDecoration:'none', color: theme.palette.text.main}}>No posts found.</div>} />
         </ListItemButton>
       }
     </div>
