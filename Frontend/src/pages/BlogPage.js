@@ -199,6 +199,7 @@ const BlogPage = () => {
                 )}
             </Paper>
             }
+            {!data && <Box style={{paddingTop:40}}></Box>}
         </div>
     );
 }
