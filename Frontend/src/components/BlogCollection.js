@@ -26,18 +26,17 @@ const BlogCollection = ({ blogs, title }) => {
           >
             {blog.parent ? null :
               (<Link to={`/blogs/${blog._id}`}>
-                <img src={blog.user_picture} width="100" height="100"></img>
-                <p style={{textAlign: 'left', paddingLeft: 15, paddingTop: 5}}><em>{blog.user_name}</em></p>
-                <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
-                <p>{blog.post_body}</p>
+                <div style={{color: theme.palette.text.main, textAlign: 'left', display: 'flex', alignItems: 'center'}}>
+                  <img src={blog.user_picture} width="100" height="100" style={{borderRadius:1000, padding:15}}></img>
+                  <p style={{textAlign: 'center'}}><em>{blog.user_name}</em></p>
                   <Link to={blog.song_url}>
-                    <Card>
-                      <Card.Img src={blog.song_pic}/>
-                      <Card.Body>
-                        <Card.Title>{blog.song_name}</Card.Title>
-                      </Card.Body>
+                    <Card style={{borderRadius:1000}}>
+                      <Card.Img src={blog.song_pic} style={{maxWidth:"100px", maxHeight:"100px", borderRadius:1000}}/>
                     </Card>
                   </Link>
+                </div>
+                <h2 style={{color: theme.palette.text.main}}>{blog.post_title}</h2>
+                <p>{blog.post_body}</p>
                 <p style={{textAlign: 'right', paddingRight: 15, paddingBottom: 5}}>Likes: <b>{blog.num_of_likes}</b></p>
               </Link>)
             }

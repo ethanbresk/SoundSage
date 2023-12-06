@@ -132,7 +132,10 @@ const BlogPage = () => {
                         onClick={handleLike}
                         variant="contained"
                         startIcon={<ThumbUpAltIcon />}
-                        style={{ marginTop: '20px' }}
+                        style={{ 
+                            marginTop: '20px', 
+                            backgroundColor: theme.palette.accentOne.main
+                        }}
                     >
                         {`Likes: ${likes}`}
                     </Button>
