@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { useTheme } from '@mui/system';
 
 // Spotify API Song Database Handler, code is modified from Cooper Code's tutorial on YouTube: https://www.youtube.com/watch?v=1PWDxgqLmDA
 
@@ -9,6 +10,7 @@ const CLIENT_ID = "5461474c928648918ff375fd7d51d2c4";
 const CLIENT_SECRET = "d681ca8e621744f1b3f5e627e15041a3";
 
 const SongDatabase = ({ chooseAlbum }) => {
+  const theme = useTheme()
   const [searchVal, setSearchVal] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
@@ -85,7 +87,7 @@ const SongDatabase = ({ chooseAlbum }) => {
                     }}
                     onChange={e => setSearchVal(e.target.value)}
                 />
-                <Button style={{borderRadius: 10, backgroundColor: '#1db954', borderColor: '#1db954'}} onClick={() => {search()}}>
+                <Button style={{borderRadius: 10, color: theme.palette.text.main, backgroundColor: theme.palette.accentOne.main, borderColor: theme.palette.accentOne.main}} onClick={() => {search()}}>
                     Search
                 </Button>
             </InputGroup>
@@ -111,7 +113,7 @@ const SongDatabase = ({ chooseAlbum }) => {
                                     chooseAlbum(album);
                                 }
                             }} 
-                            style={{ border: selectedIndex === i ? "4px solid blue" : "1px solid black" }}
+                            style={{ border: selectedIndex === i ? "4px solid #1ED760" : "1px solid black" }}
                         >
                             <Card.Img src={album.images[0].url} />
                             <Card.Body>
