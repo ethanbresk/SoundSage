@@ -70,6 +70,7 @@ const SongDatabase = ({ chooseAlbum }) => {
   console.log(albums)
   return (
     <div className="SongDatabase">
+        <br></br>
         <Container>
             <InputGroup className="mb-3" size="lg">
                 <FormControl
