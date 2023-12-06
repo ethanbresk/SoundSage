@@ -56,7 +56,7 @@ const TopBar = () => {
         style={{ backgroundColor: theme.palette.tertiary.main }}
       >
         <Toolbar>
-          <SoundSageIcon />
+          <SoundSageIcon/>
           <Typography
             variant="h6"
             noWrap
@@ -73,7 +73,7 @@ const TopBar = () => {
               textDecoration: "none",
             }}
           >
-            <Link to="/">SOUNDSAGE</Link>
+            <Link to="/" style={{ textDecoration: 'none', color: "white" }}>SOUNDSAGE</Link>
           </Typography>
           <NotificationTray
             notifications={notificationList}
