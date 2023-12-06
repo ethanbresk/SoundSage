@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '@mui/system';
 import { getUserData } from '../utilities/backend_integration.js';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { getPosts } from '../utilities/backend_integration.js';
 import BlogCollection from '../components/BlogCollection';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -39,11 +39,12 @@ const Profile = () => {
     const { username, total_likes, spotify_url, picture_url } = data;
     return (
       <div>
-        <h1 className='page_header'>Hello, {username}!</h1>
+        <h1 className='page_header' style={{ fontFamily: 'monospace', color: theme.palette.accentOne.main}}> Hello, {username}!</h1>
         <div style={{color: theme.palette.text.main, textAlign: 'center'}}>
         <img src={picture_url} alt="Profile" width="100" height="100"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
-          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none', fontSize: "20pt"}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a>
+          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{fontFamily:'monospace', textDecoration:'none', fontSize: "20pt", color: theme.palette.accentOne.main}}>
+            Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a>
           </h2>
         </div>
       </div>

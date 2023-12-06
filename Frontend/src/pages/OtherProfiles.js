@@ -42,11 +42,11 @@ const OtherProfiles = () => {
     const { username, total_likes, spotify_url, picture_url } = data;
     return (
       <div>
-        <h1 className='page_header'>{username}'s Page</h1>
+        <h1 className='page_header' style={{ fontFamily:'monospace', color: theme.palette.accentOne.main}}>{username}'s Page</h1>
         <div style={{color: "theme.palette.text.main", textAlign: 'center'}}>
           <img src={picture_url} alt="Profile" width="100" height="100" position="static"
             style={{borderRadius: 1000, left:300,alignItems: 'center'}}></img>
-          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none', fontSize: "20pt"}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a></h2>
+          <h2 style={{paddingTop: "20px", paddingBottom: "15px"}}><a href={spotify_url} style={{textDecoration:'none', fontSize: "20pt", fontFamily:'monospace', color: theme.palette.accentOne.main}}>Spotify Page<OpenInNewIcon style={{paddingBottom: "5px", paddingLeft: "5px"}} fontSize="large"/></a></h2>
         </div>
       </div>
     );
