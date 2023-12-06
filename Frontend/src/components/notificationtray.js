@@ -11,6 +11,9 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { getLikeNotifications, getCommentNotifications, getUserData, deleteLikeNotification, deleteCommentNotification } from '../utilities/backend_integration.js';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import MessageIcon from '@mui/icons-material/Message';
+
 //Copied part of MUI library example for display and refactored to our own use, adding our own unqiue parts
 function NotificationTray() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -91,15 +94,15 @@ function NotificationTray() {
         
 {notifications && notifications.length > 0 && notifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleLikeDelete(option._id)}>
-    <Link reloadDocument to={`/blogs/${option._id}`}>
-      {"Someone liked \"" + option.post_title + "\""}
+    <Link reloadDocument to={`/blogs/${option._id}`} style={{ textDecoration: 'none', fontSize: "12pt" }}>
+      <ThumbUpAltIcon size="small" style={{ paddingBottom: "2px" }}/> {"  Someone liked \"" + option.post_title + "\""}
     </Link>
   </MenuItem>
 ))}
 {othernotifications && othernotifications.length > 0 && othernotifications.map((option) => (
   <MenuItem key={option.post_title} selected={option.post_title === 'Pyxis'} onClick={() => handleCommentDelete(option._id)}>
-    <Link reloadDocument to={`/blogs/${option._id}`}>
-    {"Someone commented on \"" + option.post_title + "\""}
+    <Link reloadDocument to={`/blogs/${option._id}`} style={{ textDecoration: 'none', fontSize: "12pt" }}>
+      <MessageIcon size="small" style={{ paddingBottom: "2px" }}/> {"  Someone commented on \"" + option.post_title + "\""}
     </Link>
   </MenuItem>
 ))}
