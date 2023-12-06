@@ -40,9 +40,9 @@ export const SearchBar = () => {
           width: 600,
         }}
         style={{
+          borderRadius: 100,
           backgroundColor: "white"
         }}
-        style={{borderRadius: 10}}
       />
       {searchQuery != "" &&
         searchedNames.length > 0 &&

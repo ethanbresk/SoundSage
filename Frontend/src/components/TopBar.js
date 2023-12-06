@@ -73,7 +73,7 @@ const TopBar = () => {
               textDecoration: "none",
             }}
           >
-            <Link to="/" style={{ textDecoration: 'none', color: "white" }}>SOUNDSAGE</Link>
+            <Link to="/" style={{ textDecoration: 'none', color: theme.palette.accentOne.main }}>SOUNDSAGE</Link>
           </Typography>
           <NotificationTray
             notifications={notificationList}
@@ -84,7 +84,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.secondary.main,
+                backgroundColor: theme.palette.accentOne.main,
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
@@ -100,7 +100,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.secondary.main,
+                backgroundColor: theme.palette.accentOne.main,
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
@@ -116,7 +116,7 @@ const TopBar = () => {
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: theme.palette.secondary.main,
+                backgroundColor: theme.palette.accentOne.main,
                 marginRight: "10px",
               }}
             >
@@ -127,7 +127,7 @@ const TopBar = () => {
             <Button
               variant="contained"
               size="medium"
-              style={{ backgroundColor: theme.palette.secondary.main }}
+              style={{ backgroundColor: theme.palette.accentOne.main }}
             >
               Settings
             </Button>

@@ -106,36 +106,34 @@ const BlogPage = () => {
                 position = "fixed"
                 bottom = {0}
                 width = "100%"
-                style = {{ backgroundColor: theme.palette.secondary.main}}
+                style = {{ backgroundColor: theme.palette.tertiary.main}}
                 p={3}
             />
             { isLoading && <div>Loading...</div> }
             { blog && (
                 <article style={{ textAlign: 'center', fontFamily: 'monospace' }}>
                     <h2 style={{ marginTop: '30px' }}> {blog.post_title} </h2>
-                    <Link to={`/profile/${blog.user_id}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/profile/${blog.user_id}`}>
                     <p style={{color: theme.palette.subtext.main }}><em>Written by: <b>{blog.user_name}</b></em></p>
                     </Link>
-                    <Link target= "_blank" to={blog.song_url} style={{ textDecoration: 'none' }}>
-                        <Card style={{ maxWidth: '400px', margin: 'auto' }}>
-                            <CardMedia
-                                component="img"
-                                maxWidth='400px'
-                                image={blog.song_pic}
-                                alt="album image"
-                            />
-                            <CardContent>
-                                <Typography variant="h6">{blog.song_name}</Typography>
-                            </CardContent>
-                        </Card>
-                    </Link>
-                    <p style={{paddingTop: '30px'}}>{blog.post_body}</p>
+                    <p>{blog.post_body}</p>
+                    <Card style={{ maxWidth: '400px', margin: 'auto' }}>
+                        <CardMedia
+                            component="img"
+                            maxWidth='400px'
+                            image={blog.song_pic}
+                            alt="album image"
+                        />
+                        <CardContent>
+                            <Typography variant="h6">{blog.song_name}</Typography>
+                        </CardContent>
+                    </Card>
                     <Button
                         onClick={handleLike}
                         variant="contained"
                         startIcon={<ThumbUpAltIcon />}
                         style={{ 
-                            marginTop: '10px', 
+                            marginTop: '20px', 
                             backgroundColor: theme.palette.accentOne.main
                         }}
                     >
@@ -144,7 +142,7 @@ const BlogPage = () => {
                 </article>
             )}
 
-            <Paper elevation={3} style={{ padding: '20px', marginTop: '20px', marginBottom: '50px' }}>
+            <Paper elevation={3} style={{ backgroundColor: "E2E2E2", padding: '20px', marginTop: '20px', marginBottom: '50px' }}>
                 <Typography variant="h5" gutterBottom style={{ textAlign: 'center', fontFamily: 'monospace'}}>
                     Leave a Comment
                 </Typography>
@@ -164,7 +162,7 @@ const BlogPage = () => {
                     variant="contained"
                     color="primary"
                     startIcon={<SendIcon />}
-                    style={{ marginTop: '10px', fontFamily: 'monospace', alignSelf: 'flex-end'}}
+                    style={{ backgroundColor: theme.palette.accentOne.main, marginTop: '10px', fontFamily: 'monospace', alignSelf: 'flex-end'}}
                 >
                     Add Comment
                 </Button>
@@ -178,7 +176,7 @@ const BlogPage = () => {
                         </Typography>
                         <div className="comment-body">
                             {children.map((comment) => (
-                                <Card key={comment._id} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', fontFamily: 'monospace' }}>
+                                <Card key={comment._id} style={{ backgroundColor: '#D8D8D8', marginBottom: '10px', display: 'flex', alignItems: 'center', fontFamily: 'monospace' }}>
                                     <Avatar src={comment.user_picture} style={{ marginRight: '10px', marginLeft: '15px' }} />
                                     <CardContent>
                                         <Typography variant="body1" fontFamily="monospace">{comment.post_body}</Typography>
