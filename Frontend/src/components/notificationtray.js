@@ -24,10 +24,6 @@ function NotificationTray() {
   const [notifications, setNotifications] = useState(null)
   const [othernotifications, setOtherNotifications] = useState(null)
 
-  const noNoti = [
-    "not notifications"
-  ]
-
   useEffect(() => {
     getUserData()
     .then(data => {
@@ -110,11 +106,11 @@ function NotificationTray() {
     </Link>
   </MenuItem>
 ))}
-{!notifications && !othernotifications &&
+        {(!notifications || (notifications && notifications.length === 0)) && 
+          (!othernotifications || (othernotifications && othernotifications.length === 0)) &&
   <MenuItem>
-    {"hello"}
-  </MenuItem>
- }
+    No new notifications.
+  </MenuItem>}
 
       </Menu>
     </div>
