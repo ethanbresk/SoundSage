@@ -62,9 +62,10 @@ const Profile = () => {
       />
       <div className="center">
       {data ? userDisplay(data) : <h1 style={{textAlign: 'center' }}>Login to Display Your Info!</h1>}
-      <div className="blog_home" style = {{ paddingBottom:100,height:415,overflowY: 'auto' }}>
+      <div className="blog_home" style = {{height:415,overflowY: 'auto' }}>
         {isPending && <div>Loading...</div>}
         {blogs && <BlogCollection blogs={blogs.blogs} title="Kirt Blogs:"/>}
+        <Box style={{paddingTop:45}}></Box>
         </div>
     </div>
     </div>

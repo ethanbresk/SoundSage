@@ -43,6 +43,7 @@ const Home = () => {
       <div className="blog_home" style = {{ marginTop:20,paddingTop:9,paddingBottom:100,height:700,overflowY: 'auto' }}>
         {isPending && <div>Loading...</div>}
         {blogs && <BlogCollection blogs={blogs.blogs} title="SoundSage Blogs:" />}
+        <Box style={{paddingTop:60}}></Box>
       </div>
       </div>
       <nav>
