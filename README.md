@@ -1,18 +1,17 @@
 # SoundSage &copy; 2023
 MERN Stack music-inspired blogsite.
+
 **Frontend Developers:** James Feeney, Kirt Grewal, Erik Maung
+
 **Backend Developers:** Ethan Bresk, Aaron Kwan
 
 ## How to Run Project Locally:
 
 ### I. Connecting to the Database:
 
-This project involves connecting your Spotify account to our website for login and obtaining whitelist access to our database. To get full access of SoundSage's functionality, the following must be completed:
+This project involves connecting your Spotify account to our website for login and obtaining whitelist access to our database. To get full access of SoundSage's functionality, please **whitelist your Spotify Account in SoundSage:**
 
-1.  **Whitelist your Spotify Account in SoundSage:** Please contact the SoundSage database manager, Ethan Bresk (ebresk@g.ucla.edu), and provide him the email associated with your Spotify account.
-
-2.  **Whitelist your IP address in SoundSage's Database:** Please contact the SoundSage database manager, Ethan Bresk, and provide him the IP address from which you would like to use SoundSage. Your IP address will be whitelisted access on our Mongo Database.
-
+Please contact the SoundSage database manager, Ethan Bresk (ebresk@g.ucla.edu), and provide him the email associated with your Spotify account.
 
 ### II. Local Installation and Server Setup:
 
@@ -30,9 +29,11 @@ This project involves connecting your Spotify account to our website for login a
 
 7. In the second terminal window, enter the `SoundSage/Backend/` subdirectory.
 
-8. Run `npm install`.
+8. In this subdirectory, add the file `.env` to establish the environment. Direct connection to our MongoDB URI is needed for SoundSage functionality. Please contact our database manager, Ethan Bresk (ebresk@g.ucla.edu), to obtain the account information.
 
-9. Run `npm start`. The port number should be **8080** by script design.
+9. Run `npm install`.
+
+10. Run `npm start`. The port number should be **8080** by script design.
 
 ## How to Navigate and Use the SoundSage website:
 
@@ -47,31 +48,34 @@ This project involves connecting your Spotify account to our website for login a
 	* Search by blog title in the search bar at the top of the page.
 
 5. While anywhere on SoundSage, you may do the following using the navigation bar at the top:
-    * Check your notifications from the drop down menu.
-    * Access the profile tab and access the settings tab.
-    * Return to the home page by clicking the "**SOUNDSAGE**" logo at the top left.
-    * Logout.
+	* Check your notifications from the drop down menu.
+	* Access the profile tab and access the settings tab.
+	* Return to the home page by clicking the "**SOUNDSAGE**" logo at the top left.
+	* Log out and log in.
 
 6. After clicking on a blog post and being redirected to a post site of the form `/blogs/{id}`, you may:
 	* Click on the author prepended with "*Written by:*" to enter the author's profile page.
+	* Click on the album cover to be redirected to the Spotify page containing the respective album.
 	* Like the post by clicking the "*Likes: {likes}*" button at the bottom of the blog post.
 	* Comment on the post using the comment input section at the bottom of the blog post.
 
 7. While on your profile page of the form `/profile`, you may:
-	* View your Spotify page and your blogs in a scrollable collection.
+	* Visit your Spotify page.
+	* View your blogs in a scrollable collection.
 
 8. While on another user's profile page of the form `/profile/{id}`, you may:
-	* View their Spotify page and their blogs in a scrollable collection.
+	* Visit their Spotify page.
+	* View their blogs in a scrollable collection.
 
 9. While on the create page of the form `/create`, you may:
 	* Fill out the blog post form and search through the Spotify API song database by entering an Artist's name.
 	* Link an album of the specified artist to your blog and post it directly to our Database.
 
 10. While on the settings page of the form `/settings`, you may:
-    * Click "**CHANGE THEME**" to alternate between light and dark color themes.
-    * Click "**ALBUMS**" to enter into a test component feature of the Spotify API song database search.
+	* Click "**CHANGE THEME**" to alternate between light and dark color themes.
+	* Click "**ALBUMS**" to enter into a test component feature of the Spotify API song database search.
 
-11. To view notifications, click on the bell icon on the top right of the navigation bar. To log out of SoundSage, simply press the adjacent "LOGOUT" button.
+11. To view notifications, click on the bell icon on the top right of the navigation bar. To log out of SoundSage, simply press the adjacent "**LOGOUT**" button.
 
 12. Enjoy!
 
