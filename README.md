@@ -11,7 +11,7 @@ This project involves connecting your Spotify account to our website for login a
 
 1.  **Whitelist your Spotify Account in SoundSage:** Please contact the SoundSage database manager, Ethan Bresk (ebresk@g.ucla.edu), and provide him the email associated with your Spotify account.
 
-2.  **Whitelist your IP address in SoundSage's Database:** Please contact the SoundSage database manager, Ethan Bresk (ebresk@g.ucla.edu), and provide him the IP address from which you would like to use SoundSage. Your IP address will be whitelisted access on our Mongo Database.
+2.  **Whitelist your IP address in SoundSage's Database:** Please contact the SoundSage database manager, Ethan Bresk, and provide him the IP address from which you would like to use SoundSage. Your IP address will be whitelisted access on our Mongo Database.
 
 
 ### II. Local Installation and Server Setup:
